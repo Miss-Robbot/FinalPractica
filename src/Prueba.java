@@ -4,5 +4,6 @@ public class Prueba {
 	int numeroDos=0;
 	int numeroTres=0;
 	int numeroCuatro=0;
+	int numeroCinco=0;
 	
 }
