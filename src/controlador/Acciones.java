@@ -4,7 +4,7 @@ import modelo.Logica;
 
 public class Acciones implements Accionable{
 
-	private Logica logica;
+	private Logica logica; // jeje
 	private Consultar consultar;
 	private Borrar borrar;
 	private Insertar insertar;
