@@ -2,18 +2,16 @@ package modelo;
 
 import java.util.TreeMap;
 
-public class Almacen <T,K>{
+public class Almacen{
 
 	//TreeMap Cliente
 	//DataNoseque pedido
-	private String pathIndiceDni;
-	private Cliente pathCliente;
-	private TreeMap<K, Integer> indice;
+	private TreeMap<Integer, Cliente> mapa; //El primero es el indice del mapa y el segundo el tipo de objetos que contiene. Ese integer, 
+	 										//será igual al dni del cliente.
 	
-	public Almacen(String pathIndiceDni, Cliente pathCliente){
+	public Almacen(){
 		super();
-		this.pathIndiceDni= pathIndiceDni;
-		this.pathCliente= pathCliente;
+		mapa= new TreeMap<>();
 	}
 	
 	

@@ -59,7 +59,43 @@ public class Acciones implements Accionable{
 		// TODO Auto-generated method stub
 		
 	}
+	public Logica getLogica() {
+		return logica;
+	}
+	public void setLogica(Logica logica) {
+		this.logica = logica;
+	}
+	public Consultar getConsultar() {
+		return consultar;
+	}
+	public void setConsultar(Consultar consultar) {
+		this.consultar = consultar;
+	}
+	public Borrar getBorrar() {
+		return borrar;
+	}
+	public void setBorrar(Borrar borrar) {
+		this.borrar = borrar;
+	}
+	public Insertar getInsertar() {
+		return insertar;
+	}
+	public void setInsertar(Insertar insertar) {
+		this.insertar = insertar;
+	}
+	public DarAlta getDarAlta() {
+		return darAlta;
+	}
+	public void setDarAlta(DarAlta darAlta) {
+		this.darAlta = darAlta;
+	}
+	public Cambiar getCambiar() {
+		return cambiar;
+	}
+	public void setCambiar(Cambiar cambiar) {
+		this.cambiar = cambiar;
+	}
 	
-
+	
 	
 }
