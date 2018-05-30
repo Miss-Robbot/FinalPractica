@@ -14,23 +14,6 @@ public class PanelArticulos extends JPanel{
 	private JButton btnCambiarPrecioArticulo;
 	private JButton btnConsultarPreciosAntiguos;
 	
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PanelArticulos frame = new PanelArticulos();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-	
 	public PanelArticulos() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{580, 0};
