@@ -73,28 +73,28 @@ public class PanelArticulos extends JPanel{
 
 
 	
-	public JButton getCogerBtnConsultarArticulos() {
+	public JButton getBtnConsultarArticulos() {
 		return btnConsultarArticulos;
 	}
-	public void setCambiarBtnConsultarArticulos(JButton btnConsultarArticulos) {
+	public void setBtnConsultarArticulos(JButton btnConsultarArticulos) {
 		this.btnConsultarArticulos = btnConsultarArticulos;
 	}
-	public JButton getCogerBtnDarAltaArticulo() {
+	public JButton getBtnDarAltaArticulo() {
 		return btnDarAltaArticulo;
 	}
-	public void setCambiarBtnDarAltaArticulo(JButton btnDarAltaArticulo) {
+	public void setBtnDarAltaArticulo(JButton btnDarAltaArticulo) {
 		this.btnDarAltaArticulo = btnDarAltaArticulo;
 	}
-	public JButton getCogerBtnCambiarPrecioArticulo() {
+	public JButton getBtnCambiarPrecioArticulo() {
 		return btnCambiarPrecioArticulo;
 	}
-	public void setCambiarBtnCambiarPrecioArticulo(JButton btnCambiarPrecioArticulo) {
+	public void setBtnCambiarPrecioArticulo(JButton btnCambiarPrecioArticulo) {
 		this.btnCambiarPrecioArticulo = btnCambiarPrecioArticulo;
 	}
-	public JButton getCogerBtnConsultarPreciosAntiguos() {
+	public JButton getBtnConsultarPreciosAntiguos() {
 		return btnConsultarPreciosAntiguos;
 	}
-	public void setCambiarBtnConsultarPreciosAntiguos(JButton btnConsultarPreciosAntiguos) {
+	public void setBtnConsultarPreciosAntiguos(JButton btnConsultarPreciosAntiguos) {
 		this.btnConsultarPreciosAntiguos = btnConsultarPreciosAntiguos;
 	}
 	
