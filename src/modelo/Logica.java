@@ -64,4 +64,14 @@ public class Logica {
 		articulo.getPrecios().add(precioNuevo);
 	}
 	
+	/**
+	 * Añade un articulo a un pedido en concreto
+	 * @param pedido
+	 * @param articulo
+	 * @param cantidad
+	 */
+	public void addArticulo(Pedido pedido, Articulo articulo,int cantidad){
+		pedido.getLineas().add(new Linea(articulo, cantidad));
+	}
+	
 }
