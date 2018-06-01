@@ -45,9 +45,23 @@ public class Logica {
 		dato.getLinea().setCantidad(cantidad);
 	}
 	
+	/**
+	 * Te da todos los artículos en un peiddo en concreto
+	 * @param pedido
+	 * @return
+	 */
 	public LinkedList<Articulo> articulosEnPedido(Pedido pedido){
 		return dato.getAlmacenPedidos().getLineaPedidos();
 	}
 	
+	/**
+	 * Cambia el último precio de la lista (precioActual)  a un precio nuevo
+	 * @param precioNuevo
+	 * @param articulo
+	 */
+	public void cambiarPrecio(Precio precioNuevo,Articulo articulo){
+		articulo.getPrecios().pop();
+		articulo.getPrecios().add(precioNuevo);
+	}
 	
 }

@@ -9,7 +9,7 @@ public class Acciones implements Accionable{
 	private Borrar borrar;
 	private Insertar insertar;
 	private DarAlta darAlta;
-	private Cambiar cambiar;
+	//private Cambiar cambiar; 
 	
 	//Cualquier cambio a los métodos deberá ser implementado también en la 
 	//interface
@@ -84,12 +84,12 @@ public class Acciones implements Accionable{
 	public void setDarAlta(DarAlta darAlta) {
 		this.darAlta = darAlta;
 	}
-	public Cambiar getCambiar() {
+	/*public Cambiar getCambiar() {
 		return cambiar;
 	}
 	public void setCambiar(Cambiar cambiar) {
 		this.cambiar = cambiar;
-	}
+	}*/
 	
 	
 	
