@@ -1,6 +1,9 @@
 package controlador;
 
-public class DarAlta {
+import modelo.Articulo;
+import modelo.Pedido;
+
+public class DarAlta extends Acciones{
 
 	//Se puede modificar tanto la entrada de datos como la salida
 	
@@ -12,7 +15,11 @@ public class DarAlta {
 		
 	}
 	
-	public void darAltaArticulo(){
-		
+	/**
+	 * Coge los datos que recoge el paraui de artículo y llama a la lógica
+	 * para qu añada un nuevo artículo
+	 */
+	public void darAltaArticulo(Pedido pedido,Articulo articulo, int cantidad){
+		getLogica().addArticulo(pedido, articulo, cantidad);
 	}
 }

@@ -1,22 +1,24 @@
 package modelo;
 
+
 public class Datos {
 
-	private Almacen almacen;
-	private Linea lineaPedido;
+	private AlmacenIndice almacen;
+	private AlmacenPedidos almacenPedidos;
+	private Linea linea;
 	private Articulo articulo;
 	
-	public Almacen getAlmacen() {
+	public AlmacenIndice getAlmacen() {
 		return almacen;
 	}
-	public void setAlmacen(Almacen almacen) {
+	public void setAlmacen(AlmacenIndice almacen) {
 		this.almacen = almacen;
 	}
-	public Linea getLineaPedido() {
-		return lineaPedido;
+	public Linea getLinea() {
+		return linea;
 	}
-	public void setLineaPedido(Linea lineaPedido) {
-		this.lineaPedido = lineaPedido;
+	public void setLinea(Linea linea) {
+		this.linea = linea;
 	}
 	public Articulo getArticulo() {
 		return articulo;
@@ -24,6 +26,14 @@ public class Datos {
 	public void setArticulo(Articulo articulo) {
 		this.articulo = articulo;
 	}
+	public AlmacenPedidos getAlmacenPedidos() {
+		return almacenPedidos;
+	}
+	public void setAlmacenPedidos(AlmacenPedidos almacenPedidos) {
+		this.almacenPedidos = almacenPedidos;
+	}
 	
 	
+	
+
 }

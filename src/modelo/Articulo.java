@@ -58,6 +58,13 @@ public class Articulo implements Serializable {
 		precios.getLast().setFechaFinal();
 		precios.addLast(new Precio(nuevoPrecio, oferta));
 	}
+	
+	
+
+	@Override
+	public String toString() {
+		return "Articulo [nombre=" + nombre + ", descripcion=" + descripcion + ", proveedor=" + proveedor + "]";
+	}
 
 	public float getCurrentPrice() {
 		return precios.getLast().getPrecio();
@@ -78,5 +85,16 @@ public class Articulo implements Serializable {
 	public Proveedor getProveedor() {
 		return proveedor;
 	}
+
+	public LinkedList<Precio> getPrecios() {
+		return precios;
+	}
+
+	public void setPrecios(LinkedList<Precio> precios) {
+		this.precios = precios;
+	}
+	
+	
+	
 
 }

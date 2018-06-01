@@ -12,7 +12,7 @@ public class vistaDos extends JFrame{
 	private PanelPedidos panelPedidos;
 	private PanelArticulos panelArticulos;
 	private PanelConsultarCliente panelConsultar;
-	private PanelDarAlta panelDarAlta;
+	private PanelDarAltaArticulo panelDarAlta;
 	private CambiarPrecioArticulo panelCambiarPrecio;
 	
 	public JPanel getPanelPrincipal() {
@@ -57,10 +57,11 @@ public class vistaDos extends JFrame{
 	public void setPanelConsultar(PanelConsultarCliente panelConsultar) {
 		this.panelConsultar = panelConsultar;
 	}
-	public PanelDarAlta getPanelDarAlta() {
+	
+	public PanelDarAltaArticulo getPanelDarAlta() {
 		return panelDarAlta;
 	}
-	public void setPanelDarAlta(PanelDarAlta panelDarAlta) {
+	public void setPanelDarAlta(PanelDarAltaArticulo panelDarAlta) {
 		this.panelDarAlta = panelDarAlta;
 	}
 	public CambiarPrecioArticulo getPanelCambiarPrecio() {

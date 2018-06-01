@@ -4,12 +4,17 @@ import modelo.Logica;
 
 public class Acciones implements Accionable{
 
+<<<<<<< HEAD..
 	private Logica logica; // jeje
 	private Consultar consultar;
+=======
+	private Logica logica;
+	//private Consultar consultar;
+>>>>>>> refs/remotes/upstream/master
 	private Borrar borrar;
 	private Insertar insertar;
 	private DarAlta darAlta;
-	private Cambiar cambiar;
+	//private Cambiar cambiar; 
 	
 	//Cualquier cambio a los métodos deberá ser implementado también en la 
 	//interface
@@ -65,12 +70,7 @@ public class Acciones implements Accionable{
 	public void setLogica(Logica logica) {
 		this.logica = logica;
 	}
-	public Consultar getConsultar() {
-		return consultar;
-	}
-	public void setConsultar(Consultar consultar) {
-		this.consultar = consultar;
-	}
+
 	public Borrar getBorrar() {
 		return borrar;
 	}
@@ -89,12 +89,12 @@ public class Acciones implements Accionable{
 	public void setDarAlta(DarAlta darAlta) {
 		this.darAlta = darAlta;
 	}
-	public Cambiar getCambiar() {
+	/*public Cambiar getCambiar() {
 		return cambiar;
 	}
 	public void setCambiar(Cambiar cambiar) {
 		this.cambiar = cambiar;
-	}
+	}*/
 	
 	
 	
