@@ -14,6 +14,7 @@ public class PanelDarAltaArticulo extends JPanel {
 	private JTextField txtNombre;
 	private JTextField txtDescripcion;
 	private JTextField txtProveedor;
+	private JTextField textField;
 
 	/**
 	 * Create the panel.
@@ -21,9 +22,9 @@ public class PanelDarAltaArticulo extends JPanel {
 	public PanelDarAltaArticulo() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
 		JLabel lblNombre = new JLabel("Introduce nombre:");
@@ -81,12 +82,31 @@ public class PanelDarAltaArticulo extends JPanel {
 		add(txtProveedor, gbc_txtProveedor);
 		txtProveedor.setColumns(10);
 		
+		JLabel lblCantidadProducto = new JLabel("Cantidad Producto:");
+		lblCantidadProducto.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		GridBagConstraints gbc_lblCantidadProducto = new GridBagConstraints();
+		gbc_lblCantidadProducto.fill = GridBagConstraints.VERTICAL;
+		gbc_lblCantidadProducto.anchor = GridBagConstraints.WEST;
+		gbc_lblCantidadProducto.insets = new Insets(0, 0, 5, 5);
+		gbc_lblCantidadProducto.gridx = 1;
+		gbc_lblCantidadProducto.gridy = 10;
+		add(lblCantidadProducto, gbc_lblCantidadProducto);
+		
+		textField = new JTextField();
+		GridBagConstraints gbc_textField = new GridBagConstraints();
+		gbc_textField.insets = new Insets(0, 0, 5, 5);
+		gbc_textField.fill = GridBagConstraints.BOTH;
+		gbc_textField.gridx = 1;
+		gbc_textField.gridy = 11;
+		add(textField, gbc_textField);
+		textField.setColumns(10);
+		
 		JButton btnDarAlta = new JButton("DarAlta");
 		GridBagConstraints gbc_btnDarAlta = new GridBagConstraints();
 		gbc_btnDarAlta.fill = GridBagConstraints.VERTICAL;
 		gbc_btnDarAlta.insets = new Insets(0, 0, 0, 5);
 		gbc_btnDarAlta.gridx = 1;
-		gbc_btnDarAlta.gridy = 10;
+		gbc_btnDarAlta.gridy = 13;
 		add(btnDarAlta, gbc_btnDarAlta);
 
 	}

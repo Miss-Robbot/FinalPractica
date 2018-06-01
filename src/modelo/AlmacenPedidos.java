@@ -1,10 +1,12 @@
 package modelo;
 
 import java.io.File;
+import java.util.LinkedList;
 
 public class AlmacenPedidos<T> {
 
 	private StringBuilder pathComun= new StringBuilder("./data/");
+	private LinkedList<Linea> lineaPedidos;
 	
 	public AlmacenPedidos(String directorio) {
 		super();
@@ -14,6 +16,16 @@ public class AlmacenPedidos<T> {
 			file.mkdirs();
 		}
 	}
+
+	public LinkedList<Linea> getLineaPedidos() {
+		return lineaPedidos;
+	}
+
+	public void setLineaPedidos(LinkedList<Linea> lineaPedidos) {
+		this.lineaPedidos = lineaPedidos;
+	}
+	
+	
 	
 	/*public boolean grabar(T t,String claveElemento,String claveGrupo) {
 		boolean retorno=false;

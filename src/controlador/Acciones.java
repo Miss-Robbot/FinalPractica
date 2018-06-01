@@ -5,7 +5,7 @@ import modelo.Logica;
 public class Acciones implements Accionable{
 
 	private Logica logica;
-	private Consultar consultar;
+	//private Consultar consultar;
 	private Borrar borrar;
 	private Insertar insertar;
 	private DarAlta darAlta;
@@ -65,12 +65,7 @@ public class Acciones implements Accionable{
 	public void setLogica(Logica logica) {
 		this.logica = logica;
 	}
-	public Consultar getConsultar() {
-		return consultar;
-	}
-	public void setConsultar(Consultar consultar) {
-		this.consultar = consultar;
-	}
+
 	public Borrar getBorrar() {
 		return borrar;
 	}
