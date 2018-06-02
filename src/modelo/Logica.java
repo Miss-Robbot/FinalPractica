@@ -46,7 +46,7 @@ public class Logica {
 	}
 	
 	/**
-	 * Te da todos los artículos en un peiddo en concreto
+	 * Te da todos los artículos en un pedido en concreto
 	 * @param pedido
 	 * @return
 	 */
