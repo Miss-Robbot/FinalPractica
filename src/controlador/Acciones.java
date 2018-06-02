@@ -4,13 +4,13 @@ import modelo.Logica;
 
 public class Acciones implements Accionable{
 
-<<<<<<< HEAD..
-	private Logica logica; // jeje
-	private Consultar consultar;
-=======
+
 	private Logica logica;
-	//private Consultar consultar;
->>>>>>> refs/remotes/upstream/master
+	private Consultar consultar;
+
+//	private Logica logica;
+//	//private Consultar consultar;
+
 	private Borrar borrar;
 	private Insertar insertar;
 	private DarAlta darAlta;
