@@ -2,6 +2,9 @@ package modelo;
 
 import java.util.LinkedList;
 
+import javax.swing.JComboBox;
+import javax.swing.JTextArea;
+
 public class Logica {
 
 	private Datos dato;
@@ -73,5 +76,42 @@ public class Logica {
 	public void addArticulo(Pedido pedido, Articulo articulo,int cantidad){
 		pedido.getLineas().add(new Linea(articulo, cantidad));
 	}
+	
+	/**
+	 * @author macol
+	 * @param dni
+	 * @param nombre
+	 * @param dire
+	 * @param tlf
+	 */
+	public void crearCliente(String dni, String nombre, String dire, String tlf){
+		Cliente client = new Cliente(dni, nombre, dire, tlf);
+		dato.grabarCliente(client);
+	}
+	
+	/**
+	 * @author macol
+	 * @param dni
+	 * @return
+	 */
+	public Cliente consultarCliente(String dni){
+		return dato.obtenerCliente(dni);
+	}
+	
+	/**
+	 * establece el texto de consulta Cliente
+	 * faltan cosas
+	 * @author macol
+	 * @param client
+	 * @param jTextArea
+	 * @return
+	 */
+	public JTextArea seleccionarCliente(Cliente client, JTextArea jTextArea) {
+		jTextArea.setText(client.toString());
+		return jTextArea;
+		
+	}
+	
+	
 	
 }

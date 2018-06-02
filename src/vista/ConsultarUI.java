@@ -18,31 +18,22 @@ import javax.swing.border.EtchedBorder;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
 
+/**
+ * consulta/borrar en comun
+ * @author macol
+ *
+ */
 public class ConsultarUI extends JFrame {
 
 	private JPanel paneConsulta;
-
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					ConsultarUI frame = new ConsultarUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
+	private JTextArea textArea;
+	private JComboBox comboBox;
 
 	/**
 	 * Create the frame.
 	 */
 	public ConsultarUI() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		paneConsulta = new JPanel();
 		paneConsulta.setBackground(Color.LIGHT_GRAY);
@@ -66,7 +57,7 @@ public class ConsultarUI extends JFrame {
 		gbc_panel.gridy = 0;
 		paneConsulta.add(panel, gbc_panel);
 		
-		JComboBox comboBox = new JComboBox();
+		comboBox = new JComboBox();
 		comboBox.setBackground(Color.WHITE);
 		comboBox.setBounds(27, 11, 354, 20);
 		panel.add(comboBox);
@@ -94,7 +85,9 @@ public class ConsultarUI extends JFrame {
 		gbc_lblInformacin.gridy = 0;
 		pnTextInfo.add(lblInformacin, gbc_lblInformacin);
 		
-		JTextArea textArea = new JTextArea();
+		textArea = new JTextArea();
+		textArea.setSelectionColor(Color.PINK);
+		textArea.setEditable(false);
 		GridBagConstraints gbc_textArea = new GridBagConstraints();
 		gbc_textArea.gridwidth = 6;
 		gbc_textArea.fill = GridBagConstraints.BOTH;
@@ -112,4 +105,22 @@ public class ConsultarUI extends JFrame {
 		gbc_btnVolver.gridy = 7;
 		paneConsulta.add(btnVolver, gbc_btnVolver);
 	}
+
+	public JTextArea getTextArea() {
+		return textArea;
+	}
+
+	public void setTextArea(JTextArea textArea) {
+		this.textArea = textArea;
+	}
+
+	public JComboBox getComboBox() {
+		return comboBox;
+	}
+
+	public void setComboBox(JComboBox comboBox) {
+		this.comboBox = comboBox;
+	}
+	
+	
 }
