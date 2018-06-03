@@ -31,6 +31,7 @@ public class UI extends JFrame {
 	protected PanelInicio panelInicio;
 	protected CambiarPrecioArticulo cambiarPrecioArticulo;
 	protected PanelDarAltaCliente panelDarAltaCliente;
+	protected BorrarCliente borrarCliente;
 
 	/**
 	 * Launch the application.
@@ -162,6 +163,10 @@ public class UI extends JFrame {
 		panelDarAltaCliente= new PanelDarAltaCliente();
 		panelPrincipal.add(panelDarAltaCliente, gbc_panelConsultar);
 		panelDarAltaCliente.setVisible(false);
+
+		borrarCliente= new BorrarCliente();
+		panelPrincipal.add(borrarCliente, gbc_panelConsultar);
+		borrarCliente.setVisible(false);
 	}
 	
 
