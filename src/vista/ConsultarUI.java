@@ -18,16 +18,12 @@ import javax.swing.border.EtchedBorder;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
 
-/**
- * consulta/borrar en comun
- * @author macol
- *
- */
 public class ConsultarUI extends JFrame {
 
 	private JPanel paneConsulta;
 	private JTextArea textArea;
 	private JComboBox comboBox;
+	private JButton btnVolver;
 
 	/**
 	 * Create the frame.
@@ -95,7 +91,7 @@ public class ConsultarUI extends JFrame {
 		gbc_textArea.gridy = 1;
 		pnTextInfo.add(textArea, gbc_textArea);
 		
-		JButton btnVolver = new JButton(" Volver ");
+		btnVolver = new JButton(" Volver ");
 		btnVolver.setBackground(new Color(255, 240, 245));
 		btnVolver.setFont(new Font("Tahoma", Font.BOLD, 13));
 		btnVolver.setBorder(new EtchedBorder(EtchedBorder.LOWERED, Color.LIGHT_GRAY, null));
@@ -121,6 +117,11 @@ public class ConsultarUI extends JFrame {
 	public void setComboBox(JComboBox comboBox) {
 		this.comboBox = comboBox;
 	}
+
+	public JButton getBtnVolver() {
+		return btnVolver;
+	}
+	
 	
 	
 }
