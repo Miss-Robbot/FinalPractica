@@ -7,9 +7,10 @@ public class DarAlta extends Acciones{
 
 	//Se puede modificar tanto la entrada de datos como la salida
 	
-	public void darAltaPedido(){
-		
+	public void darAltaPedido(Pedido pedido){
+	
 	}
+	
 	
 	public void darAltaCliente(){
 		
@@ -17,7 +18,7 @@ public class DarAlta extends Acciones{
 	
 	/**
 	 * Coge los datos que recoge el paraui de artículo y llama a la lógica
-	 * para qu añada un nuevo artículo
+	 * para que añada un nuevo artículo
 	 */
 	public void darAltaArticulo(Pedido pedido,Articulo articulo, int cantidad){
 		getLogica().addArticulo(pedido, articulo, cantidad);
