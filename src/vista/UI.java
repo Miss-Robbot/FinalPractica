@@ -27,6 +27,7 @@ public class UI extends JFrame {
 	protected PanelInicio panelInicio;
 	protected CambiarPrecioArticulo cambiarPrecioArticulo;
 	protected PanelDarAltaCliente panelDarAltaCliente;
+	protected BorrarCliente borrarCliente;
 
 	/**
 	 * Launch the application.
@@ -60,7 +61,7 @@ public class UI extends JFrame {
 		gbl_contentPane.columnWeights = new double[]{1.0, Double.MIN_VALUE};
 		gbl_contentPane.rowWeights = new double[]{0.0, 1.0, Double.MIN_VALUE};
 		contentPane.setLayout(gbl_contentPane);
-		
+
 		panelCabecera = new JPanel();
 		GridBagConstraints gbc_panelCabecera = new GridBagConstraints();
 		gbc_panelCabecera.insets = new Insets(0, 0, 5, 0);
@@ -71,10 +72,11 @@ public class UI extends JFrame {
 		GridBagLayout gbl_panelCabecera = new GridBagLayout();
 		gbl_panelCabecera.columnWidths = new int[]{0, 0, 0, 0, 0};
 		gbl_panelCabecera.rowHeights = new int[]{0, 0};
-		gbl_panelCabecera.columnWeights = new double[]{1.0, 1.0, 1.0, 1.0, Double.MIN_VALUE};
+		gbl_panelCabecera.columnWeights = new double[]{1.0, 1.0, 1.0, 1.0,
+				Double.MIN_VALUE};
 		gbl_panelCabecera.rowWeights = new double[]{1.0, Double.MIN_VALUE};
 		panelCabecera.setLayout(gbl_panelCabecera);
-		
+
 		btnInicio = new JButton("Inicio");
 		GridBagConstraints gbc_btnInicio = new GridBagConstraints();
 		gbc_btnInicio.fill = GridBagConstraints.BOTH;
@@ -82,7 +84,7 @@ public class UI extends JFrame {
 		gbc_btnInicio.gridx = 0;
 		gbc_btnInicio.gridy = 0;
 		panelCabecera.add(btnInicio, gbc_btnInicio);
-		
+
 		btnCliente = new JButton("Cliente");
 		GridBagConstraints gbc_btnCliente = new GridBagConstraints();
 		gbc_btnCliente.fill = GridBagConstraints.BOTH;
@@ -90,7 +92,7 @@ public class UI extends JFrame {
 		gbc_btnCliente.gridx = 1;
 		gbc_btnCliente.gridy = 0;
 		panelCabecera.add(btnCliente, gbc_btnCliente);
-		
+
 		btnPedidos = new JButton("Pedidos");
 		GridBagConstraints gbc_btnPedidos = new GridBagConstraints();
 		gbc_btnPedidos.fill = GridBagConstraints.BOTH;
@@ -98,14 +100,14 @@ public class UI extends JFrame {
 		gbc_btnPedidos.gridx = 2;
 		gbc_btnPedidos.gridy = 0;
 		panelCabecera.add(btnPedidos, gbc_btnPedidos);
-		
+
 		btnArticulos = new JButton("Articulos");
 		GridBagConstraints gbc_btnArticulos = new GridBagConstraints();
 		gbc_btnArticulos.fill = GridBagConstraints.BOTH;
 		gbc_btnArticulos.gridx = 3;
 		gbc_btnArticulos.gridy = 0;
 		panelCabecera.add(btnArticulos, gbc_btnArticulos);
-		
+
 		panelPrincipal = new JPanel();
 		GridBagConstraints gbc_panelPrincipal = new GridBagConstraints();
 		gbc_panelPrincipal.fill = GridBagConstraints.BOTH;
@@ -118,9 +120,10 @@ public class UI extends JFrame {
 		gbl_panelPrincipal.columnWeights = new double[]{0.0, Double.MIN_VALUE};
 		gbl_panelPrincipal.rowWeights = new double[]{0.0, Double.MIN_VALUE};
 		panelPrincipal.setLayout(gbl_panelPrincipal);
-		
-		panelConsultar= new PanelConsultar();
-		GridBagLayout gridBagLayout = (GridBagLayout) panelConsultar.getLayout();
+
+		panelConsultar = new PanelConsultar();
+		GridBagLayout gridBagLayout = (GridBagLayout) panelConsultar
+				.getLayout();
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0};
 		gridBagLayout.columnWidths = new int[]{9, 0, 0};
 		GridBagConstraints gbc_panelConsultar = new GridBagConstraints();
@@ -129,43 +132,43 @@ public class UI extends JFrame {
 		gbc_panelConsultar.gridy = 0;
 		panelPrincipal.add(panelConsultar, gbc_panelConsultar);
 		panelConsultar.setVisible(false);
-		
-		
-		
-		panelInicio= new PanelInicio();
+
+		panelInicio = new PanelInicio();
 		panelPrincipal.add(panelInicio, gbc_panelConsultar);
 		panelInicio.setVisible(false);
-		
-		panelCliente= new PanelCliente();
+
+		panelCliente = new PanelCliente();
 		panelPrincipal.add(panelCliente, gbc_panelConsultar);
 		panelCliente.setVisible(false);
-		
-		panelPedidos= new PanelPedidos();
+
+		panelPedidos = new PanelPedidos();
 		panelPrincipal.add(panelPedidos, gbc_panelConsultar);
 		panelPedidos.setVisible(false);
-		
-		panelArticulos= new PanelArticulos();
+
+		panelArticulos = new PanelArticulos();
 		panelPrincipal.add(panelArticulos, gbc_panelConsultar);
 		panelArticulos.setVisible(false);
-		
 
-		panelInicio= new PanelInicio();
+		panelInicio = new PanelInicio();
 		panelPrincipal.add(panelInicio, gbc_panelConsultar);
 		panelInicio.setVisible(true);
 
-		panelDarAltaArticulo= new PanelDarAltaArticulo();
+		panelDarAltaArticulo = new PanelDarAltaArticulo();
 		panelPrincipal.add(panelDarAltaArticulo, gbc_panelConsultar);
 		panelDarAltaArticulo.setVisible(false);
 
-		cambiarPrecioArticulo= new CambiarPrecioArticulo();
+		cambiarPrecioArticulo = new CambiarPrecioArticulo();
 		panelPrincipal.add(cambiarPrecioArticulo, gbc_panelConsultar);
 		cambiarPrecioArticulo.setVisible(false);
-		
-		panelDarAltaCliente= new PanelDarAltaCliente();
+
+		panelDarAltaCliente = new PanelDarAltaCliente();
 		panelPrincipal.add(panelDarAltaCliente, gbc_panelConsultar);
 		panelDarAltaCliente.setVisible(false);
 
+		borrarCliente = new BorrarCliente();
+		panelPrincipal.add(borrarCliente, gbc_panelConsultar);
+		borrarCliente.setVisible(false);
+
 	}
-	
 
 }

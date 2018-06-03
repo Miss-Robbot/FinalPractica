@@ -69,8 +69,13 @@ public class Consultar extends Acciones{
 		}
 	}
 	
+	/**
+	 * Muestra en el combobox los pedidos.
+	 * @param comboBox
+	 * @param datoActual
+	 */
 	public void rellenarComboboxPedido(JComboBox<Pedido> comboBox, DatoActual datoActual) {
-		//LinkedList<Pedido> pedidos = 
+		
 	}
 	
 	/**

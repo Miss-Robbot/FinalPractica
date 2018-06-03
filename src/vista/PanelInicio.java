@@ -18,11 +18,14 @@ public class PanelInicio extends JPanel {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0};
 		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0};
-		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0,
+				Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 1.0, 0.0,
+				Double.MIN_VALUE};
 		setLayout(gridBagLayout);
-		
-		JLabel lblSaludoIncial = new JLabel("Bienvenido a la tienda de Miss Robot");
+
+		JLabel lblSaludoIncial = new JLabel(
+				"Bienvenido a la tienda de Miss Robot");
 		lblSaludoIncial.setHorizontalAlignment(SwingConstants.CENTER);
 		GridBagConstraints gbc_lblSaludoIncial = new GridBagConstraints();
 		gbc_lblSaludoIncial.insets = new Insets(0, 0, 5, 5);
@@ -30,13 +33,21 @@ public class PanelInicio extends JPanel {
 		gbc_lblSaludoIncial.gridx = 1;
 		gbc_lblSaludoIncial.gridy = 1;
 		add(lblSaludoIncial, gbc_lblSaludoIncial);
-		
+
 		JLabel lblImagen = new JLabel("");
 		GridBagConstraints gbc_lblImagen = new GridBagConstraints();
 		gbc_lblImagen.insets = new Insets(0, 0, 5, 5);
 		gbc_lblImagen.gridx = 1;
 		gbc_lblImagen.gridy = 4;
 		lblImagen.setIcon(new ImageIcon("img/MissRobot.png"));
+
+		// ImageIcon imgIcon = new ImageIcon("img/MissRobot.png");
+		// Image imgEscalada =
+		// imgIcon.getImage().getScaledInstance(lblImagen.getWidth(),
+		// lblImagen.getHeight(), Image.SCALE_SMOOTH);
+		// Icon iconoEscalado = new ImageIcon(imgEscalada);
+		// lblImagen.setIcon(iconoEscalado);
+
 		add(lblImagen, gbc_lblImagen);
 
 	}

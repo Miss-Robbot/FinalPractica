@@ -59,6 +59,16 @@ public class ParaUI extends UI{
 				
 			}
 		});
+		
+		panelCliente.getBtnBorrarCliente().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				borrarCliente.setVisible(true);
+				
+			}
+		});
 		btnPedidos.addActionListener(new ActionListener() {
 			
 			@Override
