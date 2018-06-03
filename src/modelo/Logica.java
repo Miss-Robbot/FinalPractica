@@ -2,7 +2,6 @@ package modelo;
 
 import java.util.LinkedList;
 
-import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 
 public class Logica {
@@ -55,6 +54,10 @@ public class Logica {
 	public void darAltaArticulo(Articulo articulo, int cantidad){
 		dato.getLinea().setArticulo(articulo);
 		dato.getLinea().setCantidad(cantidad);
+	}
+	
+	public void darAltaPedido(Pedido pedido) {
+		
 	}
 	
 	/**
@@ -120,7 +123,5 @@ public class Logica {
 		return jTextArea;
 		
 	}
-	
-	
 	
 }

@@ -7,12 +7,11 @@ public class DarAlta extends Acciones{
 
 	//Se puede modificar tanto la entrada de datos como la salida
 	
-	@Override
-	public void darAltaPedido(){
-		
+	public void darAltaPedido(Pedido pedido){
+	
 	}
 	
-	@Override
+	
 	public void darAltaCliente(){
 		
 	}
