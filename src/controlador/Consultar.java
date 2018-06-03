@@ -10,6 +10,8 @@ import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 
 import modelo.Articulo;
+import modelo.DatoActual;
+import modelo.Linea;
 import modelo.Pedido;
 import modelo.Precio;
 
@@ -55,6 +57,34 @@ public class Consultar extends Acciones{
 	 */
 	public void consultarArticulo(Articulo articulo, JTextArea txtInformacion){
 		txtInformacion.setText(articulo.toString());
+	}
+	
+	/**
+	 * Llena el combobox de artículos
+	 * @param combobox
+	 * @param articulos
+	 */
+	public void rellenarComboboxArticulo(JComboBox<Articulo> combobox, DatoActual datoActual){
+		LinkedList<Articulo> articulos= conseguirListaArticulos(datoActual);
+		for (Iterator iterator = articulos.iterator(); iterator.hasNext();) {
+			Articulo articulo = (Articulo) iterator.next();
+			combobox.addItem(articulo);
+		}
+	}
+	
+	/**
+	 * Tiene todos los artículos en una lista del pedido de dato actual
+	 * @param datoActual
+	 */
+	public LinkedList<Articulo> conseguirListaArticulos(DatoActual datoActual){
+		LinkedList<Articulo> articulos=null;
+		for (Iterator iterator = datoActual.getPedidoActual().getLineas().iterator(); iterator.hasNext();) {
+			Linea linea = (Linea) iterator.next();
+			articulos.add(linea.getArticulo());
+			
+		}
+		
+		return articulos;
 	}
 	public void consultarCliente(){
 		

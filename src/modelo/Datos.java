@@ -9,6 +9,7 @@ public class Datos {
 	private AlmacenPedidos almacenPedidos;
 	private Linea linea;
 	private Articulo articulo;
+	private DatoActual datoActual= new DatoActual();
 	
 	public AlmacenIndice getAlmacen() {
 		return almacen;
@@ -35,6 +36,12 @@ public class Datos {
 		this.almacenPedidos = almacenPedidos;
 	}
 	
+	public DatoActual getDatoActual() {
+		return datoActual;
+	}
+	public void setDatoActual(DatoActual datoActual) {
+		this.datoActual = datoActual;
+	}
 	/**
 	 * @author macol
 	 * @param cliente
