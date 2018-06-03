@@ -102,6 +102,9 @@ public class Consultar extends Acciones {
 		}
 		return articulos;
 	}
+	/*
+	 * 
+	 */
 	public LinkedList<Pedido> conseguirListaPedidos() {
 		LinkedList<Pedido> pedidos = new LinkedList<Pedido>();
 
