@@ -29,6 +29,16 @@ public class ParaUI extends UI{
 				
 			}
 		});
+		
+		btnCliente.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				panelCliente.setVisible(true);
+				
+			}
+		});
 
 		btnPedidos.addActionListener(new ActionListener() {
 			
@@ -57,7 +67,8 @@ public class ParaUI extends UI{
 	public void todosInvisibles(){
 		panelArticulos.setVisible(false);
 		panelPedidos.setVisible(false);
-		//panelCliente.setVisible(false);
+		panelInicio.setVisible(false);
+		panelCliente.setVisible(false);
 		//panelDarAltaArticulo.setVisible(false);
 	}
 
