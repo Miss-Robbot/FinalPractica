@@ -7,10 +7,12 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import controlador.ParaUI;
+
 public class prueba extends JFrame {
 
 	private JPanel contentPane;
-	private PanelDarAltaArticulo prueba= new PanelDarAltaArticulo();
+	private vistaUI prueba= new vistaUI();
 
 	/**
 	 * Launch the application.
@@ -31,7 +33,7 @@ public class prueba extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public prueba() {
+	/*public prueba() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -40,8 +42,8 @@ public class prueba extends JFrame {
 		setContentPane(contentPane);
 		
 		contentPane.add(prueba);
-		prueba.setVisible(true);
 		
-	}
+		
+	}*/
 
 }

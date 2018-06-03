@@ -5,9 +5,9 @@ import java.awt.event.ActionListener;
 
 import modelo.DatoActual;
 import modelo.Logica;
-import vista.UI;
+import vista.vistaUI;
 
-public class ParaUI extends UI{
+public class ParaUI extends vistaUI{
 
 	private Acciones acciones; //Esto es para coger la logica 
 	private Borrar borrar;
@@ -19,7 +19,8 @@ public class ParaUI extends UI{
 	
 	public ParaUI(){
 		
-		getVistaDos().getPanelArticulos().getBtnConsultarArticulos().addActionListener(new ActionListener() {
+		
+		/*getVistaDos().getPanelArticulos().getBtnConsultarArticulos().addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -27,7 +28,7 @@ public class ParaUI extends UI{
 				consultar.rellenarComboboxArticulo(getVistaDos().getPanelConsultar().getComboBox(), acciones.getLogica().getDatoActual());
 				
 			}
-		});
+		});*/
 	}
 
 	public Acciones getAcciones() {
