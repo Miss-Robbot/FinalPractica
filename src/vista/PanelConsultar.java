@@ -3,12 +3,13 @@ package vista;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-public class PanelConsultarCliente extends JPanel{
+public class PanelConsultar extends JPanel{
 
 	private JComboBox comboBox;	//Poner en <> el tipo de objeto que tiene
-	private JTextField txtInformacion;
+	private JTextArea txtInformacion;
 	private JButton btnVolver;
 	
 	public JComboBox getComboBox() {
@@ -17,10 +18,11 @@ public class PanelConsultarCliente extends JPanel{
 	public void setComboBox(JComboBox comboBox) {
 		this.comboBox = comboBox;
 	}
-	public JTextField getTxtInformacion() {
+	
+	public JTextArea getTxtInformacion() {
 		return txtInformacion;
 	}
-	public void setTxtInformacion(JTextField txtInformacion) {
+	public void setTxtInformacion(JTextArea txtInformacion) {
 		this.txtInformacion = txtInformacion;
 	}
 	public JButton getBtnVolver() {
