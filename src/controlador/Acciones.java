@@ -2,11 +2,11 @@ package controlador;
 
 import modelo.Logica;
 
-public class Acciones {
+public class Acciones{
 
 
 	private Logica logica;
-<<<<<<< HEAD
+
 	private Consultar consultar;
 
 //	private Logica logica;
@@ -16,9 +16,7 @@ public class Acciones {
 	private Insertar insertar;
 	private DarAlta darAlta;
 	//private Cambiar cambiar; 
-=======
 
->>>>>>> refs/remotes/upstream/master
 	
 	public Logica getLogica() {
 		return logica;
