@@ -12,6 +12,7 @@ import modelo.DatoActual;
 import modelo.Linea;
 import modelo.Logica;
 import modelo.Pedido;
+import vista.PanelConsultar;
 import vista.UI;
 import vista.vistaUI;
 
