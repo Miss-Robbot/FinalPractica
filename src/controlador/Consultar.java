@@ -1,11 +1,8 @@
 package controlador;
 
-import java.awt.TextArea;
-import java.awt.TextField;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-import javax.swing.ComboBoxEditor;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 
@@ -70,6 +67,10 @@ public class Consultar extends Acciones{
 			Articulo articulo = (Articulo) iterator.next();
 			combobox.addItem(articulo);
 		}
+	}
+	
+	public void rellenarComboboxPedido(JComboBox<Pedido> comboBox, DatoActual datoActual) {
+		//LinkedList<Pedido> pedidos = 
 	}
 	
 	/**

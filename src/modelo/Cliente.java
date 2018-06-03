@@ -1,12 +1,22 @@
 package modelo;
 
 import java.io.Serializable;
+import java.util.LinkedList;
 
 public class Cliente implements Serializable {
 	private String dniCif;
 	private String razonSocial;
 	private String direccion;
 	private String telefono;
+	private LinkedList<Pedido> pedidos;
+
+	public LinkedList<Pedido> getPedidos() {
+		return pedidos;
+	}
+
+	public void setPedidos(LinkedList<Pedido> pedidos) {
+		this.pedidos = pedidos;
+	}
 
 	public Cliente(String dniCif, String razonSocial, String direccion, String telefono) {
 		super();
