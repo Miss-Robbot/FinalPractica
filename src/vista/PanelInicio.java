@@ -1,18 +1,17 @@
 package vista;
 
-import java.awt.Font;
+
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.Image;
 import java.awt.Insets;
 
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
 
 public class PanelInicio extends JPanel{
+
 	/**
 	 * Create the panel.
 	 */
@@ -39,12 +38,13 @@ public class PanelInicio extends JPanel{
 		gbc_lblImagen.gridx = 1;
 		gbc_lblImagen.gridy = 4;
 		lblImagen.setIcon(new ImageIcon("img/MissRobot.png"));
-		
-//		ImageIcon imgIcon = new ImageIcon("img/MissRobot.png");
+
+		//		ImageIcon imgIcon = new ImageIcon("img/MissRobot.png");
 //		Image imgEscalada = imgIcon.getImage().getScaledInstance(lblImagen.getWidth(),
 //				lblImagen.getHeight(), Image.SCALE_SMOOTH);
 //		Icon iconoEscalado = new ImageIcon(imgEscalada);
 //		lblImagen.setIcon(iconoEscalado);
+
 		add(lblImagen, gbc_lblImagen);
 
 	}
