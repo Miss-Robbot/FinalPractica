@@ -16,14 +16,19 @@ import javax.swing.SwingConstants;
 
 public class UI extends JFrame {
 
-	private JPanel contentPane;
-	private JPanel panelCabecera;
-	private JPanel panelPrincipal;
-	private JButton btnInicio;
-	private JButton btnCliente;
-	private JButton btnPedidos;
-	private JButton btnArticulos;
-	private PanelConsultar panelConsultar;
+	protected JPanel contentPane;
+	protected JPanel panelCabecera;
+	protected JPanel panelPrincipal;
+	protected JButton btnInicio;
+	protected JButton btnCliente;
+	protected JButton btnPedidos;
+	protected JButton btnArticulos;
+	protected PanelConsultar panelConsultar;
+	protected PanelDarAltaArticulo panelDarAltaArticulo;
+	protected PanelCliente panelCliente;
+	protected PanelPedidos panelPedidos;
+	protected PanelArticulos panelArticulos;
+	protected PanelInicio panelInicio;
 
 	/**
 	 * Launch the application.
@@ -46,7 +51,7 @@ public class UI extends JFrame {
 	 */
 	public UI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 677, 463);
+		setBounds(100, 100, 677, 518);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -124,7 +129,42 @@ public class UI extends JFrame {
 		gbc_panelConsultar.gridx = 0;
 		gbc_panelConsultar.gridy = 0;
 		panelPrincipal.add(panelConsultar, gbc_panelConsultar);
-		panelConsultar.setVisible(true);
+		panelConsultar.setVisible(false);
+		
+		panelDarAltaArticulo= new PanelDarAltaArticulo();
+		panelPrincipal.add(panelDarAltaArticulo, gbc_panelConsultar);
+		panelDarAltaArticulo.setVisible(false);
+		
+	/*	panelCliente= new PanelCliente();
+		gridBagLayout = (GridBagLayout) panelConsultar.getLayout();
+		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0};
+		gridBagLayout.columnWidths = new int[]{9, 0, 0};
+		gbc_panelConsultar = new GridBagConstraints();
+		gbc_panelConsultar.fill = GridBagConstraints.BOTH;
+		gbc_panelConsultar.gridx = 0;
+		gbc_panelConsultar.gridy = 0;
+		panelPrincipal.add(panelCliente, gbc_panelConsultar);
+		panelCliente.setVisible(true);*/
+		
+		panelPedidos= new PanelPedidos();
+		panelPrincipal.add(panelPedidos, gbc_panelConsultar);
+		panelPedidos.setVisible(false);
+		
+		panelArticulos= new PanelArticulos();
+		panelPrincipal.add(panelArticulos, gbc_panelConsultar);
+		panelArticulos.setVisible(false);
+		
+		panelInicio= new PanelInicio();
+		gridBagLayout = (GridBagLayout) panelConsultar.getLayout();
+		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0};
+		gridBagLayout.columnWidths = new int[]{9, 0, 0};
+		gbc_panelConsultar = new GridBagConstraints();
+		gbc_panelConsultar.fill = GridBagConstraints.BOTH;
+		gbc_panelConsultar.gridx = 0;
+		gbc_panelConsultar.gridy = 0;
+		panelPrincipal.add(panelInicio, gbc_panelConsultar);
+		panelInicio.setVisible(true);
 	}
+	
 
 }
