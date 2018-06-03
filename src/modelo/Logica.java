@@ -8,6 +8,11 @@ public class Logica {
 
 	private Datos dato;
 	private DatoActual datoActual;
+	
+	public Logica(){
+		dato= new Datos();
+		datoActual= new DatoActual();
+	}
 
 	public Datos getDato() {
 		return dato;
