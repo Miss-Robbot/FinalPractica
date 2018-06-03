@@ -1,18 +1,14 @@
 package vista;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.JButton;
-import java.awt.GridLayout;
-import javax.swing.JLabel;
-import javax.swing.SwingConstants;
 
 public class UI extends JFrame {
 
@@ -35,6 +31,7 @@ public class UI extends JFrame {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
+			@Override
 			public void run() {
 				try {
 					UI frame = new UI();
@@ -155,13 +152,6 @@ public class UI extends JFrame {
 		panelArticulos.setVisible(false);
 		
 		panelInicio= new PanelInicio();
-		gridBagLayout = (GridBagLayout) panelConsultar.getLayout();
-		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0};
-		gridBagLayout.columnWidths = new int[]{9, 0, 0};
-		gbc_panelConsultar = new GridBagConstraints();
-		gbc_panelConsultar.fill = GridBagConstraints.BOTH;
-		gbc_panelConsultar.gridx = 0;
-		gbc_panelConsultar.gridy = 0;
 		panelPrincipal.add(panelInicio, gbc_panelConsultar);
 		panelInicio.setVisible(true);
 	}
