@@ -68,4 +68,12 @@ public class Precio implements Serializable{
 		return oferta;
 	}
 
+	@Override
+	public String toString() {
+		return "Precio [fechaInicial=" + fechaInicial + ", fechaFinal=" + fechaFinal + ", precio=" + precio
+				+ ", current=" + current + ", oferta=" + oferta + "]";
+	}
+	
+	
+
 }

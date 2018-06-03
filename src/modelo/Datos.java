@@ -1,12 +1,15 @@
 package modelo;
 
+import utiles.Constantes;
 
 public class Datos {
 
-	private AlmacenIndice almacen;
+	private Constantes constantes;
+	private AlmacenIndice<Cliente, String> almacen;
 	private AlmacenPedidos almacenPedidos;
 	private Linea linea;
 	private Articulo articulo;
+	private DatoActual datoActual= new DatoActual();
 	
 	public AlmacenIndice getAlmacen() {
 		return almacen;
@@ -33,7 +36,30 @@ public class Datos {
 		this.almacenPedidos = almacenPedidos;
 	}
 	
+	public DatoActual getDatoActual() {
+		return datoActual;
+	}
+	public void setDatoActual(DatoActual datoActual) {
+		this.datoActual = datoActual;
+	}
+	/**
+	 * @author macol
+	 * @param cliente
+	 */
 	
+	public void grabarCliente(Cliente cliente){
+		almacen = new AlmacenIndice<>(constantes.getClientesDat(), constantes.getIndiceDat());
+		almacen.grabar(cliente, cliente.getDniCif());
+	}
+	
+	/**
+	 * @author macol
+	 * @param dni
+	 * @return
+	 */
+	public Cliente obtenerCliente(String dni){
+		return almacen.obtener(dni);
+	}
 	
 
 }

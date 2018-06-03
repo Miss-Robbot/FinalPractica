@@ -18,29 +18,29 @@ import javax.swing.border.EtchedBorder;
 import java.awt.Font;
 import javax.swing.border.LineBorder;
 
-public class ConsultarUI extends JFrame {
+public class BorrarUI extends JFrame {
 
-	private JPanel paneConsulta;
-	private JTextArea textArea;
+	private JPanel paneBorrar;
+	private JTextArea textArea;//
 	private JComboBox comboBox;
 	private JButton btnVolver;
 
 	/**
 	 * Create the frame.
 	 */
-	public ConsultarUI() {
+	public BorrarUI() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		paneConsulta = new JPanel();
-		paneConsulta.setBackground(Color.LIGHT_GRAY);
-		paneConsulta.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(paneConsulta);
+		paneBorrar = new JPanel();
+		paneBorrar.setBackground(Color.LIGHT_GRAY);
+		paneBorrar.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(paneBorrar);
 		GridBagLayout gbl_paneConsulta = new GridBagLayout();
 		gbl_paneConsulta.columnWidths = new int[]{0, 0};
 		gbl_paneConsulta.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0,0};
 		gbl_paneConsulta.columnWeights = new double[]{1.0, Double.MIN_VALUE};
 		gbl_paneConsulta.rowWeights = new double[]{1.0, 1.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
-		paneConsulta.setLayout(gbl_paneConsulta);
+		paneBorrar.setLayout(gbl_paneConsulta);
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new EtchedBorder(EtchedBorder.LOWERED, new Color(192, 192, 192), null));
@@ -51,7 +51,7 @@ public class ConsultarUI extends JFrame {
 		gbc_panel.fill = GridBagConstraints.BOTH;
 		gbc_panel.gridx = 0;
 		gbc_panel.gridy = 0;
-		paneConsulta.add(panel, gbc_panel);
+		paneBorrar.add(panel, gbc_panel);
 		
 		comboBox = new JComboBox();
 		comboBox.setBackground(Color.WHITE);
@@ -65,7 +65,7 @@ public class ConsultarUI extends JFrame {
 		gbc_pnTextInfo.fill = GridBagConstraints.BOTH;
 		gbc_pnTextInfo.gridx = 0;
 		gbc_pnTextInfo.gridy = 1;
-		paneConsulta.add(pnTextInfo, gbc_pnTextInfo);
+		paneBorrar.add(pnTextInfo, gbc_pnTextInfo);
 		GridBagLayout gbl_pnTextInfo = new GridBagLayout();
 		gbl_pnTextInfo.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0};
 		gbl_pnTextInfo.rowHeights = new int[]{0, 0, 0};
@@ -99,7 +99,7 @@ public class ConsultarUI extends JFrame {
 		gbc_btnVolver.anchor = GridBagConstraints.EAST;
 		gbc_btnVolver.gridx = 0;
 		gbc_btnVolver.gridy = 7;
-		paneConsulta.add(btnVolver, gbc_btnVolver);
+		paneBorrar.add(btnVolver, gbc_btnVolver);
 	}
 
 	public JTextArea getTextArea() {

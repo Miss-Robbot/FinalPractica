@@ -11,7 +11,7 @@ public class vistaDos extends JFrame{
 	private PanelCliente panelCliente;
 	private PanelPedidos panelPedidos;
 	private PanelArticulos panelArticulos;
-	private PanelConsultarCliente panelConsultar;
+	private PanelConsultar panelConsultar;
 	private PanelDarAltaArticulo panelDarAlta;
 	private CambiarPrecioArticulo panelCambiarPrecio;
 	
@@ -51,10 +51,10 @@ public class vistaDos extends JFrame{
 	public void setPanelArticulos(PanelArticulos panelArticulos) {
 		this.panelArticulos = panelArticulos;
 	}
-	public PanelConsultarCliente getPanelConsultar() {
+	public PanelConsultar getPanelConsultar() {
 		return panelConsultar;
 	}
-	public void setPanelConsultar(PanelConsultarCliente panelConsultar) {
+	public void setPanelConsultar(PanelConsultar panelConsultar) {
 		this.panelConsultar = panelConsultar;
 	}
 	
