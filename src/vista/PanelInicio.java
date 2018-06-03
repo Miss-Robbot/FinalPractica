@@ -37,12 +37,6 @@ public class PanelInicio extends JPanel {
 		gbc_lblImagen.gridx = 1;
 		gbc_lblImagen.gridy = 4;
 		lblImagen.setIcon(new ImageIcon("img/MissRobot.png"));
-		
-//		ImageIcon imgIcon = new ImageIcon("img/MissRobot.png");
-//		Image imgEscalada = imgIcon.getImage().getScaledInstance(lblImagen.getWidth(),
-//				lblImagen.getHeight(), Image.SCALE_SMOOTH);
-//		Icon iconoEscalado = new ImageIcon(imgEscalada);
-//		lblImagen.setIcon(iconoEscalado);
 		add(lblImagen, gbc_lblImagen);
 
 	}

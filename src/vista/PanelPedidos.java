@@ -8,23 +8,26 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 
 public class PanelPedidos extends JPanel{
+	
+	private JButton btnConsultarPedidos;
+	private JButton btnDarAltaPedidos;
+	
 	public PanelPedidos() {
 		
-		JButton btnNewButton = new JButton("Consultar Pedidos");
-		btnNewButton.addActionListener(new ActionListener() {
+		btnConsultarPedidos = new JButton("Consultar Pedidos");
+		btnConsultarPedidos.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		setLayout(new GridLayout(0, 2, 0, 0));
 		
-		JButton btnNewButton_1 = new JButton("Alta Pedidos");
-		add(btnNewButton_1);
-		add(btnNewButton);
+		btnDarAltaPedidos = new JButton("Alta Pedidos");
+		add(btnDarAltaPedidos);
+		add(btnConsultarPedidos);
 	}
 
-	private JButton btnConsultarPedidos;
-	private JButton btnDarAltaPedidos;
+	
 	
 	public JButton getBtnConsultarPedidos() {
 		return btnConsultarPedidos;

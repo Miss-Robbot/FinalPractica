@@ -25,6 +25,8 @@ public class UI extends JFrame {
 	protected PanelPedidos panelPedidos;
 	protected PanelArticulos panelArticulos;
 	protected PanelInicio panelInicio;
+	protected CambiarPrecioArticulo cambiarPrecioArticulo;
+	protected PanelDarAltaCliente panelDarAltaCliente;
 
 	/**
 	 * Launch the application.
@@ -128,20 +130,15 @@ public class UI extends JFrame {
 		panelPrincipal.add(panelConsultar, gbc_panelConsultar);
 		panelConsultar.setVisible(false);
 		
-		panelDarAltaArticulo= new PanelDarAltaArticulo();
-		panelPrincipal.add(panelDarAltaArticulo, gbc_panelConsultar);
-		panelDarAltaArticulo.setVisible(false);
 		
-	/*	panelCliente= new PanelCliente();
-		gridBagLayout = (GridBagLayout) panelConsultar.getLayout();
-		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0};
-		gridBagLayout.columnWidths = new int[]{9, 0, 0};
-		gbc_panelConsultar = new GridBagConstraints();
-		gbc_panelConsultar.fill = GridBagConstraints.BOTH;
-		gbc_panelConsultar.gridx = 0;
-		gbc_panelConsultar.gridy = 0;
+		
+		panelInicio= new PanelInicio();
+		panelPrincipal.add(panelInicio, gbc_panelConsultar);
+		panelInicio.setVisible(false);
+		
+		panelCliente= new PanelCliente();
 		panelPrincipal.add(panelCliente, gbc_panelConsultar);
-		panelCliente.setVisible(true);*/
+		panelCliente.setVisible(false);
 		
 		panelPedidos= new PanelPedidos();
 		panelPrincipal.add(panelPedidos, gbc_panelConsultar);
@@ -151,9 +148,23 @@ public class UI extends JFrame {
 		panelPrincipal.add(panelArticulos, gbc_panelConsultar);
 		panelArticulos.setVisible(false);
 		
+<<<<<<< HEAD
 		panelInicio= new PanelInicio();
 		panelPrincipal.add(panelInicio, gbc_panelConsultar);
 		panelInicio.setVisible(true);
+=======
+		panelDarAltaArticulo= new PanelDarAltaArticulo();
+		panelPrincipal.add(panelDarAltaArticulo, gbc_panelConsultar);
+		panelDarAltaArticulo.setVisible(false);
+
+		cambiarPrecioArticulo= new CambiarPrecioArticulo();
+		panelPrincipal.add(cambiarPrecioArticulo, gbc_panelConsultar);
+		cambiarPrecioArticulo.setVisible(false);
+		
+		panelDarAltaCliente= new PanelDarAltaCliente();
+		panelPrincipal.add(panelDarAltaCliente, gbc_panelConsultar);
+		panelDarAltaCliente.setVisible(false);
+>>>>>>> refs/remotes/upstream/master
 	}
 	
 
