@@ -4,7 +4,7 @@ import java.io.File;
 import java.util.LinkedList;
 
 public class AlmacenPedidos<T> {
-
+//hola caracola
 	private StringBuilder pathComun = new StringBuilder("./data/");
 	private LinkedList<Linea> lineaPedidos;
 
