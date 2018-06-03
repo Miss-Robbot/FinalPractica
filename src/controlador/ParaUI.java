@@ -1,13 +1,14 @@
 package controlador;
 
+import java.awt.Panel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import modelo.DatoActual;
 import modelo.Logica;
-import vista.vistaUI;
+import vista.PanelCliente;
+import vista.UI;
 
-public class ParaUI extends vistaUI{
+public class ParaUI extends UI{
 
 	private Acciones acciones; //Esto es para coger la logica 
 	private Borrar borrar;
@@ -15,9 +16,20 @@ public class ParaUI extends vistaUI{
 	private Consultar consultar;
 	private DarAlta darAlta;
 	private Insertar insertar;
+	PanelCliente pcli = new PanelCliente();
 	
 	
 	public ParaUI(){
+		
+		getBtnCliente().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				setPanelPrincipal(pcli);
+				
+				
+			}
+		});
 		
 		
 		/*getVistaDos().getPanelArticulos().getBtnConsultarArticulos().addActionListener(new ActionListener() {
