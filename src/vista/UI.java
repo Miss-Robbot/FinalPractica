@@ -23,7 +23,8 @@ public class UI extends JFrame {
 	private JButton btnCliente;
 	private JButton btnPedidos;
 	private JButton btnArticulos;
-	private PanelConsultar panelConsultar;
+	protected PanelCliente paneCliente;
+	//private PanelConsultar panelConsultar;
 
 	/**
 	 * Launch the application.
@@ -115,7 +116,7 @@ public class UI extends JFrame {
 		gbl_panelPrincipal.rowWeights = new double[]{0.0, Double.MIN_VALUE};
 		panelPrincipal.setLayout(gbl_panelPrincipal);
 		
-		panelConsultar= new PanelConsultar();
+	/*	panelConsultar= new PanelConsultar();
 		GridBagLayout gridBagLayout = (GridBagLayout) panelConsultar.getLayout();
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0};
 		gridBagLayout.columnWidths = new int[]{9, 0, 0};
@@ -124,7 +125,31 @@ public class UI extends JFrame {
 		gbc_panelConsultar.gridx = 0;
 		gbc_panelConsultar.gridy = 0;
 		panelPrincipal.add(panelConsultar, gbc_panelConsultar);
-		panelConsultar.setVisible(true);
+		panelConsultar.setVisible(true);*/
 	}
+
+	public JPanel getPanelPrincipal() {
+		return panelPrincipal;
+	}
+
+	public void setPanelPrincipal(JPanel panelPrincipal) {
+		this.panelPrincipal = panelPrincipal;
+	}
+
+	public JButton getBtnCliente() {
+		return btnCliente;
+	}
+
+	public void setBtnCliente(JButton btnCliente) {
+		this.btnCliente = btnCliente;
+	}
+
+	public PanelCliente getPaneCliente() {
+		return paneCliente;
+	}
+	
+	
+	
+	
 
 }
