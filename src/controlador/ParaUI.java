@@ -2,20 +2,28 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.LinkedList;
 
+import javax.swing.JComboBox;
+
+import modelo.Articulo;
+import modelo.Cliente;
 import modelo.DatoActual;
+import modelo.Linea;
 import modelo.Logica;
+import modelo.Pedido;
 import vista.UI;
 import vista.vistaUI;
 
 public class ParaUI extends UI{
 
 	private Acciones acciones; //Esto es para coger la logica 
-	private Borrar borrar;
-	private Cambiar cambiar;
-	private Consultar consultar;
-	private DarAlta darAlta;
-	private Insertar insertar;
+	private Borrar borrar=new Borrar();
+	private Cambiar cambiar=new Cambiar();
+	private Consultar consultar=new Consultar();
+	private DarAlta darAlta= new DarAlta();
+	private Insertar insertar= new Insertar();
+	private DatoActual datoActual= new DatoActual();
 	
 	
 	public ParaUI(){
@@ -85,6 +93,7 @@ public class ParaUI extends UI{
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
 				panelConsultar.setVisible(true);
+				//consultar.rellenarComboboxArticulo(panelConsultar.getComboBox());
 				
 			}
 		});
@@ -125,7 +134,15 @@ public class ParaUI extends UI{
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
 				panelConsultar.setVisible(true);
+				consultar.rellenarComboboxArticulo(panelConsultar.getComboBox());
 				
+				panelConsultar.getComboBox().addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						Articulo articulo = (Articulo) panelConsultar.getComboBox().getSelectedItem();
+						consultar.consultarArticulo(articulo, panelConsultar.getTxtInformacion());
+					}
+				});
 			}
 		});
 		
@@ -145,12 +162,15 @@ public class ParaUI extends UI{
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
 				panelConsultar.setVisible(true);
+				//DatoActual datoActualNuevo= new DatoActual();
+				//consultar.rellenarComboboxArticulo(panelConsultar.getComboBox());
 				
 			}
 		});
 		
 	}
 	
+
 	public void todosInvisibles(){
 		panelArticulos.setVisible(false);
 		panelPedidos.setVisible(false);
