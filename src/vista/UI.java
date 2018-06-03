@@ -148,11 +148,11 @@ public class UI extends JFrame {
 		panelPrincipal.add(panelArticulos, gbc_panelConsultar);
 		panelArticulos.setVisible(false);
 		
-<<<<<<< HEAD
+
 		panelInicio= new PanelInicio();
 		panelPrincipal.add(panelInicio, gbc_panelConsultar);
 		panelInicio.setVisible(true);
-=======
+
 		panelDarAltaArticulo= new PanelDarAltaArticulo();
 		panelPrincipal.add(panelDarAltaArticulo, gbc_panelConsultar);
 		panelDarAltaArticulo.setVisible(false);
@@ -164,7 +164,7 @@ public class UI extends JFrame {
 		panelDarAltaCliente= new PanelDarAltaCliente();
 		panelPrincipal.add(panelDarAltaCliente, gbc_panelConsultar);
 		panelDarAltaCliente.setVisible(false);
->>>>>>> refs/remotes/upstream/master
+
 	}
 	
 
