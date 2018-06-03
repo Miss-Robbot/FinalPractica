@@ -55,9 +55,13 @@ public class Logica {
 		dato.getLinea().setArticulo(articulo);
 		dato.getLinea().setCantidad(cantidad);
 	}
-	
+	/**
+	 * Añade un pedido nuevo al Cliente.
+	 * @param pedido
+	 * @param cliente
+	 */
 	public void darAltaPedido(Pedido pedido) {
-		
+		datoActual.getClienteActual().getPedidos().add(pedido);
 	}
 	
 	/**
