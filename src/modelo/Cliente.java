@@ -67,6 +67,6 @@ public class Cliente implements Serializable {
 
 	@Override
 	public String toString() {
-		return razonSocial+": DNI/NIF: "+dniCif+". Direccion: "+direccion+". Telefono: "+telefono;
+		return razonSocial;
 	}
 }

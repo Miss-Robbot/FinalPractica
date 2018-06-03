@@ -29,6 +29,9 @@ public class UI extends JFrame {
 	protected PanelPedidos panelPedidos;
 	protected PanelArticulos panelArticulos;
 	protected PanelInicio panelInicio;
+	protected DarAltaCliente panelAltaCliente;
+	protected BorrarCliente panelBCliente;
+	protected ConsultarCliente panelCCliente;
 
 	/**
 	 * Launch the application.
@@ -153,6 +156,24 @@ public class UI extends JFrame {
 		panelArticulos= new PanelArticulos();
 		panelPrincipal.add(panelArticulos, gbc_panelConsultar);
 		panelArticulos.setVisible(false);
+		
+		panelCliente= new PanelCliente();
+		panelPrincipal.add(panelCliente, gbc_panelConsultar);
+		panelCliente.setVisible(false);
+		
+		panelBCliente= new BorrarCliente();
+		panelPrincipal.add(panelBCliente, gbc_panelConsultar);
+		panelCliente.setVisible(false);
+		
+		panelCCliente= new ConsultarCliente();
+		panelPrincipal.add(panelCCliente, gbc_panelConsultar);
+		panelCliente.setVisible(false);
+		
+		panelAltaCliente= new DarAltaCliente();
+		panelPrincipal.add(panelAltaCliente, gbc_panelConsultar);
+		panelAltaCliente.setVisible(false);
+		
+		
 		
 		panelInicio= new PanelInicio();
 		gridBagLayout = (GridBagLayout) panelConsultar.getLayout();

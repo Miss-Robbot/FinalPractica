@@ -20,6 +20,8 @@ public class ParaUI extends UI{
 	
 	public ParaUI(){
 		
+		panelInicio.setVisible(true);
+		
 		btnInicio.addActionListener(new ActionListener() {
 			
 			@Override
@@ -50,14 +52,55 @@ public class ParaUI extends UI{
 			}
 		});
 		
-	
+		btnCliente.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				panelCliente.setVisible(true);
+				
+			}
+		});
+		
+		panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				panelAltaCliente.setVisible(true);
+				
+			}
+		});
+		
+		panelCliente.getBtnConsultarCliente().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				panelCCliente.setVisible(true);
+				
+			}
+		});
+		
+		panelCliente.getBtnBorrarCliente().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				panelBCliente.setVisible(true);
+				
+			}
+		});
 		
 	}
 	
 	public void todosInvisibles(){
 		panelArticulos.setVisible(false);
 		panelPedidos.setVisible(false);
-		//panelCliente.setVisible(false);
+		panelCliente.setVisible(false);
+		panelAltaCliente.setVisible(false);
+		panelCCliente.setVisible(false);
+		panelBCliente.setVisible(false);
 		//panelDarAltaArticulo.setVisible(false);
 	}
 
