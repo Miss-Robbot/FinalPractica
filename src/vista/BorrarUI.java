@@ -21,7 +21,7 @@ import javax.swing.border.LineBorder;
 public class BorrarUI extends JFrame {
 
 	private JPanel paneBorrar;
-	private JTextArea textArea;
+	private JTextArea textArea;//
 	private JComboBox comboBox;
 	private JButton btnVolver;
 
