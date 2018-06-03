@@ -40,12 +40,51 @@ public class ParaUI extends UI{
 			}
 		});
 
+		panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				panelDarAltaCliente.setVisible(true);
+				
+			}
+		});
+		
+		panelCliente.getBtnConsultarCliente().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				panelConsultar.setVisible(true);
+				
+			}
+		});
 		btnPedidos.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
 				panelPedidos.setVisible(true);
+				
+			}
+		});
+		
+		panelPedidos.getBtnConsultarPedidos().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				panelConsultar.setVisible(true);
+				
+			}
+		});
+		
+		panelPedidos.getBtnDarAltaPedidos().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				panelDarAltaArticulo.setVisible(true);
 				
 			}
 		});
@@ -60,7 +99,45 @@ public class ParaUI extends UI{
 			}
 		});
 		
-	
+		panelArticulos.getBtnDarAltaArticulo().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				panelDarAltaArticulo.setVisible(true);
+				
+			}
+		});
+		
+		panelArticulos.getBtnConsultarArticulos().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				panelConsultar.setVisible(true);
+				
+			}
+		});
+		
+		panelArticulos.getBtnCambiarPrecioArticulo().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				cambiarPrecioArticulo.setVisible(true);
+				
+			}
+		});
+		
+		panelArticulos.getBtnConsultarPreciosAntiguos().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				panelConsultar.setVisible(true);
+				
+			}
+		});
 		
 	}
 	
@@ -69,7 +146,10 @@ public class ParaUI extends UI{
 		panelPedidos.setVisible(false);
 		panelInicio.setVisible(false);
 		panelCliente.setVisible(false);
-		//panelDarAltaArticulo.setVisible(false);
+		panelDarAltaArticulo.setVisible(false);
+		panelConsultar.setVisible(false);
+		cambiarPrecioArticulo.setVisible(false);
+		panelDarAltaCliente.setVisible(false);
 	}
 
 	public Acciones getAcciones() {

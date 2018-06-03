@@ -29,6 +29,8 @@ public class UI extends JFrame {
 	protected PanelPedidos panelPedidos;
 	protected PanelArticulos panelArticulos;
 	protected PanelInicio panelInicio;
+	protected CambiarPrecioArticulo cambiarPrecioArticulo;
+	protected PanelDarAltaCliente panelDarAltaCliente;
 
 	/**
 	 * Launch the application.
@@ -131,9 +133,11 @@ public class UI extends JFrame {
 		panelPrincipal.add(panelConsultar, gbc_panelConsultar);
 		panelConsultar.setVisible(false);
 		
-		panelDarAltaArticulo= new PanelDarAltaArticulo();
-		panelPrincipal.add(panelDarAltaArticulo, gbc_panelConsultar);
-		panelDarAltaArticulo.setVisible(false);
+		
+		
+		panelInicio= new PanelInicio();
+		panelPrincipal.add(panelInicio, gbc_panelConsultar);
+		panelInicio.setVisible(false);
 		
 		panelCliente= new PanelCliente();
 		panelPrincipal.add(panelCliente, gbc_panelConsultar);
@@ -147,9 +151,17 @@ public class UI extends JFrame {
 		panelPrincipal.add(panelArticulos, gbc_panelConsultar);
 		panelArticulos.setVisible(false);
 		
-		panelInicio= new PanelInicio();
-		panelPrincipal.add(panelInicio, gbc_panelConsultar);
-		panelInicio.setVisible(false);
+		panelDarAltaArticulo= new PanelDarAltaArticulo();
+		panelPrincipal.add(panelDarAltaArticulo, gbc_panelConsultar);
+		panelDarAltaArticulo.setVisible(false);
+
+		cambiarPrecioArticulo= new CambiarPrecioArticulo();
+		panelPrincipal.add(cambiarPrecioArticulo, gbc_panelConsultar);
+		cambiarPrecioArticulo.setVisible(false);
+		
+		panelDarAltaCliente= new PanelDarAltaCliente();
+		panelPrincipal.add(panelDarAltaCliente, gbc_panelConsultar);
+		panelDarAltaCliente.setVisible(false);
 	}
 	
 
