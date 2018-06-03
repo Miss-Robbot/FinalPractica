@@ -2,6 +2,7 @@ package modelo;
 
 import java.util.LinkedList;
 
+import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 
 public class Logica {
@@ -127,5 +128,19 @@ public class Logica {
 		return jTextArea;
 		
 	}
+	
+	/**
+	 * crea el comboBox de consultar Cliente
+	 * faltan cosas
+	 * @author macol
+	 * @param comboBox
+	 * @param dni
+	 * @return
+	 */
+	public JComboBox obtenerComboBox(JComboBox comboBox, String dni){
+		comboBox.addItem(dato.obtenerCliente(dni));
+		return comboBox;
+	}
+
 	
 }
