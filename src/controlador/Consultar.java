@@ -59,8 +59,10 @@ public class Consultar extends Acciones {
 	 * @param articulo
 	 * @param txtInformacion
 	 */
+
 	public void consultarArticulo(Articulo articulo, JTextArea txtInformacion) {
 		txtInformacion.setText(articulo.toString());
+
 	}
 
 	/**

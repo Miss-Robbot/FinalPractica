@@ -63,6 +63,10 @@ public class Articulo implements Serializable {
 
 	@Override
 	public String toString() {
+		return ""+nombre;
+	}
+	
+	public String toStringDos(){
 		return "Nombre=" + nombre + ",\n descripcion=" + descripcion + ",\n proveedor=" + proveedor+",\n precioActual= "+precios.getLast();
 	}
 
