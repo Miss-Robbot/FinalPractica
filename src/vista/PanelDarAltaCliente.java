@@ -101,7 +101,7 @@ public class PanelDarAltaCliente extends JPanel {
 		add(texTelefono, gbc_textField);
 		texTelefono.setColumns(10);
 		
-		JButton btnDarAlta = new JButton("DarAlta");
+		JButton btnDarAlta = new JButton("Dar Alta");
 		GridBagConstraints gbc_btnDarAlta = new GridBagConstraints();
 		gbc_btnDarAlta.fill = GridBagConstraints.VERTICAL;
 		gbc_btnDarAlta.insets = new Insets(0, 0, 0, 5);

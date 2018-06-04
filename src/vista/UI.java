@@ -27,7 +27,9 @@ public class UI extends JFrame {
 	protected PanelInicio panelInicio;
 	protected CambiarPrecioArticulo cambiarPrecioArticulo;
 	protected PanelDarAltaCliente panelDarAltaCliente;
+	protected DarAltaCliente altaCliente;
 	protected BorrarCliente borrarCliente;
+	protected ConsultarCliente consulta;
 
 	/**
 	 * Launch the application.
