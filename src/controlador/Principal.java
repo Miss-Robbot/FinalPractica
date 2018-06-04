@@ -4,7 +4,7 @@ import java.awt.EventQueue;
 
 import vista.prueba;
 
-public class Principal {
+public class Principal {//fachada
 
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
