@@ -4,10 +4,10 @@ import java.io.File;
 import java.util.LinkedList;
 
 public class AlmacenPedidos<T> {
-
-	private StringBuilder pathComun= new StringBuilder("./data/");
+//hola caracola
+	private StringBuilder pathComun = new StringBuilder("./data/");
 	private LinkedList<Linea> lineaPedidos;
-	
+
 	public AlmacenPedidos(String directorio) {
 		super();
 		pathComun.append(directorio);
@@ -24,20 +24,46 @@ public class AlmacenPedidos<T> {
 	public void setLineaPedidos(LinkedList<Linea> lineaPedidos) {
 		this.lineaPedidos = lineaPedidos;
 	}
-	
-	
-	
-	/*public boolean grabar(T t,String claveElemento,String claveGrupo) {
-		boolean retorno=false;
-		pathComun.append("/"+claveGrupo);
-		String ruta=pathComun.toString();
-		pathComun.append("/"+claveElemento+".data");
-		File elemento=new File(ruta);
-		if(!elemento.exists()){
-			retorno=elemento.mkdirs();
+
+	/**
+	 * Esto sirve para grabar en el fichero.
+	 * 
+	 * @param t
+	 * @param claveElemento
+	 * @param claveGrupo
+	 * @return retorno
+	 */
+	public boolean grabar(T t, String claveElemento, String claveGrupo) {
+		boolean retorno = false;
+		pathComun.append(pathComun + "/" + claveGrupo);
+		String ruta = pathComun.toString();
+		pathComun.append(pathComun + "/" + claveElemento + ".data");
+		File elemento = new File(ruta);
+		if (!elemento.exists()) {
+			retorno = elemento.mkdirs();
 		}
-		if(retorno)
-			retorno=new DAO<>().grabar(pathComun.toString(), t);
+		retorno = new DAO<>().grabar(pathComun.toString(), t);
+		pathComun = new StringBuilder("./data/");
 		return retorno;
-	};*/ //Esto sirve para grabar en el fichero.
+	};
+
+	/**
+	 * Obtiene el fichero
+	 * 
+	 * @param claveElemento
+	 * @param claveGrupo
+	 * @return t
+	 */
+	public Object obtener(String claveElemento, String claveGrupo) {
+		Object t;
+		pathComun.append(pathComun + "/" + claveGrupo);
+		String ruta = pathComun.toString();
+		pathComun.append(pathComun + "/" + claveElemento + ".data");
+		if (!new File(ruta).exists()) {
+			return null;
+		}
+		t = new DAO<>().leer(pathComun.toString());
+		pathComun = new StringBuilder("./data/");
+		return t;
+	};
 }

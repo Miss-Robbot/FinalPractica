@@ -70,8 +70,8 @@ public class Precio implements Serializable{
 
 	@Override
 	public String toString() {
-		return "Precio [fechaInicial=" + fechaInicial + ", fechaFinal=" + fechaFinal + ", precio=" + precio
-				+ ", current=" + current + ", oferta=" + oferta + "]";
+		return "Precio [fechaInicial=" + fechaInicial + ",\n fechaFinal=" + fechaFinal + ",\n precio=" + precio
+				+ ",\n current=" + current + ",\n oferta=" + oferta + "]";
 	}
 	
 	

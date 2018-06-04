@@ -8,7 +8,7 @@ public class Cliente implements Serializable {
 	private String razonSocial;
 	private String direccion;
 	private String telefono;
-	private LinkedList<Pedido> pedidos;
+	private LinkedList<Pedido> pedidos= new LinkedList<>();
 
 	public LinkedList<Pedido> getPedidos() {
 		return pedidos;
