@@ -11,7 +11,7 @@ public class Datos {
 	private Constantes constantes;
 	private AlmacenIndice<Cliente, String> almacen;
 	private AlmacenPedidos almacenPedidos;
-	private TreeMap<Integer, Cliente> mapaCliente;
+	private TreeMap<String, Cliente> mapaCliente= new TreeMap<>();
 	
 	public AlmacenIndice getAlmacen() {
 		return almacen;
@@ -27,10 +27,10 @@ public class Datos {
 	}
 	
 	
-	public TreeMap<Integer, Cliente> getMapaCliente() {
+	public TreeMap<String, Cliente> getMapaCliente() {
 		return mapaCliente;
 	}
-	public void setMapaCliente(TreeMap<Integer, Cliente> mapaCliente) {
+	public void setMapaCliente(TreeMap<String, Cliente> mapaCliente) {
 		this.mapaCliente = mapaCliente;
 	}
 	/**

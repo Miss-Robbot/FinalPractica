@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.LinkedList;
 
 import javax.swing.JComboBox;
@@ -135,6 +137,22 @@ public class Logica {
 	public JComboBox obtenerComboBox(JComboBox comboBox, String dni){
 		comboBox.addItem(dato.obtenerCliente(dni));
 		return comboBox;
+	}
+	
+	/**
+	 * Tiene todos los artículos en una lista del pedido de dato actual
+	 * 
+	 * @param datoActual
+	 */
+	public LinkedList<Articulo> conseguirListaArticulos(Cliente cliente,Pedido pedido) {
+		LinkedList<Articulo> articulos = new LinkedList<Articulo>();
+		ArrayList<Linea> lineas= dato.getMapaCliente().get(cliente.getDniCif()).getPedidos().get(pedido.getNumero()).getLineas();
+		for (Iterator iterator = lineas.iterator(); iterator.hasNext();) {
+			Linea linea = (Linea) iterator.next();
+			articulos.add(linea.getArticulo());
+
+		}
+		return articulos;
 	}
 
 	

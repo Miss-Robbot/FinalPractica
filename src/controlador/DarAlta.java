@@ -21,6 +21,6 @@ public class DarAlta extends Acciones{
 	 * para que añada un nuevo artículo
 	 */
 	public void darAltaArticulo(Pedido pedido,Articulo articulo, int cantidad){
-		getLogica().addArticulo(pedido, articulo, cantidad);
+		
 	}
 }

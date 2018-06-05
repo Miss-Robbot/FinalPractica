@@ -88,22 +88,7 @@ public class Consultar extends Acciones {
 		}
 	}
 
-	/**
-	 * Tiene todos los artículos en una lista del pedido de dato actual
-	 * 
-	 * @param datoActual
-	 */
-	public LinkedList<Articulo> conseguirListaArticulos() {
-		LinkedList<Articulo> articulos = new LinkedList<Articulo>();
-
-		for (Iterator iterator = getLogica().getDatoActual().getPedidoActual()
-				.getLineas().iterator(); iterator.hasNext();) {
-			Linea linea = (Linea) iterator.next();
-			articulos.add(linea.getArticulo());
-
-		}
-		return articulos;
-	}
+	
 	/*
 	 * 
 	 */
