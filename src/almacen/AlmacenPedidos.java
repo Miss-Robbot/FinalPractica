@@ -1,10 +1,12 @@
-package modelo;
+package almacen;
 
 import java.io.File;
 import java.util.LinkedList;
 
+import modelo.Linea;
+
 public class AlmacenPedidos<T> {
-//hola caracola
+	// hola caracola
 	private StringBuilder pathComun = new StringBuilder("./data/");
 	private LinkedList<Linea> lineaPedidos;
 

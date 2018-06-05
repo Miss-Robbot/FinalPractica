@@ -1,5 +1,7 @@
 package modelo;
 
+import almacen.AlmacenIndice;
+import almacen.AlmacenPedidos;
 import utiles.Constantes;
 
 public class Datos {
