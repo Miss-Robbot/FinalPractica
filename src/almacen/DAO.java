@@ -26,7 +26,7 @@ public class DAO<T> {
 					t = (T) adaptador.readObject();
 				}
 			} catch (IOException | ClassNotFoundException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 				t = null;
 			}
 			cerrarFlujo(flujoR);
@@ -121,7 +121,7 @@ public class DAO<T> {
 		file.delete();
 	}
 
-	public boolean borrarElemtento(String pathDatos, Integer posicion) {
+	public boolean borrarElemento(String pathDatos, Integer posicion) {
 		int i = 0;
 		boolean retorno=true;
 		T t = leer(pathDatos, i);
@@ -130,11 +130,11 @@ public class DAO<T> {
 				grabar("copia", t, true);
 			}
 			i++;
-			t = leer(pathDatos, 0);
+			t = leer(pathDatos, i);
 		}
 		File original=new File(pathDatos);
 		File copia=new File("copia");
-		if(original.delete()&&copia.renameTo(original)){
+		if(!original.delete()||!copia.renameTo(original)){
 			retorno=false;
 		}
 		return retorno;

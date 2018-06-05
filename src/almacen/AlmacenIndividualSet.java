@@ -9,7 +9,7 @@ public class AlmacenIndividualSet<T> {
 
 	public AlmacenIndividualSet(NavigableSet<T> set, String path) {
 		super();
-		assert set != null && path != null;
+		assert set!=null&& path!=null;
 		this.conjunto = set;
 		this.path = path;
 		dao = new DAO<>();
@@ -17,31 +17,31 @@ public class AlmacenIndividualSet<T> {
 
 	public T first() {
 		getSet();
-		T retorno = null;
-		try {
-			retorno = conjunto.first();
-		} catch (Exception e) {
-
+		T retorno=null;
+		try{
+			retorno=conjunto.first();
+		}catch(Exception e){
+			
 		}
-		return retorno;
+		return  retorno;
 	}
-	public T last() {
+	public T last(){
 		getSet();
 		return conjunto.last();
 	}
-
-	public T obtener(int index) {
-		assert index >= 0;
-		T t = null;
+	
+	public T obtener(int index){
+		assert index>=0;
+		T t=null;
 		getSet();
-		if (index < conjunto.size()) {
-			t = (T) conjunto.toArray()[index];
+		if(index<conjunto.size()){
+			t=(T) conjunto.toArray()[index];
 		}
 		return t;
 	}
 
 	public boolean grabar(T t) {
-		assert t != null;
+		assert t!=null;
 		boolean retorno = false;
 		getSet();
 		if (conjunto.add(t) && dao.grabar(path, conjunto)) {
@@ -53,10 +53,10 @@ public class AlmacenIndividualSet<T> {
 
 	private void getSet() {
 		NavigableSet<T> temporal = dao.leer(path);
-		if (temporal == null) {
+		if (temporal == null) {			
 			dao.grabar(path, conjunto);
-		} else {
-			conjunto = temporal;
+		}else{
+			conjunto=temporal;
 		}
 	}
 }
