@@ -29,7 +29,7 @@ public class AlmacenIndice<T, K> {
 		if(indice.containsKey(k)){
 			Integer posicion=indice.remove(k);
 			if(posicion!=null){
-				retorno=dao.borrarElemento(pathDatos,posicion);
+				retorno=dao.borrarElemtento(pathDatos,posicion);
 				if(!retorno){
 					leerIndice();
 				}else{
