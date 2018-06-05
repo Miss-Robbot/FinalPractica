@@ -10,7 +10,7 @@ public class AlmacenIndividualList<T> {
 
 	public AlmacenIndividualList(AbstractList<T> list, String path) {
 		super();
-		assert list != null && path != null;
+		assert list!=null&& path!=null;
 		this.list = list;
 		this.path = path;
 		dao = new DAO<AbstractList<T>>();
@@ -27,7 +27,7 @@ public class AlmacenIndividualList<T> {
 	}
 
 	public boolean grabar(T t) {
-		assert t != null;
+		assert t!=null;
 		boolean retorno = false;
 		getList();
 		if (list.add(t) && dao.grabar(path, list)) {

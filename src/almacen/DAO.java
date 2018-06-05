@@ -39,7 +39,7 @@ import java.io.OutputStream;
 					t = (T) adaptador.readObject();
 				}
 			} catch (IOException | ClassNotFoundException e) {
-				e.printStackTrace();
+				//e.printStackTrace();
 				t = null;
 			}
 			cerrarFlujo(flujoR);
@@ -167,6 +167,7 @@ import java.io.OutputStream;
 		file.delete();
 	}
 
+
 	/**
 	 * borra un elemento de un fichero
 	 * @param pathDatos
@@ -174,6 +175,7 @@ import java.io.OutputStream;
 	 * @return
 	 */
 	public boolean borrarElemtento(String pathDatos, Integer posicion) {
+
 		int i = 0;
 		boolean retorno=true;
 		T t = leer(pathDatos, i);
@@ -182,11 +184,11 @@ import java.io.OutputStream;
 				grabar("copia", t, true);
 			}
 			i++;
-			t = leer(pathDatos, 0);
+			t = leer(pathDatos, i);
 		}
 		File original=new File(pathDatos);
 		File copia=new File("copia");
-		if(original.delete()&&copia.renameTo(original)){
+		if(!original.delete()||!copia.renameTo(original)){
 			retorno=false;
 		}
 		return retorno;

@@ -3,7 +3,7 @@ package modelo;
 import java.io.Serializable;
 import java.util.LinkedList;
 
-public class Cliente implements Serializable {
+public class Cliente implements Serializable,Keyable<String> {
 	private String dniCif;
 	private String razonSocial;
 	private String direccion;
@@ -68,5 +68,10 @@ public class Cliente implements Serializable {
 	@Override
 	public String toString() {
 		return razonSocial+": DNI/NIF: "+dniCif+". Direccion: "+direccion+". Telefono: "+telefono;
+	}
+
+	@Override
+	public String getKey() {
+		return dniCif;
 	}
 }

@@ -2,6 +2,8 @@ package almacen;
 
 import java.io.File;
 
+
+
 public class almacenRutaMapeada<T, K> {
 	private DAORuta<T> ruta;
 	private AlmacenMap<K, Integer> mapa;

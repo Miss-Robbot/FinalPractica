@@ -1,13 +1,11 @@
 package modelo;
 
 import java.io.Serializable;
-import java.sql.Date;
-import java.time.LocalDate;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class Articulo implements Serializable {
+public class Articulo implements Serializable,Keyable<Integer> {
 
 	private int idArticulo;
 	private String nombre;
@@ -96,6 +94,11 @@ public class Articulo implements Serializable {
 
 	public void setPrecios(LinkedList<Precio> precios) {
 		this.precios = precios;
+	}
+
+	@Override
+	public Integer getKey() {
+		return idArticulo;
 	}
 	
 	
