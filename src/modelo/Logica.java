@@ -8,11 +8,9 @@ import javax.swing.JTextArea;
 public class Logica {
 
 	private Datos dato;
-	private DatoActual datoActual;
 	
 	public Logica(){
 		dato= new Datos();
-		datoActual= new DatoActual();
 	}
 
 	public Datos getDato() {
@@ -21,14 +19,6 @@ public class Logica {
 
 	public void setDato(Datos dato) {
 		this.dato = dato;
-	}
-
-	public DatoActual getDatoActual() {
-		return datoActual;
-	}
-
-	public void setDatoActual(DatoActual datoActual) {
-		this.datoActual = datoActual;
 	}
 	
 	//Aquí todos los métodos que usen la lógica y tengan que devolver cosas
@@ -57,17 +47,17 @@ public class Logica {
 	 * @param articulo
 	 * @param cantidad
 	 */
-	public void darAltaArticulo(Articulo articulo, int cantidad){
-		dato.getLinea().setArticulo(articulo);
-		dato.getLinea().setCantidad(cantidad);
+	public void darAltaArticulo(Articulo articulo, int cantidad,Cliente cliente,Pedido pedido){
+		dato.getMapaCliente().get(cliente.getDniCif()).getPedidos().get(pedido.getNumero()).getLineas().add(new Linea(articulo, cantidad));
 	}
+	
 	/**
 	 * Añade un pedido nuevo al Cliente.
 	 * @param pedido
 	 * @param cliente
 	 */
 	public void darAltaPedido(Pedido pedido) {
-		datoActual.getClienteActual().getPedidos().add(pedido);
+		//datoActual.getClienteActual().getPedidos().add(pedido);
 	}
 	
 	/**

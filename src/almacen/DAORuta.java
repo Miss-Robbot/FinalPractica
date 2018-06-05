@@ -4,7 +4,12 @@ import java.io.File;
 
 public class DAORuta<T> {
 	
-	
+	/**
+	 * Obtiene el fichero de un archivo
+	 * @param clavePadre
+	 * @param claveElemento
+	 * @return
+	 */
 	public T obtener(String clavePadre,String claveElemento){
 		T t=null;
 		File archivo=new File(obtenerPath(clavePadre, claveElemento));
@@ -14,6 +19,13 @@ public class DAORuta<T> {
 		return t;
 	}
 
+	/**
+	 * Graba en un fichero determinado
+	 * @param t
+	 * @param claveElemento
+	 * @param pathPadre
+	 * @return
+	 */
 	public boolean grabar(T t,String claveElemento,String pathPadre){
 		File carpeta=new File(pathPadre);
 		boolean retorno=false;

@@ -61,7 +61,7 @@ public class Consultar extends Acciones {
 	 */
 
 	public void consultarArticulo(Articulo articulo, JTextArea txtInformacion) {
-		txtInformacion.setText(articulo.toString());
+		txtInformacion.setText(articulo.toStringDos());
 
 	}
 
