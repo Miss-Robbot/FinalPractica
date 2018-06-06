@@ -20,7 +20,7 @@ import vista.vistaUI;
 
 public class ParaUI extends UI{
 
-	private Acciones acciones; //Esto es para coger la logica 
+	private Acciones acciones=new Acciones(); //Esto es para coger la logica 
 
 	Validator validador = new Validator();
 
@@ -140,7 +140,8 @@ public class ParaUI extends UI{
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
 				panelConsultar.setVisible(true);
-				consultar.rellenarComboboxArticulo(panelConsultar.getComboBox());
+				rellenarDePrueba();
+				consultar.rellenarComboboxArticulo(panelConsultar.getComboBox(),acciones.getLogica().getDato().getMapaCliente().get("alicia"),0);
 				
 				panelConsultar.getComboBox().addActionListener(new ActionListener() {
 					@Override
@@ -266,7 +267,14 @@ public class ParaUI extends UI{
 		
 	}
 	
-
+	public void rellenarDePrueba(){
+		Cliente cliente= new Cliente("alicia", "casada", "calla la concordia", "56489");
+		Pedido pedido= new Pedido(0, cliente);
+		Articulo articulo= new Articulo(0, "patata", "dura", 5);
+		pedido.insertarLinea(new Linea(articulo, 1));
+		cliente.getPedidos().add(pedido);
+		acciones.getLogica().getDato().getMapaCliente().put(cliente.getDniCif(),cliente );
+	}
 	public void todosInvisibles(){
 		panelArticulos.setVisible(false);
 		panelPedidos.setVisible(false);

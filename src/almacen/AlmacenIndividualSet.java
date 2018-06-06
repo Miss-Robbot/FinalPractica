@@ -15,6 +15,10 @@ public class AlmacenIndividualSet<T> {
 		dao = new DAO<>();
 	}
 
+	/**
+	 * 
+	 * @return
+	 */
 	public T first() {
 		getSet();
 		T retorno=null;

@@ -144,9 +144,9 @@ public class Logica {
 	 * 
 	 * @param datoActual
 	 */
-	public LinkedList<Articulo> conseguirListaArticulos(Cliente cliente,Pedido pedido) {
+	public LinkedList<Articulo> conseguirListaArticulos(Cliente cliente,int posicion) {
 		LinkedList<Articulo> articulos = new LinkedList<Articulo>();
-		ArrayList<Linea> lineas= dato.getMapaCliente().get(cliente.getDniCif()).getPedidos().get(pedido.getNumero()).getLineas();
+		ArrayList<Linea> lineas= dato.getMapaCliente().get(cliente.getDniCif()).getPedidos().get(posicion).getLineas();
 		for (Iterator iterator = lineas.iterator(); iterator.hasNext();) {
 			Linea linea = (Linea) iterator.next();
 			articulos.add(linea.getArticulo());

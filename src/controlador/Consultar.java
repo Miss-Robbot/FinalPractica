@@ -7,6 +7,7 @@ import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 
 import modelo.Articulo;
+import modelo.Cliente;
 import modelo.DatoActual;
 import modelo.Linea;
 import modelo.Pedido;
@@ -71,28 +72,28 @@ public class Consultar extends Acciones {
 	 * @param combobox
 	 * @param articulos
 	 */
-	public void rellenarComboboxArticulo(JComboBox<Articulo> combobox) {
-		LinkedList<Articulo> articulos = conseguirListaArticulos();
+	public void rellenarComboboxArticulo(JComboBox<Articulo> combobox, Cliente cliente, int posicion) {
+		LinkedList<Articulo> articulos = getLogica().conseguirListaArticulos(cliente, posicion);
 		for (Iterator iterator = articulos.iterator(); iterator.hasNext();) {
 			Articulo articulo = (Articulo) iterator.next();
 			combobox.addItem(articulo);
 		}
 	}
 
-	public void rellenarComboboxPedido(JComboBox<Pedido> comboBox,
+	/*public void rellenarComboboxPedido(JComboBox<Pedido> comboBox,
 			DatoActual datoActual) {
 		LinkedList<Pedido> pedidos = conseguirListaPedidos();
 		for (Iterator iterator = pedidos.iterator(); iterator.hasNext();) {
 			Pedido pedido = (Pedido) iterator.next();
 			comboBox.addItem(pedido);
 		}
-	}
+	}*/
 
 	
 	/*
 	 * 
 	 */
-	public LinkedList<Pedido> conseguirListaPedidos() {
+	/*public LinkedList<Pedido> conseguirListaPedidos() {
 		LinkedList<Pedido> pedidos = new LinkedList<Pedido>();
 
 		for (Iterator iterator = getLogica().getDatoActual().getClienteActual()
@@ -102,7 +103,7 @@ public class Consultar extends Acciones {
 
 		}
 		return pedidos;
-	}
+	}*/
 	public void consultarCliente() {
 
 	}
