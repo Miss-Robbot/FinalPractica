@@ -1,9 +1,11 @@
-package almacen;
+package ruta;
 
 import java.io.File;
 
+import acceso.DAO;
+
 public class AlmacenRutaDestino<T> {
-	private DAORuta<T> daoRuta;
+	private DAO daoRuta;
 	private String pathInicial;
 	private String extension;
 	
@@ -13,7 +15,7 @@ public class AlmacenRutaDestino<T> {
 		super();
 		this.pathInicial = pathInicial;
 		this.extension=extension;
-		daoRuta=new DAORuta<>();
+		daoRuta=new DAO<>();
 	}
 
 	/**
@@ -25,7 +27,11 @@ public class AlmacenRutaDestino<T> {
 	 * @return
 	 */
 	public boolean grabar(String pathDestino, String nombreElemento,T t){
-		return daoRuta.grabar(t, nombreElemento+"."+extension, pathInicial+"/"+pathDestino);
+		File path=new File(pathInicial+"/"+pathDestino);
+		if(!path.exists()){
+			path.mkdirs();
+		}
+		return daoRuta.grabar(pathInicial+"/"+pathDestino+"/"+nombreElemento+"."+extension,t );
 	}
 	
 
@@ -38,7 +44,7 @@ public class AlmacenRutaDestino<T> {
 	 */
 	public T obtener(String pathDestino,String nombreElemento){
 		
-		return daoRuta.obtener(pathInicial+"/"+pathDestino, nombreElemento+"."+extension);
+		return (T) daoRuta.leer(pathInicial+"/"+pathDestino+"/"+nombreElemento+"."+extension);
 	}
 	
 	/**

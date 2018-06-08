@@ -1,6 +1,8 @@
-package almacen;
+package individual;
 
 import java.util.NavigableSet;
+
+import acceso.DAO;
 
 public class AlmacenIndividualSet<T> {
 	private NavigableSet<T> conjunto;
@@ -15,10 +17,6 @@ public class AlmacenIndividualSet<T> {
 		dao = new DAO<>();
 	}
 
-	/**
-	 * 
-	 * @return
-	 */
 	public T first() {
 		getSet();
 		T retorno=null;

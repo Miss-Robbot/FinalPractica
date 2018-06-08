@@ -1,8 +1,6 @@
 package test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 import java.util.TreeMap;
 
@@ -10,22 +8,22 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import almacen.AlmacenMap;
-import almacen.DAO;
+import acceso.DAO;
+import individual.AlmacenMap;
 import modelo.Cliente;
 
 public class AlmacenMapTest {
 	private static final String MAPA_MAP = "mapa.map";
 	AlmacenMap<String, String> mapa;
-	Cliente Cliente=new Cliente("1", "uno", null, null);
+	Cliente Cliente=new Cliente("1", "uno");
 
 	@Before
 	public void setUp() throws Exception {
 		mapa=new AlmacenMap<>(new TreeMap<>(), MAPA_MAP);
-		Cliente Cliente2=new Cliente("1", "uno", null, null);
-		Cliente Cliente3=new Cliente("2", "uno", null, null);
-		Cliente Cliente4=new Cliente("3", "uno", null, null);
-		Cliente Cliente5=new Cliente("4", "uno", null, null);
+		Cliente Cliente2=new Cliente("1", "uno");
+		Cliente Cliente3=new Cliente("2", "uno");
+		Cliente Cliente4=new Cliente("3", "uno");
+		Cliente Cliente5=new Cliente("4", "uno");
 		
 	}
 
@@ -36,16 +34,16 @@ public class AlmacenMapTest {
 
 	@Test
 	public void test() {
-		assertTrue(mapa.grabar(Cliente.getDniCif(), Cliente.getPedidos().toString()));
-		Cliente Cliente2=new Cliente("2", "uno", null, null);
-		Cliente Cliente3=new Cliente("3", "uno", null, null);
-		Cliente Cliente4=new Cliente("4", "uno", null, null);
-		Cliente Cliente5=new Cliente("1", "uno", null, null);
-		assertTrue(mapa.grabar(Cliente2.getDniCif(), Cliente2.getPedidos().toString()));
-		assertTrue(mapa.grabar(Cliente3.getDniCif(), Cliente3.getPedidos().toString()));
-		assertTrue(mapa.grabar(Cliente4.getDniCif(), Cliente4.getPedidos().toString()));
-		assertFalse(mapa.grabar(Cliente5.getDniCif(), Cliente5.getPedidos().toString()));
-		assertEquals(Cliente2.getPedidos(), mapa.obtener(Cliente2.getDniCif().toString()));
+		assertTrue(mapa.grabar(Cliente.getDni(), Cliente.getDatos()));
+		Cliente Cliente2=new Cliente("2", "uno");
+		Cliente Cliente3=new Cliente("3", "uno");
+		Cliente Cliente4=new Cliente("4", "uno");
+		Cliente Cliente5=new Cliente("1", "uno");
+		assertTrue(mapa.grabar(Cliente2.getDni(), Cliente2.getDatos()));
+		assertTrue(mapa.grabar(Cliente3.getDni(), Cliente3.getDatos()));
+		assertTrue(mapa.grabar(Cliente4.getDni(), Cliente4.getDatos()));
+		assertFalse(mapa.grabar(Cliente5.getDni(), Cliente5.getDatos()));
+		assertEquals(Cliente2.getDatos(), mapa.obtener(Cliente2.getDni()));
 	}
 
 }

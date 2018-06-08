@@ -1,22 +1,18 @@
 package modelo;
 
 import java.io.Serializable;
+import java.sql.Date;
+import java.time.LocalDate;
 import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.LinkedList;
 
-public class Articulo implements Serializable,Keyable<Integer> {
+public class Articulo implements Serializable,Indexable<String>{
 
 	private int idArticulo;
 	private String nombre;
 	private String descripcion;
-	private Proveedor proveedor;
 	private LinkedList<Precio> precios;
-
-	public Articulo(int idArticulo, String nombre, String descripcion, float precio, Proveedor proveedor) {
-		this(idArticulo, nombre, descripcion, precio);
-		this.proveedor = proveedor;
-	}
 
 	public Articulo(int idArticulo, String nombre, String descripcion, float precio) {
 		super();
@@ -56,17 +52,6 @@ public class Articulo implements Serializable,Keyable<Integer> {
 		precios.getLast().setFechaFinal();
 		precios.addLast(new Precio(nuevoPrecio, oferta));
 	}
-	
-	
-
-	@Override
-	public String toString() {
-		return ""+nombre;
-	}
-	
-	public String toStringDos(){
-		return "Nombre=" + nombre + ",\n descripcion=" + descripcion + ",\n proveedor=" + proveedor+",\n precioActual= "+precios.getLast();
-	}
 
 	public float getCurrentPrice() {
 		return precios.getLast().getPrecio();
@@ -84,24 +69,10 @@ public class Articulo implements Serializable,Keyable<Integer> {
 		return descripcion;
 	}
 
-	public Proveedor getProveedor() {
-		return proveedor;
-	}
-
-	public LinkedList<Precio> getPrecios() {
-		return precios;
-	}
-
-	public void setPrecios(LinkedList<Precio> precios) {
-		this.precios = precios;
-	}
-
 	@Override
-	public Integer getKey() {
-		return idArticulo;
+	public String getKey() {
+		return nombre;
 	}
-	
-	
-	
+
 
 }

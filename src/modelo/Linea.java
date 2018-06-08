@@ -30,10 +30,6 @@ public class Linea implements Serializable{
 		return articulo;
 	}
 
-	public void setArticulo(Articulo articulo) {
-		this.articulo = articulo;
-	}
-
 	@Override
 	public String toString() {
 		return articulo.getNombre()+" "+String.valueOf(cantidad);

@@ -1,8 +1,9 @@
-package almacen;
+package indice;
 
 import java.util.TreeMap;
 
-import modelo.Keyable;
+import acceso.DAO;
+import modelo.Indexable;
 
 public class AlmacenIndice<T, K> {
 	private String pathIndice;
@@ -23,18 +24,13 @@ public class AlmacenIndice<T, K> {
 		return this.pathIndice != null && this.pathDatos != null;
 	}
 
-	/**
-	 * borra un objeto
-	 * @param k
-	 * @return
-	 */
 	public boolean borrar(K k){
 		leerIndice();
 		boolean retorno=false;
 		if(indice.containsKey(k)){
 			Integer posicion=indice.remove(k);
 			if(posicion!=null){
-				retorno=dao.borrarElemtento(pathDatos,posicion);
+				retorno=dao.borrarElemento(pathDatos,posicion);
 				if(!retorno){
 					leerIndice();
 				}else{
@@ -47,15 +43,12 @@ public class AlmacenIndice<T, K> {
 		return retorno;
 	}
 
-	/**
-	 * Cambia los indices para poder borrar mejor
-	 */
 	private void recargaIndice() {
 		indice=new TreeMap<>();
 		int posicion=0;
 		T t=(T) dao.leer(pathDatos, posicion);
 		while (t!=null){
-			Keyable<K> elemento=(Keyable<K>) t;
+			Indexable<K> elemento=(Indexable<K>) t;
 			K k=elemento.getKey();
 			indice.put(k, posicion);
 			posicion++;
@@ -64,18 +57,10 @@ public class AlmacenIndice<T, K> {
 		
 	}
 
-	/**
-	 * Mira el indice para poder obtener
-	 */
 	private void leerIndice() {
 		indice = (TreeMap<K, Integer>) dao.leer(pathIndice);
 	}
 	
-	/**
-	 * Te da un objeto
-	 * @param k
-	 * @return
-	 */
 	public T obtener(K k) {
 		leerIndice();
 		if (indice == null) {

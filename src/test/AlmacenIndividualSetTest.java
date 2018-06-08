@@ -1,25 +1,21 @@
 package test;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.*;
 
+import java.util.ArrayList;
 import java.util.TreeSet;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import almacen.AlmacenIndividualSet;
-import almacen.DAO;
+import acceso.DAO;
+import individual.AlmacenIndividualSet;
 import modelo.Cliente;
 
 public class AlmacenIndividualSetTest {
 	private static final String CLIENTES_LIST = "clientes.list";
-	Cliente cliente = new Cliente("1", "uno", null, null);
+	Cliente cliente = new Cliente("1", "uno");
 	AlmacenIndividualSet<Cliente> instancia;
 
 	@Before

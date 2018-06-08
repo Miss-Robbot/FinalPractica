@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
-public class Pedido implements Serializable, Keyable<Integer>{
+public class Pedido implements Serializable {
 
 	private int numero;
 	private Cliente cliente;
@@ -50,11 +50,6 @@ public class Pedido implements Serializable, Keyable<Integer>{
 
 	public ArrayList<Linea> getLineas() {
 		return lineas;
-	}
-
-	@Override
-	public Integer getKey() {
-		return numero;
 	}
 	
 }

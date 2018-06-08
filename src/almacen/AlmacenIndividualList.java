@@ -1,7 +1,15 @@
-package almacen;
+package individual;
 
 import java.util.AbstractList;
 
+import acceso.DAO;
+/**
+ * 
+ * @author estar
+ *
+ *Cuando en un fichero hemos almacenado un solo elemento y es una Lis
+ * @param <T>
+ */
 public class AlmacenIndividualList<T> {
 
 	private AbstractList<T> list;
@@ -16,11 +24,6 @@ public class AlmacenIndividualList<T> {
 		dao = new DAO<AbstractList<T>>();
 	}
 
-	/**
-	 * Obtener un objeto
-	 * @param index
-	 * @return
-	 */
 	public T obtener(int index) {
 		getList();
 		T retorno = null;
@@ -31,11 +34,6 @@ public class AlmacenIndividualList<T> {
 
 	}
 
-	/**
-	 * graba un objeto
-	 * @param t
-	 * @return
-	 */
 	public boolean grabar(T t) {
 		assert t!=null;
 		boolean retorno = false;
@@ -47,9 +45,6 @@ public class AlmacenIndividualList<T> {
 		return retorno;
 	}
 
-	/**
-	 * Obtener el fichero
-	 */
 	private void getList() {
 		AbstractList<T> temporal = dao.leer(path);
 		if (temporal == null) {

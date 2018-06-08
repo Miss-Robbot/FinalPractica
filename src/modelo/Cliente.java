@@ -1,77 +1,50 @@
 package modelo;
-
 import java.io.Serializable;
-import java.util.LinkedList;
 
-public class Cliente implements Serializable,Keyable<String> {
-	private String dniCif;
-	private String razonSocial;
-	private String direccion;
-	private String telefono;
-	private LinkedList<Pedido> pedidos= new LinkedList<>();
+public class Cliente implements Serializable,Comparable<Cliente>,Indexable<String>{
+	private String dni;
+	private String datos;
 
-	public LinkedList<Pedido> getPedidos() {
-		return pedidos;
-	}
-
-	public void setPedidos(LinkedList<Pedido> pedidos) {
-		this.pedidos = pedidos;
-	}
-
-	public Cliente(String dniCif, String razonSocial, String direccion, String telefono) {
+	public Cliente(String dni, String datos) {
 		super();
-		this.dniCif = dniCif;
-		this.razonSocial = razonSocial;
-		this.direccion = direccion;
-		this.telefono = telefono;
+		this.dni = dni;
+		this.datos = datos;
 	}
 
-	public String getDireccion() {
-		return direccion;
+	public String getDni() {
+		return dni;
 	}
 
-	public void setDireccion(String direccion) {
-		this.direccion = direccion;
+	public void setDni(String dni) {
+		this.dni = dni;
 	}
 
-	public String getTelefono() {
-		return telefono;
+	public String getDatos() {
+		return datos;
 	}
 
-	public void setTelefono(String telefono) {
-		this.telefono = telefono;
-	}
-
-	public String getDniCif() {
-		return dniCif;
-	}
-
-	public String getRazonSocial() {
-		return razonSocial;
+	public void setDatos(String datos) {
+		this.datos = datos;
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		Cliente cliente = (Cliente) obj;
-		boolean retorno = super.equals(obj);
+		boolean retorno=super.equals(obj);
 		if(!retorno){
-			retorno = this.dniCif.equals(cliente.dniCif);
+			Cliente cli=(Cliente) obj;
+			retorno=this.dni.equals(cli.dni);
 		}
 		return retorno;
 	}
 
 	@Override
-	public int hashCode() {
-		return dniCif.hashCode();
-	}
-
-	@Override
-	public String toString() {
-		return razonSocial+": DNI/NIF: "+dniCif+". Direccion: "+direccion+". Telefono: "+telefono;
+	public int compareTo(Cliente o) {
+		return dni.compareTo(o.dni);
 	}
 
 	@Override
 	public String getKey() {
-		return dniCif;
+		return dni;
 	}
+	
 }
