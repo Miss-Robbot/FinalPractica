@@ -6,11 +6,11 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import acceso.DAO;
+import almacen.*;
 import modelo.Articulo;
 import modelo.Cliente;
 import modelo.Pedido;
-import ruta.AlmacenRutaDestino;
+
 
 public class AlmacenRutaDestinoTest {
 

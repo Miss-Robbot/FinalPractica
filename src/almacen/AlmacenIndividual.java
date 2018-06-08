@@ -1,6 +1,4 @@
-package individual;
-
-import acceso.DAO;
+package almacen;
 
 public class AlmacenIndividual <T>{
 

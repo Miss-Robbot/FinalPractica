@@ -40,18 +40,18 @@ public class Logica {
 	 * @param articulo
 	 * @return
 	 */
-	public LinkedList<Precio> preciosArticulo(Articulo articulo){
+	/*public LinkedList<Precio> preciosArticulo(Articulo articulo){
 		return articulo.getPrecios();
-	}
+	}*/
 	
 	/**
 	 * Añade un artículo a la línea de pedido. Recordar crear una nueva línea de pedido antes, para no sustituir la anterior.
 	 * @param articulo
 	 * @param cantidad
 	 */
-	public void darAltaArticulo(Articulo articulo, int cantidad,Cliente cliente,Pedido pedido){
+	/*public void darAltaArticulo(Articulo articulo, int cantidad,Cliente cliente,Pedido pedido){
 		dato.getMapaCliente().get(cliente.getDniCif()).getPedidos().get(pedido.getNumero()).getLineas().add(new Linea(articulo, cantidad));
-	}
+	}*/
 	
 	/**
 	 * Añade un pedido nuevo al Cliente.
@@ -67,19 +67,19 @@ public class Logica {
 	 * @param pedido
 	 * @return
 	 */
-	public LinkedList<Articulo> articulosEnPedido(Pedido pedido){
+	/*public LinkedList<Articulo> articulosEnPedido(Pedido pedido){
 		return dato.getAlmacenPedidos().getLineaPedidos();
-	}
+	}*/
 	
 	/**
 	 * Cambia el último precio de la lista (precioActual)  a un precio nuevo
 	 * @param precioNuevo
 	 * @param articulo
 	 */
-	public void cambiarPrecio(Precio precioNuevo,Articulo articulo){
+	/*public void cambiarPrecio(Precio precioNuevo,Articulo articulo){
 		articulo.getPrecios().pop();
 		articulo.getPrecios().add(precioNuevo);
-	}
+	}*/
 	
 	/**
 	 * Añade un articulo a un pedido en concreto
@@ -98,19 +98,19 @@ public class Logica {
 	 * @param dire
 	 * @param tlf
 	 */
-	public void crearCliente(String dni, String nombre, String dire, String tlf){
+	/*public void crearCliente(String dni, String nombre, String dire, String tlf){
 		Cliente client = new Cliente(dni, nombre, dire, tlf);
 		dato.grabarCliente(client);
-	}
+	}*/
 	
 	/**
 	 * @author macol
 	 * @param dni
 	 * @return
 	 */
-	public Cliente consultarCliente(String dni){
+	/*public Cliente consultarCliente(String dni){
 		return dato.obtenerCliente(dni);
-	}
+	}*/
 	
 	/**
 	 * establece el texto de consulta Cliente
@@ -134,17 +134,17 @@ public class Logica {
 	 * @param dni
 	 * @return
 	 */
-	public JComboBox obtenerComboBox(JComboBox comboBox, String dni){
+	/*public JComboBox obtenerComboBox(JComboBox comboBox, String dni){
 		comboBox.addItem(dato.obtenerCliente(dni));
 		return comboBox;
-	}
+	}*/
 	
 	/**
 	 * Tiene todos los artículos en una lista del pedido de dato actual
 	 * 
 	 * @param datoActual
 	 */
-	public LinkedList<Articulo> conseguirListaArticulos(Cliente cliente,int posicion) {
+	/*public LinkedList<Articulo> conseguirListaArticulos(Cliente cliente,int posicion) {
 		LinkedList<Articulo> articulos = new LinkedList<Articulo>();
 		ArrayList<Linea> lineas= dato.getMapaCliente().get(cliente.getDniCif()).getPedidos().get(posicion).getLineas();
 		for (Iterator iterator = lineas.iterator(); iterator.hasNext();) {
@@ -153,7 +153,7 @@ public class Logica {
 
 		}
 		return articulos;
-	}
+	}*/
 
 	
 }

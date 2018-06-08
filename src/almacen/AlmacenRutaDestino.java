@@ -1,8 +1,6 @@
-package ruta;
+package almacen;
 
 import java.io.File;
-
-import acceso.DAO;
 
 public class AlmacenRutaDestino<T> {
 	private DAO daoRuta;

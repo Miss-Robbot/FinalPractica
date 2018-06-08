@@ -1,10 +1,7 @@
-package ruta;
+package almacen;
 
 import java.io.File;
 import java.util.TreeMap;
-
-import acceso.DAO;
-import individual.AlmacenMap;
 
 /**
  * 

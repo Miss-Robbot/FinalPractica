@@ -8,8 +8,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import acceso.DAO;
-import individual.AlmacenIndividualList;
+import almacen.*;
 import modelo.Cliente;
 import modelo.Socio;
 

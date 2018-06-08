@@ -1,8 +1,7 @@
-package indice;
+package almacen;
 
 import java.util.TreeMap;
 
-import acceso.DAO;
 import modelo.Indexable;
 
 public class AlmacenIndice<T, K> {

@@ -1,8 +1,6 @@
-package individual;
+package almacen;
 
 import java.util.Map;
-
-import acceso.DAO;
 
 public class AlmacenMap<K, V> {
 	private Map<K, V> mapa;

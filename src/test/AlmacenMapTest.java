@@ -8,8 +8,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import acceso.DAO;
-import individual.AlmacenMap;
+import almacen.*;
 import modelo.Cliente;
 
 public class AlmacenMapTest {

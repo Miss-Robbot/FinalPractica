@@ -8,10 +8,9 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import acceso.DAO;
-import individual.AlmacenMap;
+import almacen.*;
 import modelo.Articulo;
-import ruta.AlmacenRutaMapeada;
+
 
 public class almacenRutaMapeadaTest {
 	private static final String RUTARELATIVA_ARTICULOS = "data/articulos";

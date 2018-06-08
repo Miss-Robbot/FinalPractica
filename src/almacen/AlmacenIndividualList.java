@@ -1,8 +1,7 @@
-package individual;
+package almacen;
 
 import java.util.AbstractList;
 
-import acceso.DAO;
 /**
  * 
  * @author estar

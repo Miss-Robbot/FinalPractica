@@ -6,12 +6,7 @@ import java.util.LinkedList;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 
-import modelo.Articulo;
-import modelo.Cliente;
-import modelo.DatoActual;
-import modelo.Linea;
-import modelo.Pedido;
-import modelo.Precio;
+import modelo.*;
 
 public class Consultar extends Acciones {
 
@@ -26,7 +21,7 @@ public class Consultar extends Acciones {
 	 */
 	public void consultarPreciosAntiguos(Articulo articulo,
 			JTextArea txtInformacion) {
-		LinkedList<Precio> preciosArticulo = getLogica()
+		/*LinkedList<Precio> preciosArticulo = getLogica()
 				.preciosArticulo(articulo);
 		preciosArticulo.pop(); // Tener cuidado que este quite el último añadido
 		String informacion = "";
@@ -35,7 +30,7 @@ public class Consultar extends Acciones {
 			Precio precio = (Precio) iterator.next();
 			informacion.concat(preciosArticulo.toString() + "\n");
 		}
-		txtInformacion.setText(informacion);
+		txtInformacion.setText(informacion);*/
 	}
 
 	/**
@@ -44,13 +39,13 @@ public class Consultar extends Acciones {
 	 * paraui por el combobox
 	 */
 	public void consultarPedido(Pedido pedido, JTextArea txtInformacion) {
-		LinkedList<Articulo> articulos = getLogica().articulosEnPedido(pedido);
-		String informacionArticulos = "";
+		//LinkedList<Articulo> articulos = getLogica().articulosEnPedido(pedido);
+		/*String informacionArticulos = "";
 		for (Iterator iterator = articulos.iterator(); iterator.hasNext();) {
 			Articulo articulo = (Articulo) iterator.next();
 			informacionArticulos.concat(articulo.toString() + "\n");
 		}
-		txtInformacion.setText(informacionArticulos);
+		txtInformacion.setText(informacionArticulos);*/
 	}
 
 	/**
@@ -62,7 +57,7 @@ public class Consultar extends Acciones {
 	 */
 
 	public void consultarArticulo(Articulo articulo, JTextArea txtInformacion) {
-		txtInformacion.setText(articulo.toStringDos());
+		//txtInformacion.setText(articulo.toStringDos());
 
 	}
 
@@ -73,11 +68,11 @@ public class Consultar extends Acciones {
 	 * @param articulos
 	 */
 	public void rellenarComboboxArticulo(JComboBox<Articulo> combobox, Cliente cliente, int posicion) {
-		LinkedList<Articulo> articulos = getLogica().conseguirListaArticulos(cliente, posicion);
+		/*LinkedList<Articulo> articulos = getLogica().conseguirListaArticulos(cliente, posicion);
 		for (Iterator iterator = articulos.iterator(); iterator.hasNext();) {
 			Articulo articulo = (Articulo) iterator.next();
 			combobox.addItem(articulo);
-		}
+		}*/
 	}
 
 	/*public void rellenarComboboxPedido(JComboBox<Pedido> comboBox,
@@ -104,7 +99,25 @@ public class Consultar extends Acciones {
 		}
 		return pedidos;
 	}*/
-	public void consultarCliente() {
+	public void rellenarComboboxCliente(JComboBox<Cliente> comboBox) {
 
+		/*LinkedList<Cliente> clientes = conseguirListaClientes();
+		for (Iterator iterator = clientes.iterator(); iterator.hasNext();) {
+			Cliente cliente = (Cliente) iterator.next();
+			comboBox.addItem(cliente);
+				}*/
+			}
+
+
+
+
+	private LinkedList<Cliente> conseguirListaClientes() {
+		LinkedList<Cliente> clientes = new LinkedList<Cliente>();
+		/*for (Iterator iterator = getLogica().getDatoActual().getClienteActual(); iterator.hasNext();) {
+		Cliente cliente = (Cliente) iterator.next();
+		clientes.add(cliente);}*/
+			
+		return clientes;
 	}
+
 }

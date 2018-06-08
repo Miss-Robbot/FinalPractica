@@ -9,8 +9,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import acceso.DAO;
-import individual.AlmacenIndividualSet;
+import almacen.*;
 import modelo.Cliente;
 
 public class AlmacenIndividualSetTest {

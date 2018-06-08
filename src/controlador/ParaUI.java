@@ -9,7 +9,6 @@ import javax.swing.JComboBox;
 
 import modelo.Articulo;
 import modelo.Cliente;
-import modelo.DatoActual;
 import modelo.Linea;
 import modelo.Logica;
 import validacion.Validator;
@@ -29,7 +28,6 @@ public class ParaUI extends UI{
 	private Consultar consultar=new Consultar();
 	private DarAlta darAlta= new DarAlta();
 	private Insertar insertar= new Insertar();
-	private DatoActual datoActual= new DatoActual();
 	
 	
 	public ParaUI(){
@@ -141,7 +139,7 @@ public class ParaUI extends UI{
 				todosInvisibles();
 				panelConsultar.setVisible(true);
 				rellenarDePrueba();
-				consultar.rellenarComboboxArticulo(panelConsultar.getComboBox(),acciones.getLogica().getDato().getMapaCliente().get("alicia"),0);
+				//consultar.rellenarComboboxArticulo(panelConsultar.getComboBox(),acciones.getLogica().getDato().getMapaCliente().get("alicia"),0);
 				
 				panelConsultar.getComboBox().addActionListener(new ActionListener() {
 					@Override
@@ -268,12 +266,12 @@ public class ParaUI extends UI{
 	}
 	
 	public void rellenarDePrueba(){
-		Cliente cliente= new Cliente("alicia", "casada", "calla la concordia", "56489");
+		/*Cliente cliente= new Cliente("alicia", "casada", "calla la concordia", "56489");
 		Pedido pedido= new Pedido(0, cliente);
 		Articulo articulo= new Articulo(0, "patata", "dura", 5);
 		pedido.insertarLinea(new Linea(articulo, 1));
 		cliente.getPedidos().add(pedido);
-		acciones.getLogica().getDato().getMapaCliente().put(cliente.getDniCif(),cliente );
+		acciones.getLogica().getDato().getMapaCliente().put(cliente.getDniCif(),cliente );*/
 	}
 	public void todosInvisibles(){
 		panelArticulos.setVisible(false);

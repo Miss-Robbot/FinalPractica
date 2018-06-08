@@ -1,4 +1,4 @@
-package acceso;
+package almacen;
 
 import java.io.Closeable;
 import java.io.File;

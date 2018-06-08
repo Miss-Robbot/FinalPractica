@@ -1,16 +1,10 @@
-package facade;
+package modelo;
 
 import java.util.TreeSet;
 
-import indice.AlmacenIndice;
-import individual.AlmacenIndividual;
-import individual.AlmacenIndividualSet;
-import modelo.Articulo;
-import modelo.Cliente;
-import modelo.Pedido;
-import modelo.Proveedor;
-import ruta.AlmacenRutaDestino;
-import ruta.AlmacenRutaMapeada;
+import almacen.*;
+import modelo.*;
+
 
 //La suite de test tiene que daos en verde. Luego podeis probar esta clase
 public class Datos {

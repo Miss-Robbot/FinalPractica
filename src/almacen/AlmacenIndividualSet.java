@@ -1,8 +1,6 @@
-package individual;
+package almacen;
 
 import java.util.NavigableSet;
-
-import acceso.DAO;
 
 public class AlmacenIndividualSet<T> {
 	private NavigableSet<T> conjunto;
