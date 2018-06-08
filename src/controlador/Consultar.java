@@ -104,7 +104,25 @@ public class Consultar extends Acciones {
 		}
 		return pedidos;
 	}*/
-	public void consultarCliente() {
+	public void rellenarComboboxCliente(JComboBox<Cliente> comboBox,DatoActual datoActual) {
 
+		LinkedList<Cliente> clientes = conseguirListaClientes();
+		for (Iterator iterator = clientes.iterator(); iterator.hasNext();) {
+			Cliente cliente = (Cliente) iterator.next();
+			comboBox.addItem(cliente);
+				}
+			}
+
+
+
+
+	private LinkedList<Cliente> conseguirListaClientes() {
+		LinkedList<Cliente> clientes = new LinkedList<Cliente>();
+		/*for (Iterator iterator = getLogica().getDatoActual().getClienteActual(); iterator.hasNext();) {
+		Cliente cliente = (Cliente) iterator.next();
+		clientes.add(cliente);}*/
+			
+		return clientes;
 	}
+
 }
