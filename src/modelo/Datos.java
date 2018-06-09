@@ -32,14 +32,17 @@ public class Datos {
 
 	public Datos() {
 
-		clientes = new AlmacenIndice<Cliente, String>(pathIndiceCliente, pathDatosCliente);
-		proveedores = new AlmacenIndividualSet<>(new TreeSet<Proveedor>(), pathDatosProveedores);
-		articulos = new AlmacenRutaMapeada<>("art", pathMapaArticulos, pathArchivosMapaArticulos);
+		clientes = new AlmacenIndice<Cliente, String>(pathIndiceCliente,
+				pathDatosCliente);
+		proveedores = new AlmacenIndividualSet<>(new TreeSet<Proveedor>(),
+				pathDatosProveedores);
+		articulos = new AlmacenRutaMapeada<>("art", pathMapaArticulos,
+				pathArchivosMapaArticulos);
 		pedidos = new AlmacenRutaDestino<>(pathPedidos, "ped");
 		numeroPedido = new AlmacenIndividual<>();
 		Integer obtener = numeroPedido.obtener(pathNumeroPedido);
 		if (obtener == null) {
-			numeroPedido.grabar(pathNumeroPedido, 0);
+			//numeroPedido.grabar(pathNumeroPedido, 0);
 		}
 	}
 
@@ -52,11 +55,13 @@ public class Datos {
 	}
 
 	public boolean grabar(Articulo articulo) {
-		return articulos.grabar(articulo, articulo.getKey(), articulo.getIdArticulo());
+		return articulos.grabar(articulo, articulo.getKey(),
+				articulo.getIdArticulo());
 	}
 
 	public boolean grabar(Pedido pedido) {
-		return pedidos.grabar(pedido.getCliente().getDni(), String.valueOf(pedido.getNumero()), pedido);
+		return pedidos.grabar(pedido.getCliente().getDni(),
+				String.valueOf(pedido.getNumero()), pedido);
 	}
 
 	public boolean grabar(Integer integer) {
