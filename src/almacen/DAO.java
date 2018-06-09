@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.OutputStream;
-import java.util.StringTokenizer;
 
 public class DAO<T> {
 	public T leer(String path) {

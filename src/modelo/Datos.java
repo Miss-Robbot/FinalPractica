@@ -2,8 +2,11 @@ package modelo;
 
 import java.util.TreeSet;
 
-import almacen.*;
-import modelo.*;
+import almacen.AlmacenIndice;
+import almacen.AlmacenIndividual;
+import almacen.AlmacenIndividualSet;
+import almacen.AlmacenRutaDestino;
+import almacen.AlmacenRutaMapeada;
 
 //La suite de test tiene que daos en verde. Luego podeis probar esta clase
 public class Datos {
