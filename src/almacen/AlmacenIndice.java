@@ -19,10 +19,19 @@ public class AlmacenIndice<T, K> {
 		dao = new DAO<>();
 	}
 
+	/**
+	 * que los path no sean nulos
+	 * @return
+	 */
 	private boolean validate() {
 		return this.pathIndice != null && this.pathDatos != null;
 	}
 
+	/**
+	 * Borrar un objeto
+	 * @param k
+	 * @return
+	 */
 	public boolean borrar(K k){
 		leerIndice();
 		boolean retorno=false;
@@ -42,6 +51,9 @@ public class AlmacenIndice<T, K> {
 		return retorno;
 	}
 
+	/**
+	 * cambia los indices para que apunten a la siguiente linea
+	 */
 	private void recargaIndice() {
 		indice=new TreeMap<>();
 		int posicion=0;
@@ -56,10 +68,18 @@ public class AlmacenIndice<T, K> {
 		
 	}
 
+	/**
+	 * lee del fichero y lo mete en el mapa indice
+	 */
 	private void leerIndice() {
 		indice = (TreeMap<K, Integer>) dao.leer(pathIndice);
 	}
 	
+	/**
+	 * Obtiene un objeto
+	 * @param k
+	 * @return
+	 */
 	public T obtener(K k) {
 		leerIndice();
 		if (indice == null) {

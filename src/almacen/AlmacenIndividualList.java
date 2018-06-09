@@ -23,6 +23,11 @@ public class AlmacenIndividualList<T> {
 		dao = new DAO<AbstractList<T>>();
 	}
 
+	/**
+	 * Obtiene un objeto de una lista
+	 * @param index
+	 * @return
+	 */
 	public T obtener(int index) {
 		getList();
 		T retorno = null;
@@ -33,6 +38,11 @@ public class AlmacenIndividualList<T> {
 
 	}
 
+	/**
+	 * Graba un objeto en la lista
+	 * @param t
+	 * @return
+	 */
 	public boolean grabar(T t) {
 		assert t!=null;
 		boolean retorno = false;
@@ -44,6 +54,9 @@ public class AlmacenIndividualList<T> {
 		return retorno;
 	}
 
+	/**
+	 * Te devuelve una lista
+	 */
 	private void getList() {
 		AbstractList<T> temporal = dao.leer(path);
 		if (temporal == null) {

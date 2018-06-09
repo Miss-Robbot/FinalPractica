@@ -15,6 +15,11 @@ public class AlmacenMap<K, V> {
 		getMapa();
 	}
 
+	/**
+	 * Te da un objeto de un mapa
+	 * @param k
+	 * @return
+	 */
 	public V obtener(K k) {
 		getMapa();
 		V v = null;
@@ -26,6 +31,12 @@ public class AlmacenMap<K, V> {
 		return v;
 	}
 
+	/**
+	 * Graba en el fichero un objeto
+	 * @param k
+	 * @param v
+	 * @return
+	 */
 	public boolean grabar(K k, V v) {
 		boolean retorno = false;
 		getMapa();
@@ -36,6 +47,9 @@ public class AlmacenMap<K, V> {
 		return retorno;
 	}
 
+	/**
+	 * Te devuelve el mapa
+	 */
 	private void getMapa() {
 		Map<K, V> temporal = dao.leer(rutaMapa);
 		if (temporal == null) {
@@ -53,6 +67,11 @@ public class AlmacenMap<K, V> {
 		return mapa.size();
 	}
 
+	/**
+	 * Borra en el fichero un objeto
+	 * @param k
+	 * @return
+	 */
 	public boolean borrar(K k) {
 		boolean retorno = true;
 		if (mapa.remove(k) == null)
