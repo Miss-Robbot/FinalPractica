@@ -11,13 +11,13 @@ import almacen.AlmacenRutaMapeada;
 //La suite de test tiene que daos en verde. Luego podeis probar esta clase
 public class Datos {
 	// VAmos a expresar los diferentes almacenes
-	private String pathIndiceCliente = "/data/clientes/index.data";
-	private String pathDatosCliente = "/data/clientes/clientes.data";
-	private String pathDatosProveedores = "/data/proveedores/proveedores.data";
-	private String pathMapaArticulos = "/data/articulos";
-	private String pathArchivosMapaArticulos = "/articulos.map";
-	private String pathPedidos = "/data/pedidos";
-	private String pathNumeroPedido = "/data/pedidos/numPedido.data";
+	private String pathIndiceCliente = "./data/clientes/index.data";
+	private String pathDatosCliente = "./data/clientes/clientes.data";
+	private String pathDatosProveedores = "./data/proveedores/proveedores.data";
+	private String pathMapaArticulos = "./data/articulos";
+	private String pathArchivosMapaArticulos = "./articulos.map";
+	private String pathPedidos = "./data/pedidos";
+	private String pathNumeroPedido = "./data/pedidos/numPedido.data";
 
 	// Cliente
 	private AlmacenIndice<Cliente, String> clientes;
