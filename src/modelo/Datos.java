@@ -1,5 +1,7 @@
 package modelo;
 
+import java.util.ArrayList;
+import java.util.Set;
 import java.util.TreeSet;
 
 import almacen.AlmacenIndice;
@@ -78,8 +80,8 @@ public class Datos {
 	}
 
 	// hecho por alicia
-	public void obtener(Articulo articulo, String nombreArticulo) {
-		articulo = articulos.obtener(nombreArticulo);
+	public Articulo obtener(String nombreArticulo) {
+		return articulos.obtener(nombreArticulo);
 	}
 
 	public String getPathMapaArticulos() {
@@ -93,10 +95,23 @@ public class Datos {
 	public AlmacenRutaMapeada<Articulo, String> getArticulos() {
 		return articulos;
 	}
-	
-	public int getNumeroArticulo(){
+
+	public int getNumeroArticulo() {
 		return articulos.obtenNumero();
 	}
-	
-	
+
+	public Set<String> keySet() {
+		return articulos.keySet();
+	}
+
+	public ArrayList<Articulo> getListaArticulos() {
+		ArrayList<Articulo> articulos = new ArrayList<Articulo>();
+		for (String clave : this.keySet()) {
+			Articulo articulo = obtener(clave);
+			if(articulo!=null)
+				articulos.add(articulo);
+		}
+		return articulos;
+	}
+
 }

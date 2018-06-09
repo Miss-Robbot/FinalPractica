@@ -2,6 +2,7 @@ package almacen;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.Set;
 import java.util.TreeMap;
 
 /**
@@ -69,7 +70,7 @@ public class AlmacenRutaMapeada<T, K> {
 		Integer v = mapa.obtener(k);
 		T t = null;
 		if (v != null) {
-			t = (T) ruta.leer(estableceRuta(v));
+			t = (T) ruta.leer("."+estableceRuta(v));
 		}
 		return t;
 	}
@@ -97,5 +98,11 @@ public class AlmacenRutaMapeada<T, K> {
 	public int obtenNumero() {
 		return mapa.getSize();
 	}
+
+	public Set<K> keySet() {
+		return mapa.keySet();
+	}
+	
+	
 
 }

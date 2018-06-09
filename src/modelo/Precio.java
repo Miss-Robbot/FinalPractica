@@ -68,4 +68,11 @@ public class Precio implements Serializable{
 		return oferta;
 	}
 
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	
+	
+	
+
 }
