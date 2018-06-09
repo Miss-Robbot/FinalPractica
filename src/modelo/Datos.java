@@ -73,4 +73,22 @@ public class Datos {
 	public void obtener(Articulo articulo, String nombreArticulo) {
 		articulo = articulos.obtener(nombreArticulo);
 	}
+
+	public String getPathMapaArticulos() {
+		return pathMapaArticulos;
+	}
+
+	public String getPathArchivosMapaArticulos() {
+		return pathArchivosMapaArticulos;
+	}
+
+	public AlmacenRutaMapeada<Articulo, String> getArticulos() {
+		return articulos;
+	}
+	
+	public int getNumeroArticulo(){
+		return articulos.obtenNumero();
+	}
+	
+	
 }

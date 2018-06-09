@@ -22,6 +22,17 @@ public class Logica {
 	public void setDato(Datos dato) {
 		this.dato = dato;
 	}
+
+	public int getNumeroArticulo() {
+		return dato.getNumeroArticulo();
+	}
+
+	public boolean grabar(Articulo articulo) {
+		return dato.grabar(articulo);
+	}
+	
+	
+	
 	
 	//Aquí todos los métodos que usen la lógica y tengan que devolver cosas
 
