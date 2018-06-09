@@ -2,10 +2,12 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 
 import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 import modelo.Articulo;
 import modelo.Cliente;
@@ -176,13 +178,13 @@ public class ParaUI extends UI{
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						String txtNombre=panelDarAltaArticulo.getTxtNombre().getText();
+						String txtNombre=panelDarAltaArticulo.getTxtNombre().getText().trim();
 						panelDarAltaArticulo.getTxtNombre().setText(txtNombre);
 						
-						String txtDescripcion=panelDarAltaArticulo.getTxtDescripcion().getText();
+						String txtDescripcion=panelDarAltaArticulo.getTxtDescripcion().getText().trim();
 						panelDarAltaArticulo.getTxtDescripcion().setText(txtDescripcion);
 						
-						String txtProveedor=panelDarAltaArticulo.getTxtProveedor().getText();
+						String txtProveedor=panelDarAltaArticulo.getTxtProveedor().getText().trim();
 						panelDarAltaArticulo.getTxtProveedor().setText(txtProveedor);
 						
 						int cantidad=Integer.parseInt(panelDarAltaArticulo.getTextField().getText());
@@ -191,6 +193,10 @@ public class ParaUI extends UI{
 							Articulo articulo= new Articulo(idArticulo, txtNombre, txtDescripcion, cantidad);
 							acciones.grabar(articulo);
 							panelDarAltaArticulo.getLblConfirmacion().setText("Todo bien");
+							limpiarEtiqueta(panelDarAltaArticulo.getTxtNombre());
+							limpiarEtiqueta(panelDarAltaArticulo.getTxtDescripcion());
+							limpiarEtiqueta(panelDarAltaArticulo.getTxtProveedor());
+							limpiarEtiqueta(panelDarAltaArticulo.getTextField());
 						}
 						else
 							panelDarAltaArticulo.getLblConfirmacion().setText("Error al dar de alta");
@@ -204,7 +210,17 @@ public class ParaUI extends UI{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
-				panelConsultar.setVisible(true);
+				panelConsultarArticulo.setVisible(true);
+				consultar.rellenarComboboxArticulo(panelConsultarArticulo.getComboBox());
+				panelConsultarArticulo.getComboBox().addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						Articulo articulo= acciones.getLogica().getDato().obtener(panelConsultarArticulo.getComboBox().getSelectedItem().toString());
+						panelConsultarArticulo.getTxtInformacion().setText(articulo.informacionArticulo());
+						
+					}
+				});
 			}
 		});
 		
@@ -230,7 +246,10 @@ public class ParaUI extends UI{
 		
 	}
 	
-	public void todosInvisibles(){
+	private void limpiarEtiqueta(JTextField etiqueta){
+		etiqueta.setText("");
+	}
+	private void todosInvisibles(){
 		panelArticulos.setVisible(false);
 		panelPedidos.setVisible(false);
 		panelInicio.setVisible(false);
@@ -239,6 +258,7 @@ public class ParaUI extends UI{
 		panelConsultar.setVisible(false);
 		cambiarPrecioArticulo.setVisible(false);
 		panelDarAltaCliente.setVisible(false);
+		panelConsultarArticulo.setVisible(false);
 	}
 
 	public Acciones getAcciones() {

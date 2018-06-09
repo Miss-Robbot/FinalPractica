@@ -1,5 +1,6 @@
 package controlador;
 
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.LinkedList;
 
@@ -67,12 +68,12 @@ public class Consultar extends Acciones {
 	 * @param combobox
 	 * @param articulos
 	 */
-	public void rellenarComboboxArticulo(JComboBox<Articulo> combobox, Cliente cliente, int posicion) {
-		/*LinkedList<Articulo> articulos = getLogica().conseguirListaArticulos(cliente, posicion);
-		for (Iterator iterator = articulos.iterator(); iterator.hasNext();) {
-			Articulo articulo = (Articulo) iterator.next();
-			combobox.addItem(articulo);
-		}*/
+	public void rellenarComboboxArticulo(JComboBox combobox) {
+		combobox.removeAll();
+		ArrayList<Articulo> articulos= getLogica().getListaArticulos();
+		for (Articulo articulo : articulos) {
+			combobox.addItem(articulo.toString());
+		}
 	}
 
 	/*public void rellenarComboboxPedido(JComboBox<Pedido> comboBox,

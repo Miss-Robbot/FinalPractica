@@ -1,6 +1,8 @@
 package almacen;
 
+import java.util.ArrayList;
 import java.util.Map;
+import java.util.Set;
 
 public class AlmacenMap<K, V> {
 	private Map<K, V> mapa;
@@ -78,4 +80,10 @@ public class AlmacenMap<K, V> {
 			retorno = false;
 		return retorno;
 	}
+
+	public Set<K> keySet() {
+		return mapa.keySet();
+	}
+	
+	
 }

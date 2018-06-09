@@ -30,6 +30,7 @@ public class UI extends JFrame {
 	protected DarAltaCliente altaCliente;
 	protected BorrarCliente borrarCliente;
 	protected ConsultarCliente consulta;
+	protected PanelConsultarArticulo panelConsultarArticulo;
 
 	/**
 	 * Launch the application.
@@ -171,6 +172,9 @@ public class UI extends JFrame {
 		panelPrincipal.add(borrarCliente, gbc_panelConsultar);
 		borrarCliente.setVisible(false);
 
+		panelConsultarArticulo = new PanelConsultarArticulo();
+		panelPrincipal.add(panelConsultarArticulo, gbc_panelConsultar);
+		panelConsultarArticulo.setVisible(false);
 	}
 
 }
