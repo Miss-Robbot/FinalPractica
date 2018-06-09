@@ -69,7 +69,7 @@ public class Consultar extends Acciones {
 	 * @param articulos
 	 */
 	public void rellenarComboboxArticulo(JComboBox combobox) {
-		combobox.removeAll();
+		combobox.removeAllItems();
 		ArrayList<Articulo> articulos= getLogica().getListaArticulos();
 		for (Articulo articulo : articulos) {
 			combobox.addItem(articulo.toString());

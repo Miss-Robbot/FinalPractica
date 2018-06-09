@@ -216,6 +216,7 @@ public class ParaUI extends UI{
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
+						panelConsultarArticulo.getTxtInformacion().setText("");
 						Articulo articulo= acciones.getLogica().getDato().obtener(panelConsultarArticulo.getComboBox().getSelectedItem().toString());
 						panelConsultarArticulo.getTxtInformacion().setText(articulo.informacionArticulo());
 						
