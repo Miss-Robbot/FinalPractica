@@ -8,7 +8,7 @@ public class DarAlta extends Acciones{
 	//Se puede modificar tanto la entrada de datos como la salida
 	
 	public void darAltaPedido(Pedido pedido){
-		getLogica().darAltaPedido(pedido);
+		//getLogica().darAltaPedido(pedido);
 	}
 	
 	

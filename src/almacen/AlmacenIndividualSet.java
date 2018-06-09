@@ -15,6 +15,10 @@ public class AlmacenIndividualSet<T> {
 		dao = new DAO<>();
 	}
 
+	/**
+	 * Te devuelve el primer objeto de un conjunto
+	 * @return
+	 */
 	public T first() {
 		getSet();
 		T retorno=null;
@@ -25,11 +29,21 @@ public class AlmacenIndividualSet<T> {
 		}
 		return  retorno;
 	}
+	
+	/**
+	 * Te devuelve el ultimo objeto de un conjunto
+	 * @return
+	 */
 	public T last(){
 		getSet();
 		return conjunto.last();
 	}
 	
+	/**
+	 * Te da un objeto determinado de un conjunto
+	 * @param index
+	 * @return
+	 */
 	public T obtener(int index){
 		assert index>=0;
 		T t=null;
@@ -40,6 +54,11 @@ public class AlmacenIndividualSet<T> {
 		return t;
 	}
 
+	/**
+	 * Entra un objeto al conjunto
+	 * @param t
+	 * @return
+	 */
 	public boolean grabar(T t) {
 		assert t!=null;
 		boolean retorno = false;
@@ -51,6 +70,9 @@ public class AlmacenIndividualSet<T> {
 		return retorno;
 	}
 
+	/**
+	 * Te devuelve el conjunto
+	 */
 	private void getSet() {
 		NavigableSet<T> temporal = dao.leer(path);
 		if (temporal == null) {			

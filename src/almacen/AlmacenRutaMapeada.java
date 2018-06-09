@@ -8,7 +8,7 @@ import java.util.TreeMap;
  * @author estar
  *Para saber como usar esta clase observa como se usa en su test correspondiente
  *
- * Esta clase pertmite grabar un objeto en cada fichero cuyo nombre sera un numero entero. 
+ * Esta clase permite grabar un objeto en cada fichero cuyo nombre sera un numero entero. 
  * En el mapa asociado se almacena la clave de busqueda del elemento y el numero con el 
  * que se nombra el archivo donde se almacena el elemento
  * 
@@ -37,13 +37,13 @@ public class AlmacenRutaMapeada<T, K> {
 		this.pathDatos = pathDatosyMapa;
 		this.extension = extension;
 		this.nombreArchivoMapa = nombreArchivoMapa;
-		String pathname = "./"+pathDatosyMapa ;
+		String pathname = "."+pathDatosyMapa ;
 		assert validate();	
 		File file = new File(pathname);
 		if (!file.exists()) {
 			file.mkdirs();
 		}
-		pathname=pathname+ "/" + nombreArchivoMapa;
+		pathname=pathname+ nombreArchivoMapa;
 		this.mapa = new AlmacenMap<>(new TreeMap<K,Integer>(),pathname);
 		ruta = new DAO();
 	}

@@ -11,8 +11,12 @@ public class AlmacenRutaDestino<T> {
 
 	public AlmacenRutaDestino(String pathInicial,String extension) {
 		super();
-		this.pathInicial = pathInicial;
+		this.pathInicial = "."+pathInicial;
 		this.extension=extension;
+		File file = new File(this.pathInicial);
+		if (!file.exists()) {
+			file.mkdirs();
+		}
 		daoRuta=new DAO<>();
 	}
 

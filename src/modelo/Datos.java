@@ -5,7 +5,6 @@ import java.util.TreeSet;
 import almacen.*;
 import modelo.*;
 
-
 //La suite de test tiene que daos en verde. Luego podeis probar esta clase
 public class Datos {
 	// VAmos a expresar los diferentes almacenes
@@ -32,7 +31,7 @@ public class Datos {
 
 		clientes = new AlmacenIndice<Cliente, String>(pathIndiceCliente, pathDatosCliente);
 		proveedores = new AlmacenIndividualSet<>(new TreeSet<Proveedor>(), pathDatosProveedores);
-		articulos = new AlmacenRutaMapeada<>("art", pathArchivosMapaArticulos, pathMapaArticulos);
+		articulos = new AlmacenRutaMapeada<>("art", pathMapaArticulos, pathArchivosMapaArticulos);
 		pedidos = new AlmacenRutaDestino<>(pathPedidos, "ped");
 		numeroPedido = new AlmacenIndividual<>();
 		Integer obtener = numeroPedido.obtener(pathNumeroPedido);
@@ -66,7 +65,12 @@ public class Datos {
 		cliente = clientes.obtener(clave);
 	};
 
-	public void obtener(Pedido pedido,String dniCliente,int numeroPedido){
-		pedido=pedidos.obtener(dniCliente, String.valueOf(numeroPedido));
+	public void obtener(Pedido pedido, String dniCliente, int numeroPedido) {
+		pedido = pedidos.obtener(dniCliente, String.valueOf(numeroPedido));
+	}
+
+	// hecho por alicia
+	public void obtener(Articulo articulo, String nombreArticulo) {
+		articulo = articulos.obtener(nombreArticulo);
 	}
 }
