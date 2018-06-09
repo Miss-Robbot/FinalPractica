@@ -1,16 +1,18 @@
 package almacen;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.TreeMap;
 
 /**
  * 
- * @author estar
- *Para saber como usar esta clase observa como se usa en su test correspondiente
+ * @author estar Para saber como usar esta clase observa como se usa en su test
+ *         correspondiente
  *
- * Esta clase permite grabar un objeto en cada fichero cuyo nombre sera un numero entero. 
- * En el mapa asociado se almacena la clave de busqueda del elemento y el numero con el 
- * que se nombra el archivo donde se almacena el elemento
+ *         Esta clase permite grabar un objeto en cada fichero cuyo nombre sera
+ *         un numero entero. En el mapa asociado se almacena la clave de
+ *         busqueda del elemento y el numero con el que se nombra el archivo
+ *         donde se almacena el elemento
  * 
  * @param <T>
  * @param <K>
@@ -23,12 +25,19 @@ public class AlmacenRutaMapeada<T, K> {
 
 	/**
 	 * En este constructor se definen los diferentes parametros necesario
-	 * @param mapa es un mapa con clave de tipo K (la que useis en el tipo) e integet como 
-	 * un numero que será el nombre que tenga el fichero que almacena un unico objeto
-	 * @param extension la extension de los archivos 
-	 * @param pathDatosyMapa la ruta donde se almacenarán lso archivos de indice y todos los archivos de objeto
-	 * un archivo por objeto
-	 * @param nombreArchivoMapa la ruta completa para llegar a cualquier archivo de este tipo de objetos
+	 * 
+	 * @param mapa
+	 *            es un mapa con clave de tipo K (la que useis en el tipo) e
+	 *            integet como un numero que será el nombre que tenga el
+	 *            fichero que almacena un unico objeto
+	 * @param extension
+	 *            la extension de los archivos
+	 * @param pathDatosyMapa
+	 *            la ruta donde se almacenarán lso archivos de indice y todos
+	 *            los archivos de objeto un archivo por objeto
+	 * @param nombreArchivoMapa
+	 *            la ruta completa para llegar a cualquier archivo de este tipo
+	 *            de objetos
 	 *
 	 *
 	 */
@@ -37,14 +46,14 @@ public class AlmacenRutaMapeada<T, K> {
 		this.pathDatos = pathDatosyMapa;
 		this.extension = extension;
 		this.nombreArchivoMapa = nombreArchivoMapa;
-		String pathname = "."+pathDatosyMapa ;
-		assert validate();	
+		String pathname = "." + pathDatosyMapa;
+		assert validate();
 		File file = new File(pathname);
 		if (!file.exists()) {
 			file.mkdirs();
 		}
-		pathname=pathname+ nombreArchivoMapa;
-		this.mapa = new AlmacenMap<>(new TreeMap<K,Integer>(),pathname);
+		pathname = pathname + nombreArchivoMapa;
+		this.mapa = new AlmacenMap<>(new TreeMap<K, Integer>(), pathname);
 		ruta = new DAO();
 	}
 
@@ -68,7 +77,15 @@ public class AlmacenRutaMapeada<T, K> {
 	public boolean grabar(T t, K k, Integer i) {
 		boolean retorno = false;
 		if (mapa.grabar(k, i)) {
-			if (ruta.grabar(estableceRuta(i),t)) {
+			String nuevoArchivoRuta = "." + estableceRuta(i);
+			File file = new File(nuevoArchivoRuta);
+			try {
+				if (!file.exists())
+					file.createNewFile();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			if (ruta.grabar(nuevoArchivoRuta, t)) {
 				retorno = true;
 			} else {
 				mapa.borrar(k);

@@ -16,6 +16,7 @@ public class PanelDarAltaArticulo extends JPanel {
 	private JTextField txtProveedor;
 	private JTextField textField;
 	private JButton btnDarAlta;
+	private JLabel lblConfirmacion;
 
 	/**
 	 * Create the panel.
@@ -23,9 +24,9 @@ public class PanelDarAltaArticulo extends JPanel {
 	public PanelDarAltaArticulo() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
 		JLabel lblNombre = new JLabel("Introduce nombre:");
@@ -102,12 +103,20 @@ public class PanelDarAltaArticulo extends JPanel {
 		add(textField, gbc_textField);
 		textField.setColumns(10);
 		
+		lblConfirmacion = new JLabel("");
+		GridBagConstraints gbc_lblConfirmacion = new GridBagConstraints();
+		gbc_lblConfirmacion.anchor = GridBagConstraints.WEST;
+		gbc_lblConfirmacion.insets = new Insets(0, 0, 5, 5);
+		gbc_lblConfirmacion.gridx = 1;
+		gbc_lblConfirmacion.gridy = 13;
+		add(lblConfirmacion, gbc_lblConfirmacion);
+		
 		btnDarAlta = new JButton("DarAlta");
 		GridBagConstraints gbc_btnDarAlta = new GridBagConstraints();
 		gbc_btnDarAlta.fill = GridBagConstraints.VERTICAL;
 		gbc_btnDarAlta.insets = new Insets(0, 0, 0, 5);
 		gbc_btnDarAlta.gridx = 1;
-		gbc_btnDarAlta.gridy = 13;
+		gbc_btnDarAlta.gridy = 14;
 		add(btnDarAlta, gbc_btnDarAlta);
 
 	}
@@ -150,6 +159,10 @@ public class PanelDarAltaArticulo extends JPanel {
 
 	public void setBtnDarAlta(JButton btnDarAlta) {
 		this.btnDarAlta = btnDarAlta;
+	}
+
+	public JLabel getLblConfirmacion() {
+		return lblConfirmacion;
 	}
 
 	

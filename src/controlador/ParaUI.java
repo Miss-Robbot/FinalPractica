@@ -176,8 +176,24 @@ public class ParaUI extends UI{
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
+						String txtNombre=panelDarAltaArticulo.getTxtNombre().getText();
+						panelDarAltaArticulo.getTxtNombre().setText(txtNombre);
 						
+						String txtDescripcion=panelDarAltaArticulo.getTxtDescripcion().getText();
+						panelDarAltaArticulo.getTxtDescripcion().setText(txtDescripcion);
 						
+						String txtProveedor=panelDarAltaArticulo.getTxtProveedor().getText();
+						panelDarAltaArticulo.getTxtProveedor().setText(txtProveedor);
+						
+						int cantidad=Integer.parseInt(panelDarAltaArticulo.getTextField().getText());
+						int idArticulo=acciones.getNumeroArticulo();
+						if(validador.validarArticulo(txtNombre, txtDescripcion, txtProveedor, cantidad)){
+							Articulo articulo= new Articulo(idArticulo, txtNombre, txtDescripcion, cantidad);
+							acciones.grabar(articulo);
+							panelDarAltaArticulo.getLblConfirmacion().setText("Todo bien");
+						}
+						else
+							panelDarAltaArticulo.getLblConfirmacion().setText("Error al dar de alta");
 					}
 				});
 			}
