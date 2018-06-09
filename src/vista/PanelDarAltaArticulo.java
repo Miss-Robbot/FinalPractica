@@ -15,6 +15,7 @@ public class PanelDarAltaArticulo extends JPanel {
 	private JTextField txtDescripcion;
 	private JTextField txtProveedor;
 	private JTextField textField;
+	private JButton btnDarAlta;
 
 	/**
 	 * Create the panel.
@@ -101,7 +102,7 @@ public class PanelDarAltaArticulo extends JPanel {
 		add(textField, gbc_textField);
 		textField.setColumns(10);
 		
-		JButton btnDarAlta = new JButton("DarAlta");
+		btnDarAlta = new JButton("DarAlta");
 		GridBagConstraints gbc_btnDarAlta = new GridBagConstraints();
 		gbc_btnDarAlta.fill = GridBagConstraints.VERTICAL;
 		gbc_btnDarAlta.insets = new Insets(0, 0, 0, 5);
@@ -111,4 +112,47 @@ public class PanelDarAltaArticulo extends JPanel {
 
 	}
 
+	public JTextField getTxtNombre() {
+		return txtNombre;
+	}
+
+	public void setTxtNombre(JTextField txtNombre) {
+		this.txtNombre = txtNombre;
+	}
+
+	public JTextField getTxtDescripcion() {
+		return txtDescripcion;
+	}
+
+	public void setTxtDescripcion(JTextField txtDescripcion) {
+		this.txtDescripcion = txtDescripcion;
+	}
+
+	public JTextField getTxtProveedor() {
+		return txtProveedor;
+	}
+
+	public void setTxtProveedor(JTextField txtProveedor) {
+		this.txtProveedor = txtProveedor;
+	}
+
+	public JTextField getTextField() {
+		return textField;
+	}
+
+	public void setTextField(JTextField textField) {
+		this.textField = textField;
+	}
+
+	public JButton getBtnDarAlta() {
+		return btnDarAlta;
+	}
+
+	public void setBtnDarAlta(JButton btnDarAlta) {
+		this.btnDarAlta = btnDarAlta;
+	}
+
+	
+	
+	
 }

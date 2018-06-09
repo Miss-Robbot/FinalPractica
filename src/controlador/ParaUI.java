@@ -11,6 +11,7 @@ import modelo.Articulo;
 import modelo.Cliente;
 import modelo.Linea;
 import modelo.Logica;
+import validacion.Validador;
 import validacion.Validator;
 import modelo.Pedido;
 import vista.PanelConsultar;
@@ -20,8 +21,9 @@ import vista.vistaUI;
 public class ParaUI extends UI{
 
 	private Acciones acciones=new Acciones(); //Esto es para coger la logica 
+	private Validador validador= new Validador();
 
-	Validator validador = new Validator();
+	Validator validator = new Validator();
 
 	private Borrar borrar=new Borrar();
 	private Cambiar cambiar=new Cambiar();
@@ -81,6 +83,49 @@ public class ParaUI extends UI{
 				
 			}
 		});
+		
+	panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
+		
+		panelCliente.getBtnConsultarCliente().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
+		
+		panelCliente.getBtnBorrarCliente().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+				borrarCliente.getBtnVolver().addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						todosInvisibles();
+						panelCliente.setVisible(true);
+						
+						
+					}
+				});
+				
+				borrarCliente.setVisible(true);
+				borrarCliente.getComboBox().addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						
+					}
+				});
+			}
+		});
 		btnPedidos.addActionListener(new ActionListener() {
 			
 			@Override
@@ -97,7 +142,6 @@ public class ParaUI extends UI{
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
 				panelConsultar.setVisible(true);
-				//consultar.rellenarComboboxArticulo(panelConsultar.getComboBox());
 				
 			}
 		});
@@ -128,7 +172,14 @@ public class ParaUI extends UI{
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
 				panelDarAltaArticulo.setVisible(true);
-				
+				panelDarAltaArticulo.getBtnDarAlta().addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						
+						
+					}
+				});
 			}
 		});
 		
@@ -138,16 +189,6 @@ public class ParaUI extends UI{
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
 				panelConsultar.setVisible(true);
-				rellenarDePrueba();
-				//consultar.rellenarComboboxArticulo(panelConsultar.getComboBox(),acciones.getLogica().getDato().getMapaCliente().get("alicia"),0);
-				
-				panelConsultar.getComboBox().addActionListener(new ActionListener() {
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						Articulo articulo = (Articulo) panelConsultar.getComboBox().getSelectedItem();
-						consultar.consultarArticulo(articulo, panelConsultar.getTxtInformacion());
-					}
-				});
 			}
 		});
 		
@@ -156,7 +197,6 @@ public class ParaUI extends UI{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
-				cambiarPrecioArticulo.setVisible(true);
 				
 			}
 		});
@@ -167,112 +207,13 @@ public class ParaUI extends UI{
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
 				panelConsultar.setVisible(true);
-				//DatoActual datoActualNuevo= new DatoActual();
-				//consultar.rellenarComboboxArticulo(panelConsultar.getComboBox());
-				
 			}
 		});
 		
-		panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				/*altaCliente.setLblError("");
-				altaCliente.setVisible(true);
-				
-				altaCliente.getBtnDarDeAlta().addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						String nombre = altaCliente.getTxtNombre().getText();
-						String dni = altaCliente.getTxtDNI().getText();
-						String dire = altaCliente.getTxtDireccion().getText();
-						String tlf = altaCliente.getTxtTelf().getText();
-						altaCliente.vaciarTextos();
-						
-						if(validador.isPhone(tlf)&&!validador.isNumber(nombre)){//averiguar las validaciones
-							acciones.getLogica().crearCliente( dni, nombre, dire, tlf);
-							consulta.setComboBox(acciones.getLogica().obtenerComboBox(consulta.getComboBox(), dni));
-							altaCliente.setLblError("");
-							todosInvisibles();
-							panelCliente.setVisible(true);
-						}else{
-							altaCliente.setLblError("Ha habido un error dando de alta al cliente");
-						}
-					}
-				});*/
-				
-			}
-		});
-		
-		panelCliente.getBtnConsultarCliente().addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				/*consulta.getTextArea().setText("");
-				consulta.getBtnVolver().addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						todosInvisibles();
-						panelCliente.setVisible(true);
-						
-						
-					}
-				});
-				consulta.setVisible(true);
-				consulta.getComboBox().addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						consulta.setTextArea(acciones.getLogica().seleccionarCliente((Cliente) consulta.getComboBox().getSelectedItem(), consulta.getTextArea()));
-						//comboBox= listaClientes
-						//al click, poner texto de info del cliente
-						
-					}
-				});*/
-				
-			}
-		});
-		
-		panelCliente.getBtnBorrarCliente().addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				
-				borrarCliente.getBtnVolver().addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						todosInvisibles();
-						panelCliente.setVisible(true);
-						
-						
-					}
-				});
-				
-				borrarCliente.setVisible(true);
-				borrarCliente.getComboBox().addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						//logica.borrarCliente(borrar.getComboBox(), borrar.getComboBox().getSelectedItem().toString());
-						
-					}
-				});
-			}
-		});
+	
 		
 	}
 	
-	public void rellenarDePrueba(){
-		/*Cliente cliente= new Cliente("alicia", "casada", "calla la concordia", "56489");
-		Pedido pedido= new Pedido(0, cliente);
-		Articulo articulo= new Articulo(0, "patata", "dura", 5);
-		pedido.insertarLinea(new Linea(articulo, 1));
-		cliente.getPedidos().add(pedido);
-		acciones.getLogica().getDato().getMapaCliente().put(cliente.getDniCif(),cliente );*/
-	}
 	public void todosInvisibles(){
 		panelArticulos.setVisible(false);
 		panelPedidos.setVisible(false);
@@ -292,7 +233,6 @@ public class ParaUI extends UI{
 		this.acciones = acciones;
 	}
 	
-	//Aquí van todos los actionListener con las acciones de accionable.
 	
 	
 }
