@@ -35,7 +35,7 @@ public class Datos {
 
 	public Datos() {
 
-		//Yolanda
+		//Yolanda yolanda
 		clientes = new AlmacenIndice<Cliente, String>(pathIndiceCliente,
 				pathDatosCliente);
 		proveedores = new AlmacenIndividualSet<>(new TreeSet<Proveedor>(),
