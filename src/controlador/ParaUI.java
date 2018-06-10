@@ -236,7 +236,6 @@ public class ParaUI extends UI{
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
 				panelArticulos.setVisible(true);
-				//panelConsultarArticulo.getComboBox().removeAllItems();
 				
 			}
 		});
@@ -245,7 +244,10 @@ public class ParaUI extends UI{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
-				
+				cambiarPrecioArticulo.setVisible(true);
+				//hacer bien, que me estoy quedando dormida
+				consultar.rellenarComboboxArticulo(cambiarPrecioArticulo.getComboBox());
+				consultar.getPrecioActualArticulo(cambiarPrecioArticulo.getTxtPrecioActual());
 			}
 		});
 		

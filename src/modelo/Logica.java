@@ -35,5 +35,10 @@ public class Logica {
 	public ArrayList<Articulo> getListaArticulos() {
 		return dato.getListaArticulos();
 	}
+	
+	public float getPrecioActual(){
+		ArrayList<Articulo> articulos= dato.getListaArticulos();
+		return articulos.get(0).getPrecios().getFirst().getPrecio();
+	}
 
 }
