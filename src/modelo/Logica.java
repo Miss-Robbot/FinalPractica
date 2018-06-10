@@ -41,4 +41,6 @@ public class Logica {
 		return articulos.get(0).getPrecios().getFirst().getPrecio();
 	}
 
+	
+
 }
