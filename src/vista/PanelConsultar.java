@@ -61,8 +61,8 @@ public class PanelConsultar extends JPanel{
 	public JTextArea getTxtInformacion() {
 		return txtInformacion;
 	}
-	public void setTxtInformacion(JTextArea txtInformacion) {
-		this.txtInformacion = txtInformacion;
+	public void setTxtInformacion(String string) {
+		this.txtInformacion.setText(string);
 	}
 	public JButton getBtnVolver() {
 		return btnVolver;
