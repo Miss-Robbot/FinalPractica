@@ -73,12 +73,20 @@ public class Consultar extends Acciones {
 	 */
 	public void rellenarComboboxArticulo(JComboBox combobox) {
 		combobox.removeAllItems();
-		ArrayList<Articulo> articulos= getLogica().getListaArticulos();
+		ArrayList<Articulo> articulos= getLogica().getListaArticulos();//conseguir lista con todos los dnis
 		for (Articulo articulo : articulos) {
+			//aqui obtener el cliente .toString
 			combobox.addItem(articulo.toString());
 		}
 	}
-
+	
+	public void rellenarComboboxCliente(JComboBox comboBox) {
+		comboBox.removeAllItems();
+		ArrayList<String> keys= getLogica().getDato().getListaDni();
+		for (String key : keys) {
+			comboBox.addItem(obtener(key).toString());
+		}
+	}
 
 	/*public void rellenarComboboxPedido(JComboBox<Pedido> comboBox,
 			DatoActual datoActual) {
@@ -104,21 +112,13 @@ public class Consultar extends Acciones {
 		}
 		return pedidos;
 	}*/
-	public JComboBox actualizarComboBoxCliente(JComboBox comboBox, Datos dato){
-		//comboBox.removeAllItems();
-		//comboBox.removeAll();
 	
-		for (int i = 0; i < dato.getIndex(); i++) {
-			if(!dato.getAnadidos().contains(i)){
-			comboBox.addItem(consultarCliente(dato.obtenerClienteKey(String.valueOf(i), dato)));
-			dato.getAnadidos().add(i);}
-		}
-		return comboBox;
-	}
 
 	public Cliente consultarCliente(String key){
 		return getLogica().obtener(key);
 	}
+
+	
 
 	
 
