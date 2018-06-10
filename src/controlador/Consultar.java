@@ -1,13 +1,14 @@
 package controlador;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.LinkedList;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
 
-import modelo.*;
+import modelo.Articulo;
+import modelo.Cliente;
+import modelo.Pedido;
 
 public class Consultar extends Acciones {
 

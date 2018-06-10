@@ -2,6 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 
+
 public class Logica {
 
 	private Datos dato;

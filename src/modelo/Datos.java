@@ -10,6 +10,7 @@ import almacen.AlmacenIndividualSet;
 import almacen.AlmacenRutaDestino;
 import almacen.AlmacenRutaMapeada;
 
+
 //La suite de test tiene que daos en verde. Luego podeis probar esta clase
 public class Datos {
 	// VAmos a expresar los diferentes almacenes
