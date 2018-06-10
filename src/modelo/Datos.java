@@ -68,8 +68,8 @@ public class Datos {
 	}
 
 	/// Igual con el resto de metodos de obtener. Pondre uno de prueba
-	public void obtener(Cliente cliente, String clave) {
-		cliente = clientes.obtener(clave);
+	public Cliente obtener1(String clave) {
+		return clientes.obtener(clave);
 	};
 
 	public void obtener(Pedido pedido, String dniCliente, int numeroPedido) {

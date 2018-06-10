@@ -117,9 +117,8 @@ public class Consultar extends Acciones {
 		return comboBox;
 	}
 
-	private Object consultarCliente(String obtenerClienteKey) {
-		// TODO Auto-generated method stub
-		return null;
+	private Cliente consultarCliente(String obtenerClienteKey) {
+		return obtener(obtenerClienteKey);
 	}
 
 }

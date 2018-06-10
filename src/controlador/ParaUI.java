@@ -88,11 +88,36 @@ public class ParaUI extends UI{
 		
 	panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
 			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			 altaCliente.setLblError("");
+			
+			altaCliente.getBtnDarDeAlta().addActionListener(new ActionListener() {
 				
-			}
-		});
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					String nombre = altaCliente.getTxtNombre().getText();
+					String dni = altaCliente.getTxtDNI().getText();
+					String dire = altaCliente.getTxtDireccion().getText();
+					String tlf = altaCliente.getTxtTelf().getText();
+					altaCliente.vaciarTextos();
+					
+					if(validator.isPhone(tlf)&&!validator.isNumber(nombre)){//averiguar las validaciones
+						acciones.grabar((acciones.getLogica().crearCliente(dni, nombre, dire, tlf)));
+						
+						panelConsultar.setComboBox(consultar.actualizarComboBoxCliente(panelConsultar.getComboBox()));
+						borrarCliente.setComboBox(consultar.actualizarComboBoxCliente(borrarCliente.getComboBox()));
+						altaCliente.setLblError("");
+						todosInvisibles();
+						panelCliente.setVisible(true);
+					}else{
+						altaCliente.setLblError("Ha habido un error dando de alta al cliente");
+					}
+				}
+			});
+			
+		}
+	});
 		
 		panelCliente.getBtnConsultarCliente().addActionListener(new ActionListener() {
 			
