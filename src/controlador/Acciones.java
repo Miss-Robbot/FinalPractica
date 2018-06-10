@@ -46,6 +46,11 @@ public class Acciones{
 	public Cliente obtener(String clave){
 		return logica.obtener(clave);
 	}
+
+	public boolean grabar(Cliente client) {
+		return logica.grabar(client);
+		
+	}
 	
 	
 
