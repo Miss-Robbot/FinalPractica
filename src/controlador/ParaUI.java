@@ -6,6 +6,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 
 import modelo.Articulo;
+import modelo.Cliente;
+import modelo.Linea;
 import modelo.Pedido;
 import validacion.Validador;
 import validacion.Validator;
@@ -23,6 +25,10 @@ public class ParaUI extends UI{
 	private Consultar consultar=new Consultar();
 	private DarAlta darAlta= new DarAlta();
 	private Insertar insertar= new Insertar();
+	
+	private Cliente clientePrueba = new Cliente("80079711J", "Yolanda");
+	private Articulo articuloPrueba = new Articulo(1, "pc", "superChulo", 100);
+	private Linea lienaPrueba = new Linea(articuloPrueba, 20);
 	
 	
 	public ParaUI(){
@@ -161,8 +167,9 @@ public class ParaUI extends UI{
 						int cantidad=Integer.parseInt(panelDarAltaPedido.getTextField().getText());
 						int idPedido=acciones.getNumeroArticulo();
 						if(validador.validarPedido(txtNombre, txtDescripcion, txtProveedor, cantidad)){
-							Pedido pedido= new Pedido(idPedido, txtNombre, txtDescripcion, cantidad);
-							acciones.grabar(Pedido);
+							//Pedido pedido= new Pedido(idPedido, txtNombre, txtDescripcion, cantidad);
+							Pedido pedido = new Pedido(22, clientePrueba);
+							acciones.grabar(pedido);
 							panelDarAltaPedido.getLblConfirmacion().setText("Todo bien");
 							limpiarEtiqueta(panelDarAltaPedido.getTxtNombre());
 							limpiarEtiqueta(panelDarAltaPedido.getTxtDescripcion());
