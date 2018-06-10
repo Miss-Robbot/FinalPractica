@@ -30,10 +30,7 @@ public class Acciones{
 		return logica.grabar(articulo);
 	}
 
-	public void grabar(Cliente cliente) {
-		logica.grabar(cliente);
-		
-	}
+	
 
 	public Cliente obtener(String clave){
 		return logica.obtener(clave);
