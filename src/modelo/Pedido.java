@@ -53,5 +53,8 @@ public class Pedido implements Serializable {
 	public ArrayList<Linea> getLineas() {
 		return lineas;
 	}
+	public String informacionPedido(){
+		return "Numero de pedido: "+numero+"\n + Fecha: "+fecha+ "/n Articulo: "+getLinea(0).toString()+"\n Cliente: "+cliente.getDatos()+cliente.getDni();
+	}
 	
 }
