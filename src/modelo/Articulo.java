@@ -7,6 +7,8 @@ import java.util.GregorianCalendar;
 import java.util.Iterator;
 import java.util.LinkedList;
 
+import utiles.Aleatorio;
+
 public class Articulo implements Serializable,Indexable<String>{
 
 	/**
@@ -136,6 +138,11 @@ public class Articulo implements Serializable,Indexable<String>{
 		return "Nombre: "+nombre+"\n Descripcion: "+descripcion+"\nPrecio actual: "+precios.getFirst().toString();
 	}
 
-	
+	public void getListaPrecioAntiguos(){
+		Aleatorio aleatorio= new Aleatorio();
+		for (int i = 0; i < 4; i++) {
+			this.precios.add(new Precio(aleatorio.getAleatorio(), false));
+		}
+	}
 
 }

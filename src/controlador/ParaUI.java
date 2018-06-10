@@ -137,7 +137,8 @@ panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				todosInvisibles();
+				panelConsultar.setVisible(true);
 				panelConsultar.setTxtInformacion("");
 				panelConsultar.getBtnVolver().addActionListener(new ActionListener() {
 					
@@ -149,8 +150,7 @@ panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
 						
 					}
 				});
-				todosInvisibles();
-				panelConsultar.setVisible(true);
+				
 				
 				if(panelConsultar.getComboBox().getItemCount()==0)
 				consultar.rellenarComboboxCliente(panelConsultar.getComboBox(), acciones);
@@ -316,6 +316,7 @@ panelCliente.getBtnBorrarCliente().addActionListener(new ActionListener() {
 						int idArticulo=acciones.getNumeroArticulo();
 						if(validador.validarArticulo(txtNombre, txtDescripcion, txtProveedor, cantidad)){
 							Articulo articulo= new Articulo(idArticulo, txtNombre, txtDescripcion, cantidad);
+							articulo.getListaPrecioAntiguos();
 							acciones.grabar(articulo);
 							panelDarAltaArticulo.getLblConfirmacion().setText("Todo bien");
 							limpiarEtiqueta(panelDarAltaArticulo.getTxtNombre());
@@ -418,7 +419,24 @@ panelCliente.getBtnBorrarCliente().addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
-				panelConsultar.setVisible(true);
+				panelConsultarArticulo.setVisible(true);
+				
+				if(panelConsultarArticulo.getComboBox().getItemCount()==0)
+				consultar.rellenarComboboxArticulo(panelConsultarArticulo.getComboBox());
+				
+				panelConsultarArticulo.getComboBox().addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						panelConsultarArticulo.getTxtInformacion().setText("");
+						Articulo articulo= new Articulo();
+						articulo=acciones.getLogica().getDato().obtener(panelConsultarArticulo.getComboBox().getSelectedItem().toString());
+						panelConsultarArticulo.getTxtInformacion().setText(articulo.getPrecios().toString());
+						
+					}
+				});
+				
+				
 			}
 		});
 		
