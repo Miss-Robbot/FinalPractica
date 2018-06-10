@@ -1,9 +1,10 @@
-/Prueba$1.class
-/Prueba.class
-/almacen/
 /controlador/
 /modelo/
-/test/
-/utiles/
+<<<<<<< HEAD
 /validacion/
 /vista/
+=======
+/almacen/
+>>>>>>> 1dc760a917999d00b3bf1b1d637db727f88d916a
+/test/
+/Prueba$1.class
