@@ -64,7 +64,7 @@ public class Logica {
 		return client;
 	}
 
-	private String crearDatos(String dni, String nombre, String dire, String tlf) {
+	public String crearDatos(String dni, String nombre, String dire, String tlf) {
 		return " "+nombre+": \n DNI/NIF: "+dni+". \n Direccion: "+dire+". \n Tlf: "+tlf;
 	}
 
