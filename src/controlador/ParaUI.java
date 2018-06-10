@@ -2,23 +2,13 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.LinkedList;
 
-
-import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import modelo.Articulo;
-import modelo.Cliente;
-import modelo.Linea;
-import modelo.Logica;
 import validacion.Validador;
 import validacion.Validator;
-import modelo.Pedido;
-import vista.PanelConsultar;
 import vista.UI;
-import vista.vistaUI;
 
 public class ParaUI extends UI{
 
@@ -153,8 +143,35 @@ public class ParaUI extends UI{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
-				panelDarAltaArticulo.setVisible(true);
-				
+				panelDarAltaPedido.setVisible(true);
+				panelDarAltaPedido.getBtnDarAlta().addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						String txtNombre=panelDarAltaPedido.getTxtNombre().getText().trim();
+						panelDarAltaArticulo.getTxtNombre().setText(txtNombre);
+						
+						String txtDescripcion=panelDarAltaPedido.getTxtDescripcion().getText().trim();
+						panelDarAltaArticulo.getTxtDescripcion().setText(txtDescripcion);
+						
+						String txtProveedor=panelDarAltaPedido.getTxtProveedor().getText().trim();
+						panelDarAltaArticulo.getTxtProveedor().setText(txtProveedor);
+						
+						int cantidad=Integer.parseInt(panelDarAltaPedido.getTextField().getText());
+						int idArticulo=acciones.getNumeroArticulo();
+						if(validador.validarPedido(txtNombre, txtDescripcion, txtProveedor, cantidad)){
+							Articulo articulo= new Articulo(idArticulo, txtNombre, txtDescripcion, cantidad);
+							acciones.grabar(articulo);
+							panelDarAltaPedido.getLblConfirmacion().setText("Todo bien");
+							limpiarEtiqueta(panelDarAltaPedido.getTxtNombre());
+							limpiarEtiqueta(panelDarAltaPedido.getTxtDescripcion());
+							limpiarEtiqueta(panelDarAltaPedido.getTxtProveedor());
+							limpiarEtiqueta(panelDarAltaPedido.getTextField());
+						}
+						else
+							panelDarAltaPedido.getLblConfirmacion().setText("Error al dar de alta el pedido");
+					}
+				});
 			}
 		});
 		

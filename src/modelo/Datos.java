@@ -20,6 +20,7 @@ public class Datos {
 	private String pathArchivosMapaArticulos = "/articulos.map";
 	private String pathPedidos = "/data/pedidos";
 	private String pathNumeroPedido = "/data/pedidos/numPedido.data";
+	//private int numeroUltimoPedido = 0;
 
 	// Cliente
 	private AlmacenIndice<Cliente, String> clientes;
@@ -41,11 +42,11 @@ public class Datos {
 		articulos = new AlmacenRutaMapeada<>("art", pathMapaArticulos,
 				pathArchivosMapaArticulos);
 		pedidos = new AlmacenRutaDestino<>(pathPedidos, "ped");
-		numeroPedido = new AlmacenIndividual<>();
-		Integer obtener = numeroPedido.obtener(pathNumeroPedido);
-		if (obtener == null) {
-			numeroPedido.grabar(pathNumeroPedido, 0);
-		}
+//		numeroPedido = new AlmacenIndividual<>();
+//		Integer obtener = numeroPedido.obtener(pathNumeroPedido);
+//		if (obtener == null) {
+//			numeroPedido.grabar(pathNumeroPedido, 0);
+//		}
 	}
 
 	public boolean grabar(Cliente cliente) {
