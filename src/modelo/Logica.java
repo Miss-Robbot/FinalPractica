@@ -1,12 +1,6 @@
 package modelo;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Set;
-
-import javax.swing.JComboBox;
-import javax.swing.JTextArea;
 
 public class Logica {
 
@@ -34,6 +28,13 @@ public class Logica {
 
 	public ArrayList<Articulo> getListaArticulos() {
 		return dato.getListaArticulos();
+	}
+	public int getNumeroPedido() {
+		return dato.getNumeroPedido();
+	}
+	
+	public boolean grabar(Pedido pedido) {
+		return dato.grabar(pedido);
 	}
 
 }

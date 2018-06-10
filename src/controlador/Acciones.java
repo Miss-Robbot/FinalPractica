@@ -2,6 +2,7 @@ package controlador;
 
 import modelo.Articulo;
 import modelo.Logica;
+import modelo.Pedido;
 
 public class Acciones{
 
@@ -26,6 +27,12 @@ public class Acciones{
 	public boolean grabar(Articulo articulo) {
 		return logica.grabar(articulo);
 	}
-	
-	
+		
+	public int getNumeroPedido() {
+		return logica.getNumeroPedido();
+	}
+
+	public boolean grabar(Pedido pedido) {
+		return logica.grabar(pedido);
+	}
 }

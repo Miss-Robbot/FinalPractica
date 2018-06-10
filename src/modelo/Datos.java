@@ -114,5 +114,9 @@ public class Datos {
 		}
 		return articulos;
 	}
+	
+	public int getNumeroPedido() {
+		return pedidos.obtenNumero();
+	}
 
 }

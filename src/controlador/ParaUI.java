@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import javax.swing.JTextField;
 
 import modelo.Articulo;
+import modelo.Pedido;
 import validacion.Validador;
 import validacion.Validator;
 import vista.UI;
@@ -158,10 +159,10 @@ public class ParaUI extends UI{
 						panelDarAltaArticulo.getTxtProveedor().setText(txtProveedor);
 						
 						int cantidad=Integer.parseInt(panelDarAltaPedido.getTextField().getText());
-						int idArticulo=acciones.getNumeroArticulo();
+						int idPedido=acciones.getNumeroArticulo();
 						if(validador.validarPedido(txtNombre, txtDescripcion, txtProveedor, cantidad)){
-							Articulo articulo= new Articulo(idArticulo, txtNombre, txtDescripcion, cantidad);
-							acciones.grabar(articulo);
+							Pedido pedido= new Pedido(idPedido, txtNombre, txtDescripcion, cantidad);
+							acciones.grabar(Pedido);
 							panelDarAltaPedido.getLblConfirmacion().setText("Todo bien");
 							limpiarEtiqueta(panelDarAltaPedido.getTxtNombre());
 							limpiarEtiqueta(panelDarAltaPedido.getTxtDescripcion());
