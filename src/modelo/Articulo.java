@@ -16,7 +16,7 @@ public class Articulo implements Serializable,Indexable<String>{
 	private int idArticulo;
 	private String nombre;
 	private String descripcion;
-	private LinkedList<Precio> precios;
+	private LinkedList<Precio> precios = new LinkedList<Precio>();
 	
 	public Articulo(){
 		
@@ -27,7 +27,6 @@ public class Articulo implements Serializable,Indexable<String>{
 		this.idArticulo = idArticulo;
 		this.nombre = nombre;
 		this.descripcion = descripcion;
-		precios = new LinkedList<>();
 		precios.add(new Precio(precio, false));
 	}
 
@@ -123,7 +122,7 @@ public class Articulo implements Serializable,Indexable<String>{
 	}
 	
 	public String informacionArticulo(){
-		return "Nombre: "+nombre+"\n Descripcion: "+descripcion+"\nPrecio actual: "+precios.getFirst();
+		return "Nombre: "+nombre+"\n Descripcion: "+descripcion+"\nPrecio actual: "+precios.getFirst().toString();
 	}
 
 	
