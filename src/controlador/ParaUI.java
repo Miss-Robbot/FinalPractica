@@ -26,22 +26,26 @@ public class ParaUI extends UI{
 	private DarAlta darAlta= new DarAlta();
 	private Insertar insertar= new Insertar();
 
+	private FachadaCliente fachada = new FachadaCliente();
+	
+	//Yolanda
+	private Cliente clientePrueba = new Cliente("80079711J", "Yolanda");
+	private Articulo articuloPrueba = new Articulo(1, "pc", "superChulo", 100);
+	private Linea lienaPrueba = new Linea(articuloPrueba, 20);
 	
 	public ParaUI(){
 		
 		Cliente cliente = new Cliente("12345678U", "Carmen" +"C/Piruleta"+ "629629421");
 		Cliente cliente2 = new Cliente("87654321E", "Elliot"+ "C/Mesados"+ "640800320");
-		//Cliente cliente3 = new Cliente("67839123S", "Oscar", "C/Monantilla", "658920013");
-		darAlta.grabar(cliente);
-		darAlta.grabar(cliente2);
+		fachada.darAlta(cliente);
+		fachada.darAlta(cliente2);
 		
 		acciones.getLogica().getDato().grabarCliente(cliente);
 		acciones.getLogica().getDato().setIndex(acciones.getLogica().getDato().getIndex()+1);
 		acciones.getLogica().getDato().grabarCliente(cliente2);
 		acciones.getLogica().getDato().setIndex(acciones.getLogica().getDato().getIndex()+1);
-		//logica.añadirCliente(cliente3);
-		panelConsultar.setComboBox(consultar.actualizarComboBoxCliente(panelConsultar.getComboBox()));
-		borrarCliente.setComboBox(consultar.actualizarComboBoxCliente(borrarCliente.getComboBox()));
+		panelConsultar.setComboBox(consultar.actualizarComboBoxCliente(panelConsultar.getComboBox(), acciones.getLogica().getDato()));
+		borrarCliente.setComboBox(consultar.actualizarComboBoxCliente(borrarCliente.getComboBox(), acciones.getLogica().getDato()));
 		
 		btnInicio.addActionListener(new ActionListener() {
 			
@@ -110,8 +114,9 @@ public class ParaUI extends UI{
 					altaCliente.vaciarTextos();
 					
 					if(validator.isPhone(tlf)&&!validator.isNumber(nombre)){//faltan validaciones
-						darAlta.grabar((acciones.getLogica().crearCliente(dni, nombre, dire, tlf)));
+						fachada.darAlta((acciones.getLogica().crearCliente(dni, nombre, dire, tlf)));
 						
+						panelConsultar.setComboBox(consultar.actualizarComboBoxCliente(panelConsultar.getComboBox(), acciones.getLogica().getDato()));
 						altaCliente.setLblError("");
 						todosInvisibles();
 						panelCliente.setVisible(true);
@@ -129,7 +134,7 @@ public class ParaUI extends UI{
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
 			
-//			panelConsultar.setTxtInformacion("");
+			panelConsultar.setTxtInformacion("");
 			panelConsultar.getBtnVolver().addActionListener(new ActionListener() {
 				
 				@Override
@@ -145,7 +150,7 @@ public class ParaUI extends UI{
 				
 				@Override
 				public void actionPerformed(ActionEvent e) {
-//					panelConsultar.setTxtInformacion(logica.conseguirInfo((Cliente) panelConsultar.getComboBox().getSelectedItem()));
+					panelConsultar.setTxtInformacion(acciones.getLogica().conseguirInfo((Cliente) panelConsultar.getComboBox().getSelectedItem()));
 					
 					
 				}
@@ -153,46 +158,11 @@ public class ParaUI extends UI{
 			
 		}
 	});
+		
+		
+		
+		
 	
-	panelCliente.getBtnBorrarCliente().addActionListener(new ActionListener() {
-		
-		
-		
-		@Override
-		public void actionPerformed(ActionEvent arg0) {
-			
-			borrarCliente.getBtnVolver().addActionListener(new ActionListener() {
-				
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					todosInvisibles();
-					panelCliente.setVisible(true);
-					
-					
-				}
-			});
-			
-			//borrarCliente.setTextArea("");
-			borrarCliente.setVisible(true);
-			borrarCliente.getComboBox().addActionListener(new ActionListener() {
-				
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					//logica.borrarCliente(borrar.getComboBox(), borrar.getComboBox().getSelectedItem().toString());
-					/*if(logica.borrarCliente((Cliente) panelConsultar.getComboBox().getSelectedItem())){
-					panelConsultar.setComboBox(logica.actualizarComboBoxCliente(panelConsultar.getComboBox()));
-					borrarCliente.setComboBox(logica.actualizarComboBoxCliente(borrarCliente.getComboBox()));
-					
-					borrarCliente.setTextArea("La operación se ha realizado con éxito");
-					todosInvisibles();
-					panelCliente.setVisible(true);
-					}else{
-						borrarCliente.setTextArea("Ha habido un problema al dar de baja al cliente.");
-					}*/
-				}
-			});
-		}
-	});
 		btnPedidos.addActionListener(new ActionListener() {
 			
 			@Override
@@ -351,12 +321,14 @@ public class ParaUI extends UI{
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
 				cambiarPrecioArticulo.setVisible(true);
-				//if(panelConsultarArticulo.getComboBox().getItemCount()==0)
+				//cambiarPrecioArticulo.getComboBox().
+				if(panelConsultarArticulo.getComboBox().getItemCount()==0)
 				cambiar.rellenarComboboxArticulo(cambiarPrecioArticulo.getComboBox());
 				cambiarPrecioArticulo.getComboBox().addActionListener(new ActionListener() {
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
+						panelConsultarArticulo.getTxtInformacion().setText("");
 						Articulo articulo= new Articulo();
 						articulo=acciones.getLogica().getDato().obtener(cambiarPrecioArticulo.getComboBox().getSelectedItem().toString());
 						cambiarPrecioArticulo.getTxtPrecioActual().setText(articulo.getPrecios().getFirst().toString());
