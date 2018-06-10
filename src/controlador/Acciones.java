@@ -1,7 +1,5 @@
 package controlador;
 
-import javax.swing.JComboBox;
-
 import modelo.Articulo;
 import modelo.Cliente;
 import modelo.Logica;
@@ -36,12 +34,13 @@ public class Acciones{
 		return logica.getNumeroPedido();
 	}
 
+	
+	public void aumentarNumeroPedido() {
+		logica.aumentarNumeroPedido();
+	}
 	public boolean grabar(Pedido pedido) {
 		return logica.grabar(pedido);
 	}
-
-
-	
 
 	public Cliente obtener(String clave){
 		return logica.obtener(clave);
