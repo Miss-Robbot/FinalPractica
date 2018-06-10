@@ -7,7 +7,6 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import almacen.*;
-import modelo.*;
 
 //La suite de test tiene que daos en verde. Luego podeis probar esta clase
 public class Datos {
@@ -49,7 +48,8 @@ public class Datos {
 	}
 
 	public boolean grabar(Cliente cliente) {
-		return clientes.grabar(cliente, cliente.getKey());
+		return clientes.grabar(cliente,
+				cliente.getKey());
 	}
 
 	public boolean grabar(Proveedor proveedor) {

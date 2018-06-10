@@ -48,6 +48,8 @@ public class Logica {
 
 	public Cliente crearCliente(String dni, String nombre, String dire, String tlf) {
 		Cliente client = new Cliente(dni, crearDatos(dni, nombre, dire, tlf));
+		dato.grabarCliente(client);
+		dato.setIndex(dato.getIndex()+1);
 		return client;
 	}
 

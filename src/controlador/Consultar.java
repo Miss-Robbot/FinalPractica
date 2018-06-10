@@ -117,8 +117,10 @@ public class Consultar extends Acciones {
 		return comboBox;
 	}
 
-	private Cliente consultarCliente(String obtenerClienteKey) {
-		return obtener(obtenerClienteKey);
+	public Cliente consultarCliente(String key){
+		return getLogica().obtener(key);
 	}
+
+	
 
 }
