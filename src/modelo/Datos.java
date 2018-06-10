@@ -38,7 +38,7 @@ public class Datos {
 		numeroPedido = new AlmacenIndividual<>();
 		Integer obtener = numeroPedido.obtener(pathNumeroPedido);
 		if (obtener == null) {
-			numeroPedido.grabar(pathNumeroPedido, 0);
+			//numeroPedido.grabar(pathNumeroPedido, 0);
 		}
 	}
 

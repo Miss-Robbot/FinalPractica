@@ -61,7 +61,7 @@ public class ParaUI extends UI{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
-				panelDarAltaArticulo.setVisible(true);
+				altaCliente.setVisible(true);
 				
 			}
 		});
@@ -275,7 +275,7 @@ public class ParaUI extends UI{
 		panelDarAltaArticulo.setVisible(false);
 		panelConsultar.setVisible(false);
 		cambiarPrecioArticulo.setVisible(false);
-		panelDarAltaCliente.setVisible(false);
+		altaCliente.setVisible(false);
 		panelConsultarArticulo.setVisible(false);
 	}
 
