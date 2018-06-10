@@ -9,6 +9,7 @@ import javax.swing.JTextField;
 
 import modelo.Articulo;
 import modelo.Cliente;
+import modelo.Datos;
 import modelo.Pedido;
 
 public class Consultar extends Acciones {
@@ -103,14 +104,14 @@ public class Consultar extends Acciones {
 		}
 		return pedidos;
 	}*/
-	public JComboBox actualizarComboBoxCliente(JComboBox comboBox){
+	public JComboBox actualizarComboBoxCliente(JComboBox comboBox, Datos dato){
 		//comboBox.removeAllItems();
 		//comboBox.removeAll();
 	
-		for (int i = 0; i < getLogica().getDato().getIndex(); i++) {
-			if(!getLogica().getDato().getAnadidos().contains(i)){
-			comboBox.addItem(consultarCliente(getLogica().getDato().obtenerClienteKey(String.valueOf(i))));
-			getLogica().getDato().getAnadidos().add(i);}
+		for (int i = 0; i < dato.getIndex(); i++) {
+			if(!dato.getAnadidos().contains(i)){
+			comboBox.addItem(consultarCliente(dato.obtenerClienteKey(String.valueOf(i), dato)));
+			dato.getAnadidos().add(i);}
 		}
 		return comboBox;
 	}

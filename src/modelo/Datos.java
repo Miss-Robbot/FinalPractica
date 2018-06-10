@@ -23,7 +23,7 @@ public class Datos {
 	// Cliente
 	private int index=0;
 	private ArrayList<Integer> anadidos = new ArrayList<>();
-	private TreeMap<String, String> mapaCliente= new TreeMap<>();
+	private TreeMap<String, String> mapaCliente= new TreeMap<>();//mapa de keys
 	private AlmacenIndice<Cliente, String> clientes;
 	// Proveedores
 	private AlmacenIndividualSet<Proveedor> proveedores;
@@ -147,7 +147,7 @@ public class Datos {
 	public void grabarCliente(Cliente cliente){
 		this.mapaCliente.put(String.valueOf(index), cliente.getKey());
 	}
-	public String obtenerClienteKey(String index){
+	public String obtenerClienteKey(String index, Datos dato){
 		return this.mapaCliente.get(index);
 	}
 
