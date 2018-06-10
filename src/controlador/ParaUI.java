@@ -211,20 +211,35 @@ public class ParaUI extends UI{
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
 				panelConsultarArticulo.setVisible(true);
+				
+				if(panelConsultarArticulo.getComboBox().getItemCount()==0)
 				consultar.rellenarComboboxArticulo(panelConsultarArticulo.getComboBox());
+				
 				panelConsultarArticulo.getComboBox().addActionListener(new ActionListener() {
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						panelConsultarArticulo.getTxtInformacion().setText("");
-						Articulo articulo= acciones.getLogica().getDato().obtener(panelConsultarArticulo.getComboBox().getSelectedItem().toString());
+						Articulo articulo= new Articulo();
+						articulo=acciones.getLogica().getDato().obtener(panelConsultarArticulo.getComboBox().getSelectedItem().toString());
 						panelConsultarArticulo.getTxtInformacion().setText(articulo.informacionArticulo());
 						
 					}
 				});
 			}
+			
 		});
 		
+		panelConsultarArticulo.getBtnVolver().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				panelArticulos.setVisible(true);
+				//panelConsultarArticulo.getComboBox().removeAllItems();
+				
+			}
+		});
 		panelArticulos.getBtnCambiarPrecioArticulo().addActionListener(new ActionListener() {
 			
 			@Override
