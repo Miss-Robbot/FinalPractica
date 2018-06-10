@@ -1,5 +1,6 @@
 package modelo;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeMap;
@@ -12,8 +13,8 @@ import modelo.*;
 public class Datos {
 	// VAmos a expresar los diferentes almacenes
 	
-	private String pathIndiceCliente = "/data/clientes/index.data";
-	private String pathDatosCliente = "/data/clientes/clientes.data";
+	private String pathIndiceCliente = "index.data";
+	private String pathDatosCliente = "clientes.data";
 	private String pathDatosProveedores = "/data/proveedores/proveedores.data";
 	private String pathMapaArticulos = "/data/articulos";
 	private String pathArchivosMapaArticulos = "/articulos.map";
