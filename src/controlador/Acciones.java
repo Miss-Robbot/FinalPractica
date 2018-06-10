@@ -1,6 +1,9 @@
 package controlador;
 
+import javax.swing.JComboBox;
+
 import modelo.Articulo;
+import modelo.Cliente;
 import modelo.Logica;
 
 public class Acciones{
@@ -25,6 +28,15 @@ public class Acciones{
 
 	public boolean grabar(Articulo articulo) {
 		return logica.grabar(articulo);
+	}
+
+	public void grabar(Cliente cliente) {
+		logica.grabar(cliente);
+		
+	}
+
+	public Cliente obtener(String clave){
+		return logica.obtener(clave);
 	}
 	
 	

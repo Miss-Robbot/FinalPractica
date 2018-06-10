@@ -105,25 +105,20 @@ public class Consultar extends Acciones {
 		}
 		return pedidos;
 	}*/
-	public void rellenarComboboxCliente(JComboBox<Cliente> comboBox) {
+	public JComboBox actualizarComboBoxCliente(JComboBox comboBox){
+		//comboBox.removeAllItems();
+		//comboBox.removeAll();
+	
+		for (int i = 0; i < getLogica().getDato().getIndex(); i++) {
+			if(!getLogica().getDato().getAnadidos().contains(i)){
+			comboBox.addItem(consultarCliente(getLogica().getDato().obtenerClienteKey(String.valueOf(i))));
+			getLogica().getDato().getAnadidos().add(i);}
+		}
+		return comboBox;
+	}
 
-		/*LinkedList<Cliente> clientes = conseguirListaClientes();
-		for (Iterator iterator = clientes.iterator(); iterator.hasNext();) {
-			Cliente cliente = (Cliente) iterator.next();
-			comboBox.addItem(cliente);
-				}*/
-			}
-
-
-
-
-	private LinkedList<Cliente> conseguirListaClientes() {
-		LinkedList<Cliente> clientes = new LinkedList<Cliente>();
-		/*for (Iterator iterator = getLogica().getDatoActual().getClienteActual(); iterator.hasNext();) {
-		Cliente cliente = (Cliente) iterator.next();
-		clientes.add(cliente);}*/
-			
-		return clientes;
+	private Cliente consultarCliente(String obtenerClienteKey) {
+		return obtener(obtenerClienteKey);
 	}
 
 }

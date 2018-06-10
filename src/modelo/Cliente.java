@@ -47,4 +47,6 @@ public class Cliente implements Serializable,Comparable<Cliente>,Indexable<Strin
 		return dni;
 	}
 	
+	
+	
 }

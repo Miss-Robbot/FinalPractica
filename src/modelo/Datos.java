@@ -2,6 +2,7 @@ package modelo;
 
 import java.util.ArrayList;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import almacen.*;
@@ -10,6 +11,7 @@ import modelo.*;
 //La suite de test tiene que daos en verde. Luego podeis probar esta clase
 public class Datos {
 	// VAmos a expresar los diferentes almacenes
+	
 	private String pathIndiceCliente = "/data/clientes/index.data";
 	private String pathDatosCliente = "/data/clientes/clientes.data";
 	private String pathDatosProveedores = "/data/proveedores/proveedores.data";
@@ -19,6 +21,9 @@ public class Datos {
 	private String pathNumeroPedido = "/data/pedidos/numPedido.data";
 
 	// Cliente
+	private int index=0;
+	private ArrayList<Integer> anadidos = new ArrayList<>();
+	private TreeMap<String, String> mapaCliente= new TreeMap<>();
 	private AlmacenIndice<Cliente, String> clientes;
 	// Proveedores
 	private AlmacenIndividualSet<Proveedor> proveedores;
@@ -38,7 +43,7 @@ public class Datos {
 		numeroPedido = new AlmacenIndividual<>();
 		Integer obtener = numeroPedido.obtener(pathNumeroPedido);
 		if (obtener == null) {
-			numeroPedido.grabar(pathNumeroPedido, 0);
+			//numeroPedido.grabar(pathNumeroPedido, 0);
 		}
 	}
 
@@ -63,8 +68,8 @@ public class Datos {
 	}
 
 	/// Igual con el resto de metodos de obtener. Pondre uno de prueba
-	public void obtener(Cliente cliente, String clave) {
-		cliente = clientes.obtener(clave);
+	public Cliente obtener1(String clave) {
+		return clientes.obtener(clave);
 	};
 
 	public void obtener(Pedido pedido, String dniCliente, int numeroPedido) {
@@ -104,6 +109,32 @@ public class Datos {
 				articulos.add(articulo);
 		}
 		return articulos;
+	}
+	
+	
+	public TreeMap<String, String> getMapaCliente() {
+		return mapaCliente;
+	}
+	public void setMapaCliente(TreeMap<String, String> mapaCliente) {
+		this.mapaCliente = mapaCliente;
+	}
+	public int getIndex() {
+		return index;
+	}
+	public void setIndex(int index) {
+		this.index = index;
+	}
+	public ArrayList<Integer> getAnadidos() {
+		return anadidos;
+	}
+	public void setAnadidos(ArrayList<Integer> anadidos) {
+		this.anadidos = anadidos;
+	}
+	public void grabarCliente(Cliente cliente){
+		this.mapaCliente.put(String.valueOf(index), cliente.getKey());
+	}
+	public String obtenerClienteKey(String index){
+		return this.mapaCliente.get(index);
 	}
 
 

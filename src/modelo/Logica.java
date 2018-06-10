@@ -32,6 +32,11 @@ public class Logica {
 		return dato.grabar(articulo);
 	}
 
+	public boolean grabar(Cliente cliente) {
+		return dato.grabar(cliente);
+		
+	}
+	
 	public ArrayList<Articulo> getListaArticulos() {
 		return dato.getListaArticulos();
 	}
@@ -40,5 +45,21 @@ public class Logica {
 		ArrayList<Articulo> articulos= dato.getListaArticulos();
 		return articulos.get(0).getPrecios().getFirst().getPrecio();
 	}
+
+	public Cliente crearCliente(String dni, String nombre, String dire, String tlf) {
+		Cliente client = new Cliente(dni, crearDatos(dni, nombre, dire, tlf));
+		return client;
+	}
+
+	private String crearDatos(String dni, String nombre, String dire, String tlf) {
+		return " "+nombre+": \n DNI/NIF: "+dni+". \n Direccion: "+dire+". \n Tlf: "+tlf;
+	}
+
+	public Cliente obtener(String clave){
+		return dato.obtener1(clave);
+	}
+	
+
+	
 
 }
