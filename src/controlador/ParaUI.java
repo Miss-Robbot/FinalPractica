@@ -270,8 +270,21 @@ public class ParaUI extends UI{
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
 				cambiarPrecioArticulo.setVisible(true);
+				cambiarPrecioArticulo.getTxtPrecioActual().setText("");
 				//hacer bien, que me estoy quedando dormida
 				consultar.rellenarComboboxArticulo(cambiarPrecioArticulo.getComboBox());
+				cambiarPrecioArticulo.getComboBox().addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						
+						Articulo articulo= new Articulo();
+						articulo=acciones.getLogica().getDato().obtener(cambiarPrecioArticulo.getComboBox().getSelectedItem().toString());
+						cambiarPrecioArticulo.getTxtPrecioActual().setText(articulo.getPrecios().getFirst().toString());
+						
+						
+					}
+				});
 				consultar.getPrecioActualArticulo(cambiarPrecioArticulo.getTxtPrecioActual());
 			}
 		});
