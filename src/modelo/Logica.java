@@ -2,6 +2,8 @@ package modelo;
 
 import java.util.ArrayList;
 
+import javax.swing.JTextArea;
+
 
 public class Logica {
 
@@ -64,5 +66,9 @@ public class Logica {
 
 	public Cliente obtener(String clave){
 		return dato.obtener1(clave);
+	}
+
+	public String conseguirInfo(Cliente cliente) {
+		return cliente.getDatos();
 	}
 }
