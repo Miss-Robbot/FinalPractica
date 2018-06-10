@@ -315,7 +315,7 @@ panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
 			}
 		});
 		panelArticulos.getBtnCambiarPrecioArticulo().addActionListener(new ActionListener() {
-			
+			float precioInt;
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
@@ -330,12 +330,12 @@ panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
 						Articulo articulo= new Articulo();
 						articulo=acciones.getLogica().getDato().obtener(cambiarPrecioArticulo.getComboBox().getSelectedItem().toString());
 						cambiarPrecioArticulo.getTxtPrecioActual().setText(articulo.getPrecios().getFirst().toString());
-						
+						precioInt= Integer.parseInt(cambiarPrecioArticulo.getComboBox().getSelectedItem().toString());
 						
 					}
 				});
 				cambiar.getPrecioActualArticulo(cambiarPrecioArticulo.getTxtPrecioActual());
-				float precioInt= Integer.parseInt(cambiarPrecioArticulo.getComboBox().getSelectedItem().toString());
+				
 				
 				cambiarPrecioArticulo.getBtnCambiar().addActionListener(new ActionListener() {
 					
