@@ -209,8 +209,6 @@ public class ParaUI extends UI{
 							
 							Cliente clientebueno= acciones.getLogica().getDato().obtener1(txtNombre);
 							
-							
-							
 							//Articulo articuloPrueba = new Articulo(1, "pc", "superChulo", 100);
 							
 							
