@@ -146,8 +146,24 @@ public class CambiarPrecioArticulo extends JPanel{
 	public void setComboBox(JComboBox comboBox) {
 		this.comboBox = comboBox;
 	}
-	
 
+
+	/**
+	 * @return the btnCambiar
+	 */
+	public JButton getBtnCambiar() {
+		return btnCambiar;
+	}
+
+
+	/**
+	 * @param btnCambiar the btnCambiar to set
+	 */
+	public void setBtnCambiar(JButton btnCambiar) {
+		this.btnCambiar = btnCambiar;
+	}
+	
+	
 	
 	
 }
