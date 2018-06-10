@@ -70,7 +70,7 @@ public class DarAltaCliente extends JPanel {
 		gbc_txtDNI.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtDNI.gridx = 0;
 		gbc_txtDNI.gridy = 3;
-		contentPane.add(txtDNI, gbc_txtDNI);
+		add(txtDNI, gbc_txtDNI);
 		txtDNI.setColumns(10);
 		
 		JLabel lblDireccin = new JLabel("Direcci\u00F3n:");
@@ -90,7 +90,7 @@ public class DarAltaCliente extends JPanel {
 		gbc_txtDireccion.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtDireccion.gridx = 0;
 		gbc_txtDireccion.gridy = 5;
-		contentPane.add(txtDireccion, gbc_txtDireccion);
+		add(txtDireccion, gbc_txtDireccion);
 		txtDireccion.setColumns(10);
 		
 		JLabel lblTelfono = new JLabel("Tel\u00E9fono:");
@@ -109,7 +109,7 @@ public class DarAltaCliente extends JPanel {
 		gbc_txtTelf.fill = GridBagConstraints.HORIZONTAL;
 		gbc_txtTelf.gridx = 0;
 		gbc_txtTelf.gridy = 7;
-		contentPane.add(txtTelf, gbc_txtTelf);
+		add(txtTelf, gbc_txtTelf);
 		txtTelf.setColumns(10);
 		
 		lblError = new JLabel(" ");

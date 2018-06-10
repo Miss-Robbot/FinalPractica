@@ -171,9 +171,9 @@ public class UI extends JFrame {
 		panelPrincipal.add(cambiarPrecioArticulo, gbc_panelConsultar);
 		cambiarPrecioArticulo.setVisible(false);
 
-		panelDarAltaCliente = new PanelDarAltaCliente();
-		panelPrincipal.add(panelDarAltaCliente, gbc_panelConsultar);
-		panelDarAltaCliente.setVisible(false);
+		altaCliente = new DarAltaCliente();
+		panelPrincipal.add(altaCliente, gbc_panelConsultar);
+		altaCliente.setVisible(false);
 
 		borrarCliente = new BorrarCliente();
 		panelPrincipal.add(borrarCliente, gbc_panelConsultar);

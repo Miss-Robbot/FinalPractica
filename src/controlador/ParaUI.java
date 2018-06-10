@@ -34,6 +34,20 @@ public class ParaUI extends UI{
 	
 	public ParaUI(){
 		
+		Cliente cliente = new Cliente("12345678U", "Carmen" +"C/Piruleta"+ "629629421");
+		Cliente cliente2 = new Cliente("87654321E", "Elliot"+ "C/Mesados"+ "640800320");
+		//Cliente cliente3 = new Cliente("67839123S", "Oscar", "C/Monantilla", "658920013");
+		darAlta.grabar(cliente);
+		darAlta.grabar(cliente2);
+		
+		acciones.getLogica().getDato().grabarCliente(cliente);
+		acciones.getLogica().getDato().setIndex(acciones.getLogica().getDato().getIndex()+1);
+		acciones.getLogica().getDato().grabarCliente(cliente2);
+		acciones.getLogica().getDato().setIndex(acciones.getLogica().getDato().getIndex()+1);
+		//logica.añadirCliente(cliente3);
+		panelConsultar.setComboBox(consultar.actualizarComboBoxCliente(panelConsultar.getComboBox()));
+		borrarCliente.setComboBox(consultar.actualizarComboBoxCliente(borrarCliente.getComboBox()));
+		
 		btnInicio.addActionListener(new ActionListener() {
 			
 			@Override
@@ -59,7 +73,7 @@ public class ParaUI extends UI{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
-				panelDarAltaArticulo.setVisible(true);
+				altaCliente.setVisible(true);
 				
 			}
 		});
@@ -86,46 +100,104 @@ public class ParaUI extends UI{
 		
 	panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
 			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				
-			}
-		});
-		
-		panelCliente.getBtnConsultarCliente().addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			 altaCliente.setLblError("");
 			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
+			altaCliente.getBtnDarDeAlta().addActionListener(new ActionListener() {
 				
-			}
-		});
-		
-		panelCliente.getBtnBorrarCliente().addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				
-				borrarCliente.getBtnVolver().addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					String nombre = altaCliente.getTxtNombre().getText();
+					String dni = altaCliente.getTxtDNI().getText();
+					String dire = altaCliente.getTxtDireccion().getText();
+					String tlf = altaCliente.getTxtTelf().getText();
+					altaCliente.vaciarTextos();
 					
-					@Override
-					public void actionPerformed(ActionEvent e) {
+					if(validator.isPhone(tlf)&&!validator.isNumber(nombre)){//faltan validaciones
+						darAlta.grabar((acciones.getLogica().crearCliente(dni, nombre, dire, tlf)));
+						
+						altaCliente.setLblError("");
 						todosInvisibles();
 						panelCliente.setVisible(true);
-						
-						
+					}else{
+						altaCliente.setLblError("Ha habido un error dando de alta al cliente");
 					}
-				});
+				}
+			});
+			
+		}
+	});
+		
+	panelCliente.getBtnConsultarCliente().addActionListener(new ActionListener() {
+		
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			
+//			panelConsultar.setTxtInformacion("");
+			panelConsultar.getBtnVolver().addActionListener(new ActionListener() {
 				
-				borrarCliente.setVisible(true);
-				borrarCliente.getComboBox().addActionListener(new ActionListener() {
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					todosInvisibles();
+					panelCliente.setVisible(true);
 					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						
-					}
-				});
-			}
-		});
+					
+				}
+			});
+			
+			panelConsultar.getComboBox().addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+//					panelConsultar.setTxtInformacion(logica.conseguirInfo((Cliente) panelConsultar.getComboBox().getSelectedItem()));
+					
+					
+				}
+			});
+			
+		}
+	});
+	
+	panelCliente.getBtnBorrarCliente().addActionListener(new ActionListener() {
+		
+		
+		
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			
+			borrarCliente.getBtnVolver().addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					todosInvisibles();
+					panelCliente.setVisible(true);
+					
+					
+				}
+			});
+			
+			//borrarCliente.setTextArea("");
+			borrarCliente.setVisible(true);
+			borrarCliente.getComboBox().addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					//logica.borrarCliente(borrar.getComboBox(), borrar.getComboBox().getSelectedItem().toString());
+					/*if(logica.borrarCliente((Cliente) panelConsultar.getComboBox().getSelectedItem())){
+					panelConsultar.setComboBox(logica.actualizarComboBoxCliente(panelConsultar.getComboBox()));
+					borrarCliente.setComboBox(logica.actualizarComboBoxCliente(borrarCliente.getComboBox()));
+					
+					borrarCliente.setTextArea("La operación se ha realizado con éxito");
+					todosInvisibles();
+					panelCliente.setVisible(true);
+					}else{
+						borrarCliente.setTextArea("Ha habido un problema al dar de baja al cliente.");
+					}*/
+				}
+			});
+		}
+	});
 		btnPedidos.addActionListener(new ActionListener() {
 			
 			@Override
@@ -237,26 +309,56 @@ public class ParaUI extends UI{
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
 				panelConsultarArticulo.setVisible(true);
+				
+				if(panelConsultarArticulo.getComboBox().getItemCount()==0)
 				consultar.rellenarComboboxArticulo(panelConsultarArticulo.getComboBox());
+				
 				panelConsultarArticulo.getComboBox().addActionListener(new ActionListener() {
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						panelConsultarArticulo.getTxtInformacion().setText("");
-						Articulo articulo= acciones.getLogica().getDato().obtener(panelConsultarArticulo.getComboBox().getSelectedItem().toString());
+						Articulo articulo= new Articulo();
+						articulo=acciones.getLogica().getDato().obtener(panelConsultarArticulo.getComboBox().getSelectedItem().toString());
 						panelConsultarArticulo.getTxtInformacion().setText(articulo.informacionArticulo());
 						
 					}
 				});
 			}
+			
 		});
 		
+		panelConsultarArticulo.getBtnVolver().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				panelArticulos.setVisible(true);
+				
+			}
+		});
 		panelArticulos.getBtnCambiarPrecioArticulo().addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
-				
+				cambiarPrecioArticulo.setVisible(true);
+				cambiarPrecioArticulo.getTxtPrecioActual().setText("");
+				//hacer bien, que me estoy quedando dormida
+				consultar.rellenarComboboxArticulo(cambiarPrecioArticulo.getComboBox());
+				cambiarPrecioArticulo.getComboBox().addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						
+						Articulo articulo= new Articulo();
+						articulo=acciones.getLogica().getDato().obtener(cambiarPrecioArticulo.getComboBox().getSelectedItem().toString());
+						cambiarPrecioArticulo.getTxtPrecioActual().setText(articulo.getPrecios().getFirst().toString());
+						
+						
+					}
+				});
+				consultar.getPrecioActualArticulo(cambiarPrecioArticulo.getTxtPrecioActual());
 			}
 		});
 		
@@ -284,7 +386,7 @@ public class ParaUI extends UI{
 		panelDarAltaArticulo.setVisible(false);
 		panelConsultar.setVisible(false);
 		cambiarPrecioArticulo.setVisible(false);
-		panelDarAltaCliente.setVisible(false);
+		altaCliente.setVisible(false);
 		panelConsultarArticulo.setVisible(false);
 	}
 

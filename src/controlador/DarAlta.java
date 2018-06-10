@@ -1,6 +1,7 @@
 package controlador;
 
 import modelo.Articulo;
+import modelo.Cliente;
 import modelo.Pedido;
 
 public class DarAlta extends Acciones{
@@ -12,7 +13,8 @@ public class DarAlta extends Acciones{
 	}
 	
 	
-	public void darAltaCliente(){
+	public void grabar(Cliente cliente) {
+		getLogica().grabar(cliente);
 		
 	}
 	

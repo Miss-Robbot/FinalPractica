@@ -77,7 +77,7 @@ public class Precio implements Serializable{
 	 */
 	@Override
 	public String toString() {
-		return "Precio [precio=" + precio + "]";
+		return ""+precio;
 	}
 
 	/* (non-Javadoc)

@@ -111,6 +111,21 @@ public class Articulo implements Serializable,Indexable<String>{
 		return descripcion;
 	}
 
+	
+	/**
+	 * @return the precios
+	 */
+	public LinkedList<Precio> getPrecios() {
+		return precios;
+	}
+
+	/**
+	 * @param precios the precios to set
+	 */
+	public void setPrecios(LinkedList<Precio> precios) {
+		this.precios = precios;
+	}
+
 	@Override
 	public String getKey() {
 		return nombre;
