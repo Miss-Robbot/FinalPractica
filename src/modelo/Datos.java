@@ -171,4 +171,8 @@ public class Datos {
 		return keys;
 	}
 
+	public boolean borrar(Cliente cliente) {
+		return clientes.borrar(cliente.getKey());
+	}
+
 }

@@ -170,7 +170,47 @@ panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
 		});
 		
 		
-	
+panelCliente.getBtnBorrarCliente().addActionListener(new ActionListener() {
+			
+			
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+				borrarCliente.getBtnVolver().addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						todosInvisibles();
+						panelCliente.setVisible(true);
+						
+						
+					}
+				});
+				
+				//borrarCliente.setTextArea("");
+				if(panelConsultar.getComboBox().getItemCount()==0)
+				consultar.rellenarComboboxCliente(borrarCliente.getComboBox(), acciones);
+				
+				borrarCliente.setVisible(true);
+				borrarCliente.getComboBox().addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						//logica.borrarCliente(borrar.getComboBox(), borrar.getComboBox().getSelectedItem().toString());
+						if(acciones.borrar((Cliente) panelConsultar.getComboBox().getSelectedItem())){
+							consultar.rellenarComboboxCliente(borrarCliente.getComboBox(), acciones);
+						
+						borrarCliente.setTextArea("La operación se ha realizado con éxito");
+						todosInvisibles();
+						panelCliente.setVisible(true);
+						}else{
+							borrarCliente.setTextArea("Ha habido un problema al dar de baja al cliente.");
+						}
+					}
+				});
+			}
+		});
 		
 	
 		btnPedidos.addActionListener(new ActionListener() {
@@ -384,6 +424,7 @@ panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
 		cambiarPrecioArticulo.setVisible(false);
 		altaCliente.setVisible(false);
 		panelConsultarArticulo.setVisible(false);
+		borrarCliente.setVisible(false);
 	}
 
 	public Acciones getAcciones() {

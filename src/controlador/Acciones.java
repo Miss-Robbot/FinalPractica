@@ -50,6 +50,10 @@ public class Acciones{
 		return logica.grabar(client);
 		
 	}
+
+	public boolean borrar(Cliente cliente) {
+		return logica.borrar(cliente);
+	}
 	
 
 }
