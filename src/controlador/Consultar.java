@@ -1,11 +1,9 @@
 package controlador;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 import modelo.Articulo;
 import modelo.Cliente;
@@ -79,6 +77,13 @@ public class Consultar extends Acciones {
 		}
 	}
 
+	public void rellenarComboboxPedido(JComboBox combobox) {
+		combobox.removeAllItems();
+		ArrayList<Articulo> articulos= getLogica().getListaArticulos();
+		for (Articulo articulo : articulos) {
+			combobox.addItem(articulo.toString());
+		}
+	}
 
 	/*public void rellenarComboboxPedido(JComboBox<Pedido> comboBox,
 			DatoActual datoActual) {

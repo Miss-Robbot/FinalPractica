@@ -87,8 +87,8 @@ public class Datos {
 		return clientes.obtener(clave);
 	};
 
-	public void obtener(Pedido pedido, String dniCliente, int numeroPedido) {
-		pedido = pedidos.obtener(dniCliente, String.valueOf(numeroPedido));
+	public Pedido obtener(String dniCliente, String numeroPedido) {
+		return pedidos.obtener(dniCliente, numeroPedido);
 	}
 
 	// hecho por alicia
@@ -137,6 +137,16 @@ public class Datos {
 		numeroPedido++;
 	}
 
+	
+	public ArrayList<Pedido> getListaPedidos() {
+		ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
+		for (String clave : this.keySet()) {
+			Pedido pedido = obtener("80079711J",clave);
+			if(pedido!=null)
+				pedidos.add(pedido);
+		}
+		return pedidos;
+	}
 	
 	public TreeMap<String, String> getMapaCliente() {
 		return mapaCliente;

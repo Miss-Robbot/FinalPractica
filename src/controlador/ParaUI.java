@@ -331,6 +331,39 @@ panelCliente.getBtnBorrarCliente().addActionListener(new ActionListener() {
 			}
 		});
 		
+		panelPedidos.getBtnConsultarPedidos().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				panelConsultarPedido.setVisible(true);
+				
+				if(panelConsultarPedido.getComboBox().getItemCount()==0)
+				consultar.rellenarComboboxPedido(panelConsultarPedido.getComboBox());
+				
+				panelConsultarPedido.getComboBox().addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						panelConsultarPedido.getTxtInformacion().setText("");
+						Pedido pedido= acciones.getLogica().getDato().obtener("80079711J",panelConsultarPedido.getComboBox().getSelectedItem().toString());
+						panelConsultarArticulo.getTxtInformacion().setText(pedido.informacionPedido());
+						
+					}
+				});
+			}
+			
+		});
+		panelConsultarPedido.getBtnVolver().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				panelPedidos.setVisible(true);
+				
+			}
+		});
+		
 		panelArticulos.getBtnConsultarArticulos().addActionListener(new ActionListener() {
 			
 			@Override
