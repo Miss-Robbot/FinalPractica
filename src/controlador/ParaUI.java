@@ -36,16 +36,16 @@ public class ParaUI extends UI{
 	public ParaUI(){
 		
 		Cliente cliente = new Cliente("12345678U", "Carmen" +"C/Piruleta"+ "629629421");
+		cliente.setNombre("Carmen");
 		Cliente cliente2 = new Cliente("87654321E", "Elliot"+ "C/Mesados"+ "640800320");
-		fachada.darAlta(cliente);
-		fachada.darAlta(cliente2);
+		cliente2.setNombre("Elliot");
 		
+		acciones.grabar(cliente);
 		acciones.getLogica().getDato().grabarCliente(cliente);
 		acciones.getLogica().getDato().setIndex(acciones.getLogica().getDato().getIndex()+1);
+		acciones.grabar(cliente2);
 		acciones.getLogica().getDato().grabarCliente(cliente2);
 		acciones.getLogica().getDato().setIndex(acciones.getLogica().getDato().getIndex()+1);
-		panelConsultar.setComboBox(consultar.actualizarComboBoxCliente(panelConsultar.getComboBox(), acciones.getLogica().getDato()));
-		borrarCliente.setComboBox(consultar.actualizarComboBoxCliente(borrarCliente.getComboBox(), acciones.getLogica().getDato()));
 		
 		btnInicio.addActionListener(new ActionListener() {
 			
@@ -97,67 +97,65 @@ public class ParaUI extends UI{
 			}
 		});
 		
-	panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
+panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
 			
-		@Override
-		public void actionPerformed(ActionEvent arg0) {
-			 altaCliente.setLblError("");
-			
-			altaCliente.getBtnDarDeAlta().addActionListener(new ActionListener() {
-				
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					String nombre = altaCliente.getTxtNombre().getText();
-					String dni = altaCliente.getTxtDNI().getText();
-					String dire = altaCliente.getTxtDireccion().getText();
-					String tlf = altaCliente.getTxtTelf().getText();
-					altaCliente.vaciarTextos();
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				altaCliente.setVisible(true);
+				altaCliente.getBtnDarDeAlta().addActionListener(new ActionListener() {
 					
-					if(validator.isPhone(tlf)&&!validator.isNumber(nombre)){//faltan validaciones
-						fachada.darAlta((acciones.getLogica().crearCliente(dni, nombre, dire, tlf)));
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						String nombre = altaCliente.getTxtNombre().getText();
+						String dni = altaCliente.getTxtDNI().getText();
+						String dire = altaCliente.getTxtDireccion().getText();
+						String tlf = altaCliente.getTxtTelf().getText();
+						altaCliente.vaciarTextos();
 						
-						panelConsultar.setComboBox(consultar.actualizarComboBoxCliente(panelConsultar.getComboBox(), acciones.getLogica().getDato()));
-						altaCliente.setLblError("");
-						todosInvisibles();
-						panelCliente.setVisible(true);
-					}else{
-						altaCliente.setLblError("Ha habido un error dando de alta al cliente");
+						if(validator.isPhone(tlf)&&!validator.isNumber(nombre)){
+							
+							Cliente client = new Cliente(dni, acciones.getLogica().crearDatos( dni,nombre, dire, tlf));
+							client.setNombre(nombre);
+							acciones.grabar(client);
+							acciones.getLogica().getDato().grabarCliente(client);
+							acciones.getLogica().getDato().setIndex(acciones.getLogica().getDato().getIndex()+1);
+							
+							altaCliente.setLblError("");
+							todosInvisibles();
+							panelCliente.setVisible(true);
+						}else{
+							altaCliente.setLblError("Ha habido un error dando de alta al cliente");
+						}
 					}
-				}
-			});
-			
-		}
-	});
+				});
+			}
+		});
 		
-	panelCliente.getBtnConsultarCliente().addActionListener(new ActionListener() {
-		
-		@Override
-		public void actionPerformed(ActionEvent arg0) {
+		panelCliente.getBtnConsultarCliente().addActionListener(new ActionListener() {
 			
-			panelConsultar.setTxtInformacion("");
-			panelConsultar.getBtnVolver().addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				panelConsultar.setVisible(true);
 				
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					todosInvisibles();
-					panelCliente.setVisible(true);
-					
-					
-				}
-			});
-			
-			panelConsultar.getComboBox().addActionListener(new ActionListener() {
+				if(panelConsultar.getComboBox().getItemCount()==0)
+				consultar.rellenarComboboxCliente(panelConsultar.getComboBox(), acciones);
 				
-				@Override
-				public void actionPerformed(ActionEvent e) {
-					panelConsultar.setTxtInformacion(acciones.getLogica().conseguirInfo((Cliente) panelConsultar.getComboBox().getSelectedItem()));
+				panelConsultar.getComboBox().addActionListener(new ActionListener() {
 					
-					
-				}
-			});
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						panelConsultar.getTxtInformacion().setText("");
+						Cliente cliento = new Cliente();
+						cliento = (Cliente) panelConsultar.getComboBox().getSelectedItem();
+						panelConsultar.getTxtInformacion().setText(acciones.getLogica().conseguirInfo(cliento));
+						
+					}
+				});
+			}
 			
-		}
-	});
+		});
 		
 		
 		

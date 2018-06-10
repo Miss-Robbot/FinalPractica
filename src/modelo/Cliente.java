@@ -4,11 +4,16 @@ import java.io.Serializable;
 public class Cliente implements Serializable,Comparable<Cliente>,Indexable<String>{
 	private String dni;
 	private String datos;
+	private String nombre;
 
 	public Cliente(String dni, String datos) {
 		super();
 		this.dni = dni;
 		this.datos = datos;
+	}
+	
+	public Cliente(){
+		
 	}
 
 	public String getDni() {
@@ -46,6 +51,20 @@ public class Cliente implements Serializable,Comparable<Cliente>,Indexable<Strin
 	public String getKey() {
 		return dni;
 	}
+
+	@Override
+	public String toString() {
+		return nombre;
+	}
+	
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	
 	
 	
 	

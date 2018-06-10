@@ -25,7 +25,7 @@ public class Datos {
 
 	// Cliente
 	private int index=0;
-	private ArrayList<Integer> anadidos = new ArrayList<>();
+	//private ArrayList<Integer> anadidos = new ArrayList<>();
 	private TreeMap<String, String> mapaCliente= new TreeMap<>();//mapa de keys
 	private AlmacenIndice<Cliente, String> clientes;
 	// Proveedores
@@ -150,17 +150,25 @@ public class Datos {
 	public void setIndex(int index) {
 		this.index = index;
 	}
-	public ArrayList<Integer> getAnadidos() {
-		return anadidos;
-	}
-	public void setAnadidos(ArrayList<Integer> anadidos) {
-		this.anadidos = anadidos;
-	}
+//	public ArrayList<Integer> getAnadidos() {
+//		return anadidos;
+//	}
+//	public void setAnadidos(ArrayList<Integer> anadidos) {
+//		this.anadidos = anadidos;
+//	}
 	public void grabarCliente(Cliente cliente){
 		this.mapaCliente.put(String.valueOf(index), cliente.getKey());
 	}
 	public String obtenerClienteKey(String index, Datos dato){
 		return this.mapaCliente.get(index);
+	}
+	
+	public ArrayList<String> getListaDni() {
+		ArrayList<String> keys = new ArrayList<>();
+		for (int i = 0; i < this.index; i++) {
+			keys.add(getMapaCliente().get(String.valueOf(i)));
+		}
+		return keys;
 	}
 
 }
