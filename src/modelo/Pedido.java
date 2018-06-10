@@ -6,6 +6,7 @@ import java.util.ArrayList;
 
 public class Pedido implements Serializable {
 
+	//Yolanda
 	private int numero;
 	private Cliente cliente;
 	private LocalDate fecha;

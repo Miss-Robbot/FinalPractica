@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import almacen.*;
 
 //La suite de test tiene que daos en verde. Luego podeis probar esta clase
@@ -19,6 +18,7 @@ public class Datos {
 	private String pathArchivosMapaArticulos = "/articulos.map";
 	private String pathPedidos = "/data/pedidos";
 	private String pathNumeroPedido = "/data/pedidos/numPedido.data";
+	//private int numeroUltimoPedido = 0;
 
 	// Cliente
 	private int index=0;
@@ -36,15 +36,21 @@ public class Datos {
 
 	public Datos() {
 
-		clientes = new AlmacenIndice<Cliente, String>(pathIndiceCliente, pathDatosCliente);
-		proveedores = new AlmacenIndividualSet<>(new TreeSet<Proveedor>(), pathDatosProveedores);
-		articulos = new AlmacenRutaMapeada<>("art", pathMapaArticulos, pathArchivosMapaArticulos);
+		//Yolanda yolanda
+		clientes = new AlmacenIndice<Cliente, String>(pathIndiceCliente,
+				pathDatosCliente);
+		proveedores = new AlmacenIndividualSet<>(new TreeSet<Proveedor>(),
+				pathDatosProveedores);
+		articulos = new AlmacenRutaMapeada<>("art", pathMapaArticulos,
+				pathArchivosMapaArticulos);
 		pedidos = new AlmacenRutaDestino<>(pathPedidos, "ped");
-		numeroPedido = new AlmacenIndividual<>();
-		Integer obtener = numeroPedido.obtener(pathNumeroPedido);
-		if (obtener == null) {
-			//numeroPedido.grabar(pathNumeroPedido, 0);
-		}
+
+//		numeroPedido = new AlmacenIndividual<>();
+//		Integer obtener = numeroPedido.obtener(pathNumeroPedido);
+//		if (obtener == null) {
+//			numeroPedido.grabar(pathNumeroPedido, 0);
+//		}
+
 	}
 
 	public boolean grabar(Cliente cliente) {
@@ -57,11 +63,13 @@ public class Datos {
 	}
 
 	public boolean grabar(Articulo articulo) {
-		return articulos.grabar(articulo, articulo.getKey(), articulo.getIdArticulo());
+		return articulos.grabar(articulo, articulo.getKey(),
+				articulo.getIdArticulo());
 	}
 
 	public boolean grabar(Pedido pedido) {
-		return pedidos.grabar(pedido.getCliente().getDni(), String.valueOf(pedido.getNumero()), pedido);
+		return pedidos.grabar(pedido.getCliente().getDni(),
+				String.valueOf(pedido.getNumero()), pedido);
 	}
 
 	public boolean grabar(Integer integer) {
@@ -112,6 +120,11 @@ public class Datos {
 		return articulos;
 	}
 	
+
+	public int getNumeroPedido() {
+		return pedidos.obtenNumero();
+	}
+
 	
 	public TreeMap<String, String> getMapaCliente() {
 		return mapaCliente;
@@ -137,6 +150,5 @@ public class Datos {
 	public String obtenerClienteKey(String index){
 		return this.mapaCliente.get(index);
 	}
-
 
 }

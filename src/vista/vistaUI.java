@@ -1,11 +1,12 @@
 package vista;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import java.awt.GridBagLayout;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.JButton;
 
 public class vistaUI extends JFrame{
 	
@@ -58,6 +59,7 @@ public class vistaUI extends JFrame{
 		gbc_btnCliente.gridy = 0;
 		panelCabecera.add(btnCliente, gbc_btnCliente);
 		
+		//Yolanda
 		JButton btnPedidos = new JButton("Pedidos");
 		GridBagConstraints gbc_btnPedidos = new GridBagConstraints();
 		gbc_btnPedidos.fill = GridBagConstraints.BOTH;

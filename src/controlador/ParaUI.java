@@ -2,23 +2,16 @@ package controlador;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.LinkedList;
 
-
-import javax.swing.JComboBox;
 import javax.swing.JTextField;
 
 import modelo.Articulo;
 import modelo.Cliente;
 import modelo.Linea;
-import modelo.Logica;
+import modelo.Pedido;
 import validacion.Validador;
 import validacion.Validator;
-import modelo.Pedido;
-import vista.PanelConsultar;
 import vista.UI;
-import vista.vistaUI;
 
 public class ParaUI extends UI{
 
@@ -32,6 +25,11 @@ public class ParaUI extends UI{
 	private Consultar consultar=new Consultar();
 	private DarAlta darAlta= new DarAlta();
 	private Insertar insertar= new Insertar();
+	
+	//Yolanda
+	private Cliente clientePrueba = new Cliente("80079711J", "Yolanda");
+	private Articulo articuloPrueba = new Articulo(1, "pc", "superChulo", 100);
+	private Linea lienaPrueba = new Linea(articuloPrueba, 20);
 	
 	
 	public ParaUI(){
@@ -225,8 +223,36 @@ public class ParaUI extends UI{
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
-				panelDarAltaArticulo.setVisible(true);
-				
+				panelDarAltaPedido.setVisible(true);
+				panelDarAltaPedido.getBtnDarAlta().addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						String txtNombre=panelDarAltaPedido.getTxtNombre().getText().trim();
+						panelDarAltaArticulo.getTxtNombre().setText(txtNombre);
+						
+						String txtDescripcion=panelDarAltaPedido.getTxtDescripcion().getText().trim();
+						panelDarAltaArticulo.getTxtDescripcion().setText(txtDescripcion);
+						
+						String txtProveedor=panelDarAltaPedido.getTxtProveedor().getText().trim();
+						panelDarAltaArticulo.getTxtProveedor().setText(txtProveedor);
+						
+						int cantidad=Integer.parseInt(panelDarAltaPedido.getTextField().getText());
+						int idPedido=acciones.getNumeroArticulo();
+						if(validador.validarPedido(txtNombre, txtDescripcion, txtProveedor, cantidad)){
+							//Pedido pedido= new Pedido(idPedido, txtNombre, txtDescripcion, cantidad);
+							Pedido pedido = new Pedido(25, clientePrueba);
+							acciones.grabar(pedido);
+							panelDarAltaPedido.getLblConfirmacion().setText("Todo bien");
+							limpiarEtiqueta(panelDarAltaPedido.getTxtNombre());
+							limpiarEtiqueta(panelDarAltaPedido.getTxtDescripcion());
+							limpiarEtiqueta(panelDarAltaPedido.getTxtProveedor());
+							limpiarEtiqueta(panelDarAltaPedido.getTextField());
+						}
+						else
+							panelDarAltaPedido.getLblConfirmacion().setText("Error al dar de alta el pedido");
+					}
+				});
 			}
 		});
 		

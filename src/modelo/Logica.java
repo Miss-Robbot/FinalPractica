@@ -1,12 +1,7 @@
 package modelo;
 
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Set;
 
-import javax.swing.JComboBox;
-import javax.swing.JTextArea;
 
 public class Logica {
 
@@ -41,6 +36,16 @@ public class Logica {
 		return dato.getListaArticulos();
 	}
 	
+
+	//Yolanda
+	public int getNumeroPedido() {
+		return dato.getNumeroPedido();
+	}
+	
+	public boolean grabar(Pedido pedido) {
+		return dato.grabar(pedido);
+	}
+
 	public float getPrecioActual(){
 		ArrayList<Articulo> articulos= dato.getListaArticulos();
 		return articulos.get(0).getPrecios().getFirst().getPrecio();
@@ -60,8 +65,4 @@ public class Logica {
 	public Cliente obtener(String clave){
 		return dato.obtener1(clave);
 	}
-	
-
-	
-
 }
