@@ -1,11 +1,14 @@
 package modelo;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
-import almacen.*;
+
+import almacen.AlmacenIndice;
+import almacen.AlmacenIndividualSet;
+import almacen.AlmacenRutaDestino;
+import almacen.AlmacenRutaMapeada;
 
 //La suite de test tiene que daos en verde. Luego podeis probar esta clase
 public class Datos {
@@ -32,7 +35,8 @@ public class Datos {
 	// Pedidos
 	private AlmacenRutaDestino<Pedido> pedidos;
 	// numeroUltimoPedido
-	private AlmacenIndividual<Integer> numeroPedido;
+	//private AlmacenIndividual<Integer> numeroPedido;
+	private int numeroPedido=1;
 
 	public Datos() {
 
@@ -45,10 +49,12 @@ public class Datos {
 				pathArchivosMapaArticulos);
 		pedidos = new AlmacenRutaDestino<>(pathPedidos, "ped");
 
+		
+		
 //		numeroPedido = new AlmacenIndividual<>();
 //		Integer obtener = numeroPedido.obtener(pathNumeroPedido);
 //		if (obtener == null) {
-//			numeroPedido.grabar(pathNumeroPedido, 0);
+//			//numeroPedido.grabar(pathNumeroPedido, 0);
 //		}
 
 	}
@@ -72,9 +78,9 @@ public class Datos {
 				String.valueOf(pedido.getNumero()), pedido);
 	}
 
-	public boolean grabar(Integer integer) {
-		return numeroPedido.grabar(pathNumeroPedido, integer);
-	}
+//	public boolean grabar(Integer integer) {
+//		return numeroPedido.grabar(pathNumeroPedido, integer);
+//	}
 
 	/// Igual con el resto de metodos de obtener. Pondre uno de prueba
 	public Cliente obtener1(String clave) {
@@ -122,7 +128,13 @@ public class Datos {
 	
 
 	public int getNumeroPedido() {
-		return pedidos.obtenNumero();
+		//return pedidos.obtenNumero();
+		return numeroPedido;
+	}
+	
+	public void aumentarNumeroPedido() {
+		//return pedidos.obtenNumero();
+		numeroPedido++;
 	}
 
 	

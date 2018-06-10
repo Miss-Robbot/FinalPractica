@@ -25,12 +25,7 @@ public class ParaUI extends UI{
 	private Consultar consultar=new Consultar();
 	private DarAlta darAlta= new DarAlta();
 	private Insertar insertar= new Insertar();
-	
-	//Yolanda
-	private Cliente clientePrueba = new Cliente("80079711J", "Yolanda");
-	private Articulo articuloPrueba = new Articulo(1, "pc", "superChulo", 100);
-	private Linea lienaPrueba = new Linea(articuloPrueba, 20);
-	
+
 	
 	public ParaUI(){
 		
@@ -233,20 +228,33 @@ public class ParaUI extends UI{
 						
 						String txtDescripcion=panelDarAltaPedido.getTxtDescripcion().getText().trim();
 						panelDarAltaArticulo.getTxtDescripcion().setText(txtDescripcion);
-						
-						String txtProveedor=panelDarAltaPedido.getTxtProveedor().getText().trim();
-						panelDarAltaArticulo.getTxtProveedor().setText(txtProveedor);
+						//Yolanda
 						
 						int cantidad=Integer.parseInt(panelDarAltaPedido.getTextField().getText());
 						int idPedido=acciones.getNumeroArticulo();
-						if(validador.validarPedido(txtNombre, txtDescripcion, txtProveedor, cantidad)){
+						if(validador.validarPedido(txtNombre, txtDescripcion, cantidad)){
 							//Pedido pedido= new Pedido(idPedido, txtNombre, txtDescripcion, cantidad);
-							Pedido pedido = new Pedido(25, clientePrueba);
+							
+							Cliente clientePrueba = new Cliente(txtNombre, "Yolanda");
+							
+							Cliente clientebueno= acciones.getLogica().getDato().obtener1(txtNombre);
+							
+							
+							
+							//Articulo articuloPrueba = new Articulo(1, "pc", "superChulo", 100);
+							
+							
+							Articulo articuloPrueba =acciones.getLogica().getDato().obtener(txtDescripcion);
+							
+							Linea lineaPrueba = new Linea(articuloPrueba, cantidad);
+							
+							Pedido pedido = new Pedido(acciones.getNumeroPedido(), clientePrueba);
+							pedido.insertarLinea(lineaPrueba);
 							acciones.grabar(pedido);
-							panelDarAltaPedido.getLblConfirmacion().setText("Todo bien");
+							panelDarAltaPedido.getLblConfirmacion().setText("Pedido dado de alta correctamente");
+							acciones.aumentarNumeroPedido();
 							limpiarEtiqueta(panelDarAltaPedido.getTxtNombre());
 							limpiarEtiqueta(panelDarAltaPedido.getTxtDescripcion());
-							limpiarEtiqueta(panelDarAltaPedido.getTxtProveedor());
 							limpiarEtiqueta(panelDarAltaPedido.getTextField());
 						}
 						else

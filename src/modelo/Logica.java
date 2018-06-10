@@ -42,6 +42,10 @@ public class Logica {
 		return dato.getNumeroPedido();
 	}
 	
+	
+	public void aumentarNumeroPedido() {
+		dato.aumentarNumeroPedido();
+	}
 	public boolean grabar(Pedido pedido) {
 		return dato.grabar(pedido);
 	}

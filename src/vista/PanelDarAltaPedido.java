@@ -4,6 +4,8 @@ import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -13,7 +15,6 @@ import javax.swing.JTextField;
 public class PanelDarAltaPedido extends JPanel {
 	private JTextField txtNombre;
 	private JTextField txtDescripcion;
-	private JTextField txtProveedor;
 	private JTextField textField;
 	private JButton btnDarAlta;
 	private JLabel lblConfirmacion;
@@ -24,12 +25,12 @@ public class PanelDarAltaPedido extends JPanel {
 	public PanelDarAltaPedido() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 0, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 1.0, 0.0, 0.0, 1.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
-		JLabel lblNombre = new JLabel("Introduce nombre:");
+		JLabel lblNombre = new JLabel("Introduce NIF Cliente:");
 		lblNombre.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		GridBagConstraints gbc_lblNombre = new GridBagConstraints();
 		gbc_lblNombre.fill = GridBagConstraints.BOTH;
@@ -47,7 +48,7 @@ public class PanelDarAltaPedido extends JPanel {
 		add(txtNombre, gbc_txtNombre);
 		txtNombre.setColumns(10);
 		
-		JLabel lblDescripcion = new JLabel("Introduce descripcion:");
+		JLabel lblDescripcion = new JLabel("Introduce Articulo:");
 		lblDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		GridBagConstraints gbc_lblDescripcion = new GridBagConstraints();
 		gbc_lblDescripcion.anchor = GridBagConstraints.WEST;
@@ -65,33 +66,14 @@ public class PanelDarAltaPedido extends JPanel {
 		add(txtDescripcion, gbc_txtDescripcion);
 		txtDescripcion.setColumns(10);
 		
-		JLabel lblNombreProveedor = new JLabel("Nombre Proveedor:");
-		lblNombreProveedor.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		GridBagConstraints gbc_lblNombreProveedor = new GridBagConstraints();
-		gbc_lblNombreProveedor.fill = GridBagConstraints.VERTICAL;
-		gbc_lblNombreProveedor.anchor = GridBagConstraints.WEST;
-		gbc_lblNombreProveedor.insets = new Insets(0, 0, 5, 5);
-		gbc_lblNombreProveedor.gridx = 1;
-		gbc_lblNombreProveedor.gridy = 7;
-		add(lblNombreProveedor, gbc_lblNombreProveedor);
-		
-		txtProveedor = new JTextField();
-		GridBagConstraints gbc_txtProveedor = new GridBagConstraints();
-		gbc_txtProveedor.insets = new Insets(0, 0, 5, 5);
-		gbc_txtProveedor.fill = GridBagConstraints.BOTH;
-		gbc_txtProveedor.gridx = 1;
-		gbc_txtProveedor.gridy = 8;
-		add(txtProveedor, gbc_txtProveedor);
-		txtProveedor.setColumns(10);
-		
-		JLabel lblCantidadProducto = new JLabel("Cantidad Producto:");
+		JLabel lblCantidadProducto = new JLabel("Cantidad Articulo:");
 		lblCantidadProducto.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		GridBagConstraints gbc_lblCantidadProducto = new GridBagConstraints();
 		gbc_lblCantidadProducto.fill = GridBagConstraints.VERTICAL;
 		gbc_lblCantidadProducto.anchor = GridBagConstraints.WEST;
 		gbc_lblCantidadProducto.insets = new Insets(0, 0, 5, 5);
 		gbc_lblCantidadProducto.gridx = 1;
-		gbc_lblCantidadProducto.gridy = 10;
+		gbc_lblCantidadProducto.gridy = 7;
 		add(lblCantidadProducto, gbc_lblCantidadProducto);
 		
 		textField = new JTextField();
@@ -99,7 +81,7 @@ public class PanelDarAltaPedido extends JPanel {
 		gbc_textField.insets = new Insets(0, 0, 5, 5);
 		gbc_textField.fill = GridBagConstraints.BOTH;
 		gbc_textField.gridx = 1;
-		gbc_textField.gridy = 11;
+		gbc_textField.gridy = 8;
 		add(textField, gbc_textField);
 		textField.setColumns(10);
 		
@@ -108,15 +90,20 @@ public class PanelDarAltaPedido extends JPanel {
 		gbc_lblConfirmacion.anchor = GridBagConstraints.WEST;
 		gbc_lblConfirmacion.insets = new Insets(0, 0, 5, 5);
 		gbc_lblConfirmacion.gridx = 1;
-		gbc_lblConfirmacion.gridy = 13;
+		gbc_lblConfirmacion.gridy = 10;
 		add(lblConfirmacion, gbc_lblConfirmacion);
 		
-		btnDarAlta = new JButton("DarAlta");
+		btnDarAlta = new JButton("DarAltaPedido");
+		btnDarAlta.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		GridBagConstraints gbc_btnDarAlta = new GridBagConstraints();
 		gbc_btnDarAlta.fill = GridBagConstraints.VERTICAL;
 		gbc_btnDarAlta.insets = new Insets(0, 0, 0, 5);
 		gbc_btnDarAlta.gridx = 1;
-		gbc_btnDarAlta.gridy = 14;
+		gbc_btnDarAlta.gridy = 11;
 		add(btnDarAlta, gbc_btnDarAlta);
 
 	}
@@ -137,13 +124,6 @@ public class PanelDarAltaPedido extends JPanel {
 		this.txtDescripcion = txtDescripcion;
 	}
 
-	public JTextField getTxtProveedor() {
-		return txtProveedor;
-	}
-
-	public void setTxtProveedor(JTextField txtProveedor) {
-		this.txtProveedor = txtProveedor;
-	}
 
 	public JTextField getTextField() {
 		return textField;

@@ -9,8 +9,8 @@ public class Validador {
 		return false;
 	}
 	//Yolanda
-	public boolean validarPedido(String nombre, String proveedor, String descripcion, int cantidad){
-		if(validarString(nombre) && validarString(proveedor) && validarString(descripcion) && validarInt(cantidad)){
+	public boolean validarPedido(String NIF, String IdArticulo, int cantidad){
+		if(validarString(NIF) && validarInt(Integer.parseInt(IdArticulo)) && validarInt(cantidad)){
 			return true;
 		}
 		return false;
