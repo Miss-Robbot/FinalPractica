@@ -7,8 +7,12 @@ import java.awt.GridLayout;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
+import java.util.ArrayList;
 import java.awt.Font;
 import javax.swing.SwingConstants;
+
+import modelo.Articulo;
+
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 
@@ -131,8 +135,7 @@ public class CambiarPrecioArticulo extends JPanel{
 		this.comboBox = comboBox;
 	}
 	
-	
-	
+
 	
 	
 }
