@@ -3,6 +3,7 @@ package controlador;
 import java.util.ArrayList;
 
 import javax.swing.JComboBox;
+import javax.swing.JTextField;
 
 import modelo.Articulo;
 import modelo.Precio;
@@ -23,4 +24,8 @@ public class Cambiar extends Acciones{
 		}
 	}
 	
+	
+	public void getPrecioActualArticulo(JTextField txtPrecio){
+		txtPrecio.setText(getLogica().getPrecioActual()+"");
+	}
 }

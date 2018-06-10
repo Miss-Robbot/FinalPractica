@@ -317,9 +317,7 @@ public class ParaUI extends UI{
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
 				cambiarPrecioArticulo.setVisible(true);
-				
-				//hacer bien, que me estoy quedando dormida
-				if(panelConsultarArticulo.getComboBox().getItemCount()==0)
+				//if(panelConsultarArticulo.getComboBox().getItemCount()==0)
 				cambiar.rellenarComboboxArticulo(cambiarPrecioArticulo.getComboBox());
 				cambiarPrecioArticulo.getComboBox().addActionListener(new ActionListener() {
 					
@@ -332,7 +330,7 @@ public class ParaUI extends UI{
 						
 					}
 				});
-				consultar.getPrecioActualArticulo(cambiarPrecioArticulo.getTxtPrecioActual());
+				cambiar.getPrecioActualArticulo(cambiarPrecioArticulo.getTxtPrecioActual());
 			}
 		});
 		

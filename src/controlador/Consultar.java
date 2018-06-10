@@ -76,10 +76,7 @@ public class Consultar extends Acciones {
 			combobox.addItem(articulo.toString());
 		}
 	}
-	
-	public void getPrecioActualArticulo(JTextField txtPrecio){
-		txtPrecio.setText(getLogica().getPrecioActual()+"");
-	}
+
 
 	/*public void rellenarComboboxPedido(JComboBox<Pedido> comboBox,
 			DatoActual datoActual) {
