@@ -44,8 +44,8 @@ public class ParaUI extends UI{
 		acciones.getLogica().getDato().setIndex(acciones.getLogica().getDato().getIndex()+1);
 		acciones.getLogica().getDato().grabarCliente(cliente2);
 		acciones.getLogica().getDato().setIndex(acciones.getLogica().getDato().getIndex()+1);
-		panelConsultar.setComboBox(consultar.actualizarComboBoxCliente(panelConsultar.getComboBox(), acciones.getLogica().getDato()));
-		borrarCliente.setComboBox(consultar.actualizarComboBoxCliente(borrarCliente.getComboBox(), acciones.getLogica().getDato()));
+		panelConsultar.setComboBox(consultar.actualizarComboBoxCliente(panelConsultar.getComboBox(), acciones.getLogica().getDato(), fachada));
+		borrarCliente.setComboBox(consultar.actualizarComboBoxCliente(borrarCliente.getComboBox(), acciones.getLogica().getDato(), fachada));
 		
 		btnInicio.addActionListener(new ActionListener() {
 			
@@ -116,7 +116,8 @@ public class ParaUI extends UI{
 					if(validator.isPhone(tlf)&&!validator.isNumber(nombre)){//faltan validaciones
 						fachada.darAlta((acciones.getLogica().crearCliente(dni, nombre, dire, tlf)));
 						
-						panelConsultar.setComboBox(consultar.actualizarComboBoxCliente(panelConsultar.getComboBox(), acciones.getLogica().getDato()));
+						panelConsultar.setComboBox(consultar.actualizarComboBoxCliente(panelConsultar.getComboBox(), acciones.getLogica().getDato(), fachada));
+						borrarCliente.setComboBox(consultar.actualizarComboBoxCliente(borrarCliente.getComboBox(), acciones.getLogica().getDato(), fachada));
 						altaCliente.setLblError("");
 						todosInvisibles();
 						panelCliente.setVisible(true);
@@ -159,7 +160,45 @@ public class ParaUI extends UI{
 		}
 	});
 		
+	panelCliente.getBtnBorrarCliente().addActionListener(new ActionListener() {
 		
+		
+		
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			
+			borrarCliente.getBtnVolver().addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					todosInvisibles();
+					panelCliente.setVisible(true);
+					
+					
+				}
+			});
+			
+			//borrarCliente.setTextArea("");
+			borrarCliente.setVisible(true);
+			/*borrarCliente.getComboBox().addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					//logica.borrarCliente(borrar.getComboBox(), borrar.getComboBox().getSelectedItem().toString());
+					if(logica.borrarCliente((Cliente) panelConsultar.getComboBox().getSelectedItem())){
+					panelConsultar.setComboBox(logica.actualizarComboBoxCliente(panelConsultar.getComboBox()));
+					borrarCliente.setComboBox(logica.actualizarComboBoxCliente(borrarCliente.getComboBox()));
+					
+					borrarCliente.setTextArea("La operación se ha realizado con éxito");
+					todosInvisibles();
+					panelCliente.setVisible(true);
+					}else{
+						borrarCliente.setTextArea("Ha habido un problema al dar de baja al cliente.");
+					}
+				}
+			});*/
+		}
+	});
 		
 		
 	

@@ -104,13 +104,13 @@ public class Consultar extends Acciones {
 		}
 		return pedidos;
 	}*/
-	public JComboBox actualizarComboBoxCliente(JComboBox comboBox, Datos dato){
-		//comboBox.removeAllItems();
+	public JComboBox actualizarComboBoxCliente(JComboBox comboBox, Datos dato, FachadaCliente fachada){
+		comboBox.removeAllItems();
 		//comboBox.removeAll();
 	
 		for (int i = 0; i < dato.getIndex(); i++) {
 			if(!dato.getAnadidos().contains(i)){
-			comboBox.addItem(consultarCliente(dato.obtenerClienteKey(String.valueOf(i), dato)));
+			comboBox.addItem(fachada.consultar(dato.obtenerClienteKey(String.valueOf(i), dato)));
 			dato.getAnadidos().add(i);}
 		}
 		return comboBox;
