@@ -70,4 +70,9 @@ public class AlmacenRutaDestino<T> {
 			definitivos[i]=elements[i].split("\\.")[0];
 		}
 	}
+	//completar ?¿
+	public int obtenNumero() {
+		return 1;
+		//return mapa.getSize();
+	}
 }
