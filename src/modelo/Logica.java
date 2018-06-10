@@ -65,5 +65,4 @@ public class Logica {
 	public Cliente obtener(String clave){
 		return dato.obtener1(clave);
 	}
-
 }
