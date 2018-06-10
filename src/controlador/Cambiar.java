@@ -17,7 +17,7 @@ public class Cambiar extends Acciones{
 	 * @param articulos
 	 */
 	public void rellenarComboboxArticulo(JComboBox combobox) {
-		combobox.removeAllItems();
+		
 		ArrayList<Articulo> articulos= getLogica().getListaArticulos();
 		for (Articulo articulo : articulos) {
 			combobox.addItem(articulo.toString());
