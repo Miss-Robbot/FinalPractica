@@ -78,25 +78,21 @@ public class Articulo implements Serializable,Indexable<String>{
 	/* (non-Javadoc)
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (!(obj instanceof Articulo))
-			return false;
-		Articulo other = (Articulo) obj;
-		if (nombre == null) {
-			if (other.nombre != null)
-				return false;
-		} else if (!nombre.equals(other.nombre))
-			return false;
-		return true;
-	}
+	
 
 	public float getCurrentPrice() {
 		return precios.getLast().getPrecio();
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#equals(java.lang.Object)
+	 */
+	@Override
+	public boolean equals(Object obj) {
+		Articulo other=(Articulo)obj;
+		 if (!nombre.equals(other.nombre))
+			return false;
+		return true;
 	}
 
 	public int getIdArticulo() {

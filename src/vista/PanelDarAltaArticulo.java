@@ -84,7 +84,7 @@ public class PanelDarAltaArticulo extends JPanel {
 		add(txtProveedor, gbc_txtProveedor);
 		txtProveedor.setColumns(10);
 		
-		JLabel lblCantidadProducto = new JLabel("Cantidad Producto:");
+		JLabel lblCantidadProducto = new JLabel("Coste:");
 		lblCantidadProducto.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		GridBagConstraints gbc_lblCantidadProducto = new GridBagConstraints();
 		gbc_lblCantidadProducto.fill = GridBagConstraints.VERTICAL;

@@ -1,6 +1,7 @@
 package controlador;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import javax.swing.JComboBox;
 import javax.swing.JTextField;
@@ -22,6 +23,8 @@ public class Cambiar extends Acciones{
 		for (Articulo articulo : articulos) {
 			combobox.addItem(articulo.toString());
 		}
+		
+		
 	}
 	
 	

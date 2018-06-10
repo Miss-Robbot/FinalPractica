@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import java.awt.GridBagLayout;
+import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import javax.swing.SwingConstants;
@@ -39,6 +40,8 @@ public class PanelConsultar extends JPanel{
 		gbc_txtInformacion.fill = GridBagConstraints.BOTH;
 		gbc_txtInformacion.gridx = 1;
 		gbc_txtInformacion.gridy = 5;
+		txtInformacion.setEditable(false);
+		txtInformacion.setBackground(Color.white);
 		add(txtInformacion, gbc_txtInformacion);
 		
 		btnVolver = new JButton("Volver");

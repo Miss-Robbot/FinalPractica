@@ -308,8 +308,7 @@ public class ParaUI extends UI{
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
 				cambiarPrecioArticulo.setVisible(true);
-				//cambiarPrecioArticulo.getComboBox().
-				if(panelConsultarArticulo.getComboBox().getItemCount()==0)
+				//if(panelConsultarArticulo.getComboBox().getItemCount()==0)
 				cambiar.rellenarComboboxArticulo(cambiarPrecioArticulo.getComboBox());
 				cambiarPrecioArticulo.getComboBox().addActionListener(new ActionListener() {
 					
@@ -327,6 +326,15 @@ public class ParaUI extends UI{
 			}
 		});
 		
+		cambiarPrecioArticulo.getBtnVolver().addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				todosInvisibles();
+				panelArticulos.setVisible(true);
+				
+			}
+		});
 		panelArticulos.getBtnConsultarPreciosAntiguos().addActionListener(new ActionListener() {
 			
 			@Override

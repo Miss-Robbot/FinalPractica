@@ -8,6 +8,7 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 import java.util.ArrayList;
+import java.awt.Color;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
@@ -24,13 +25,14 @@ public class CambiarPrecioArticulo extends JPanel{
 	private JTextField txtNuevoPrecio;
 	private JButton btnVolver;
 	private JComboBox comboBox;
+	private JButton btnCambiar;
 	
 	public CambiarPrecioArticulo() {
 		GridBagLayout gridBagLayout = new GridBagLayout();
 		gridBagLayout.columnWidths = new int[]{0, 534, 0, 0};
-		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gridBagLayout.rowHeights = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 		gridBagLayout.columnWeights = new double[]{0.0, 1.0, 0.0, Double.MIN_VALUE};
-		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 0.0, 0.0, Double.MIN_VALUE};
+		gridBagLayout.rowWeights = new double[]{0.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 1.0, 1.0, 1.0, 0.0, 1.0, Double.MIN_VALUE};
 		setLayout(gridBagLayout);
 		
 		comboBox = new JComboBox<>();
@@ -57,6 +59,8 @@ public class CambiarPrecioArticulo extends JPanel{
 		gbc_txtPrecioActual.fill = GridBagConstraints.BOTH;
 		gbc_txtPrecioActual.gridx = 1;
 		gbc_txtPrecioActual.gridy = 3;
+		txtPrecioActual.setEditable(false);
+		txtPrecioActual.setBackground(Color.white);
 		add(txtPrecioActual, gbc_txtPrecioActual);
 		txtPrecioActual.setColumns(10);
 		
@@ -79,11 +83,19 @@ public class CambiarPrecioArticulo extends JPanel{
 		add(txtNuevoPrecio, gbc_txtNuevoPrecio);
 		txtNuevoPrecio.setColumns(10);
 		
+		btnCambiar = new JButton("Cambiar");
+		GridBagConstraints gbc_btnCambiar = new GridBagConstraints();
+		gbc_btnCambiar.fill = GridBagConstraints.BOTH;
+		gbc_btnCambiar.insets = new Insets(0, 0, 5, 5);
+		gbc_btnCambiar.gridx = 1;
+		gbc_btnCambiar.gridy = 9;
+		add(btnCambiar, gbc_btnCambiar);
+		
 		btnVolver = new JButton("Volver");
 		GridBagConstraints gbc_btnVolver = new GridBagConstraints();
 		gbc_btnVolver.insets = new Insets(0, 0, 0, 5);
 		gbc_btnVolver.gridx = 1;
-		gbc_btnVolver.gridy = 9;
+		gbc_btnVolver.gridy = 11;
 		add(btnVolver, gbc_btnVolver);
 	}
 
