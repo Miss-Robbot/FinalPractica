@@ -136,6 +136,18 @@ panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				panelConsultar.setTxtInformacion("");
+				panelConsultar.getBtnVolver().addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						todosInvisibles();
+						panelCliente.setVisible(true);
+						
+						
+					}
+				});
 				todosInvisibles();
 				panelConsultar.setVisible(true);
 				
@@ -158,7 +170,7 @@ panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
 		});
 		
 		
-		
+	
 		
 	
 		btnPedidos.addActionListener(new ActionListener() {
