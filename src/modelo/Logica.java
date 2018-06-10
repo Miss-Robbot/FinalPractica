@@ -29,6 +29,8 @@ public class Logica {
 	public ArrayList<Articulo> getListaArticulos() {
 		return dato.getListaArticulos();
 	}
+	
+	//Yolanda
 	public int getNumeroPedido() {
 		return dato.getNumeroPedido();
 	}

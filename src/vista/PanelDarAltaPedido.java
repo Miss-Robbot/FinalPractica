@@ -1,14 +1,14 @@
 package vista;
 
-import javax.swing.JPanel;
-import java.awt.GridLayout;
-import java.awt.GridBagLayout;
-import javax.swing.JLabel;
-import java.awt.GridBagConstraints;
-import java.awt.Insets;
-import javax.swing.JTextField;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 public class PanelDarAltaPedido extends JPanel {
 	private JTextField txtNombre;
@@ -17,7 +17,7 @@ public class PanelDarAltaPedido extends JPanel {
 	private JTextField textField;
 	private JButton btnDarAlta;
 	private JLabel lblConfirmacion;
-
+	//Yolanda
 	/**
 	 * Create the panel.
 	 */

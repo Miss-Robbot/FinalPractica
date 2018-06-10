@@ -98,6 +98,7 @@ public class UI extends JFrame {
 		gbc_btnCliente.gridy = 0;
 		panelCabecera.add(btnCliente, gbc_btnCliente);
 
+		//Yolanda
 		btnPedidos = new JButton("Pedidos");
 		GridBagConstraints gbc_btnPedidos = new GridBagConstraints();
 		gbc_btnPedidos.fill = GridBagConstraints.BOTH;

@@ -27,7 +27,7 @@ public class Acciones{
 	public boolean grabar(Articulo articulo) {
 		return logica.grabar(articulo);
 	}
-		
+		//Yolanda
 	public int getNumeroPedido() {
 		return logica.getNumeroPedido();
 	}

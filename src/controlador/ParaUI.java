@@ -26,6 +26,7 @@ public class ParaUI extends UI{
 	private DarAlta darAlta= new DarAlta();
 	private Insertar insertar= new Insertar();
 	
+	//Yolanda
 	private Cliente clientePrueba = new Cliente("80079711J", "Yolanda");
 	private Articulo articuloPrueba = new Articulo(1, "pc", "superChulo", 100);
 	private Linea lienaPrueba = new Linea(articuloPrueba, 20);
@@ -168,7 +169,7 @@ public class ParaUI extends UI{
 						int idPedido=acciones.getNumeroArticulo();
 						if(validador.validarPedido(txtNombre, txtDescripcion, txtProveedor, cantidad)){
 							//Pedido pedido= new Pedido(idPedido, txtNombre, txtDescripcion, cantidad);
-							Pedido pedido = new Pedido(22, clientePrueba);
+							Pedido pedido = new Pedido(25, clientePrueba);
 							acciones.grabar(pedido);
 							panelDarAltaPedido.getLblConfirmacion().setText("Todo bien");
 							limpiarEtiqueta(panelDarAltaPedido.getTxtNombre());
