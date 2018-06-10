@@ -75,4 +75,8 @@ public class Logica {
 	public String conseguirInfo(Cliente cliente) {
 		return cliente.getDatos();
 	}
+
+	public boolean borrar(Cliente cliente) {
+		return dato.borrar(cliente);
+	}
 }

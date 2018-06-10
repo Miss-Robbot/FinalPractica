@@ -97,8 +97,8 @@ public class BorrarCliente extends JPanel {
 		return textArea;
 	}
 
-	public void setTextArea(JTextArea textArea) {
-		this.textArea = textArea;
+	public void setTextArea(String string) {
+		this.textArea.setText(string);
 	}
 
 	public JComboBox getComboBox() {
