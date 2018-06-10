@@ -80,11 +80,11 @@ public class Consultar extends Acciones {
 		}
 	}
 	
-	public void rellenarComboboxCliente(JComboBox comboBox) {
+	public void rellenarComboboxCliente(JComboBox comboBox, Acciones acciones) {
 		comboBox.removeAllItems();
-		ArrayList<String> keys= getLogica().getDato().getListaDni();
+		ArrayList<String> keys= acciones.getLogica().getDato().getListaDni();
 		for (String key : keys) {
-			comboBox.addItem(obtener(key).toString());
+			comboBox.addItem(acciones.obtener(key));
 		}
 	}
 

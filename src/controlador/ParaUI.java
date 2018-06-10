@@ -140,7 +140,7 @@ public class ParaUI extends UI{
 				panelConsultar.setVisible(true);
 				
 				if(panelConsultar.getComboBox().getItemCount()==0)
-				consultar.rellenarComboboxCliente(panelConsultar.getComboBox());
+				consultar.rellenarComboboxCliente(panelConsultar.getComboBox(), acciones);
 				
 				panelConsultar.getComboBox().addActionListener(new ActionListener() {
 					

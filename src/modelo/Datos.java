@@ -154,7 +154,7 @@ public class Datos {
 	public ArrayList<String> getListaDni() {
 		ArrayList<String> keys = new ArrayList<>();
 		for (int i = 0; i < this.index; i++) {
-			keys.add(getMapaCliente().get(i));
+			keys.add(getMapaCliente().get(String.valueOf(i)));
 		}
 		return keys;
 	}
