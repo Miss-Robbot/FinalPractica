@@ -44,8 +44,8 @@ public class ParaUI extends UI{
 		acciones.getLogica().getDato().setIndex(acciones.getLogica().getDato().getIndex()+1);
 		acciones.getLogica().getDato().grabarCliente(cliente2);
 		acciones.getLogica().getDato().setIndex(acciones.getLogica().getDato().getIndex()+1);
-		panelConsultar.setComboBox(consultar.actualizarComboBoxCliente(panelConsultar.getComboBox()));
-		borrarCliente.setComboBox(consultar.actualizarComboBoxCliente(borrarCliente.getComboBox()));
+		panelConsultar.setComboBox(consultar.actualizarComboBoxCliente(panelConsultar.getComboBox(), acciones.getLogica().getDato()));
+		borrarCliente.setComboBox(consultar.actualizarComboBoxCliente(borrarCliente.getComboBox(), acciones.getLogica().getDato()));
 		
 		btnInicio.addActionListener(new ActionListener() {
 			
@@ -116,6 +116,7 @@ public class ParaUI extends UI{
 					if(validator.isPhone(tlf)&&!validator.isNumber(nombre)){//faltan validaciones
 						fachada.darAlta((acciones.getLogica().crearCliente(dni, nombre, dire, tlf)));
 						
+						panelConsultar.setComboBox(consultar.actualizarComboBoxCliente(panelConsultar.getComboBox(), acciones.getLogica().getDato()));
 						altaCliente.setLblError("");
 						todosInvisibles();
 						panelCliente.setVisible(true);
@@ -132,30 +133,30 @@ public class ParaUI extends UI{
 		
 		@Override
 		public void actionPerformed(ActionEvent arg0) {
-	
-				panelConsultar.setTxtInformacion("");
-				panelConsultar.getBtnVolver().addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						todosInvisibles();
-						panelCliente.setVisible(true);
-						
-						
-					}
-				});
 			
-				panelConsultar.getComboBox().addActionListener(new ActionListener() {
-					
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						panelConsultar.setTxtInformacion(acciones.getLogica().conseguirInfo((Cliente) panelConsultar.getComboBox().getSelectedItem()));
-						
-						
-					}
-				});
+			panelConsultar.setTxtInformacion("");
+			panelConsultar.getBtnVolver().addActionListener(new ActionListener() {
 				
-			}
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					todosInvisibles();
+					panelCliente.setVisible(true);
+					
+					
+				}
+			});
+			
+			panelConsultar.getComboBox().addActionListener(new ActionListener() {
+				
+				@Override
+				public void actionPerformed(ActionEvent e) {
+					panelConsultar.setTxtInformacion(acciones.getLogica().conseguirInfo((Cliente) panelConsultar.getComboBox().getSelectedItem()));
+					
+					
+				}
+			});
+			
+		}
 	});
 		
 		

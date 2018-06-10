@@ -147,7 +147,7 @@ public class Datos {
 	public void grabarCliente(Cliente cliente){
 		this.mapaCliente.put(String.valueOf(index), cliente.getKey());
 	}
-	public String obtenerClienteKey(String index){
+	public String obtenerClienteKey(String index, Datos dato){
 		return this.mapaCliente.get(index);
 	}
 
