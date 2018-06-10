@@ -314,6 +314,7 @@ panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
 		});
 		panelArticulos.getBtnCambiarPrecioArticulo().addActionListener(new ActionListener() {
 			float precioInt;
+			Articulo articulo= new Articulo();
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				todosInvisibles();
@@ -325,10 +326,11 @@ panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						panelConsultarArticulo.getTxtInformacion().setText("");
-						Articulo articulo= new Articulo();
+						
 						articulo=acciones.getLogica().getDato().obtener(cambiarPrecioArticulo.getComboBox().getSelectedItem().toString());
 						cambiarPrecioArticulo.getTxtPrecioActual().setText(articulo.getPrecios().getFirst().toString());
-						precioInt= Integer.parseInt(cambiarPrecioArticulo.getComboBox().getSelectedItem().toString());
+						if(validator.isNumber(cambiarPrecioArticulo.getTxtNuevoPrecio().getText()))
+							precioInt= Integer.parseInt(cambiarPrecioArticulo.getTxtNuevoPrecio().getText());
 						
 					}
 				});
@@ -339,11 +341,11 @@ panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
 					
 					@Override
 					public void actionPerformed(ActionEvent e) {
-						Articulo articulo= new Articulo();
-						articulo=acciones.getLogica().getDato().obtener(cambiarPrecioArticulo.getComboBox().getSelectedItem().toString());
 						Precio precioNuevo= new Precio((float)precioInt, false);
 						articulo.getPrecios().push(precioNuevo);
-						
+						todosInvisibles();
+						panelArticulos.setVisible(true);
+						cambiarPrecioArticulo.getTxtNuevoPrecio().setText("");
 					}
 				});
 				
