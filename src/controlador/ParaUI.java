@@ -9,6 +9,7 @@ import modelo.Articulo;
 import modelo.Cliente;
 import modelo.Linea;
 import modelo.Pedido;
+import modelo.Precio;
 import validacion.Validador;
 import validacion.Validator;
 import vista.UI;
@@ -320,6 +321,7 @@ panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
 				todosInvisibles();
 				cambiarPrecioArticulo.setVisible(true);
 				cambiar.rellenarComboboxArticulo(cambiarPrecioArticulo.getComboBox());
+				
 				cambiarPrecioArticulo.getComboBox().addActionListener(new ActionListener() {
 					
 					@Override
@@ -333,7 +335,20 @@ panelCliente.getBtnDarAlta().addActionListener(new ActionListener() {
 					}
 				});
 				cambiar.getPrecioActualArticulo(cambiarPrecioArticulo.getTxtPrecioActual());
-				int precioNuevo= Integer.parseInt(cambiarPrecioArticulo.getComboBox().getSelectedItem().toString());
+				float precioInt= Integer.parseInt(cambiarPrecioArticulo.getComboBox().getSelectedItem().toString());
+				
+				cambiarPrecioArticulo.getBtnCambiar().addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						Articulo articulo= new Articulo();
+						articulo=acciones.getLogica().getDato().obtener(cambiarPrecioArticulo.getComboBox().getSelectedItem().toString());
+						Precio precioNuevo= new Precio((float)precioInt, false);
+						articulo.getPrecios().push(precioNuevo);
+						
+					}
+				});
+				
 			}
 		});
 		
